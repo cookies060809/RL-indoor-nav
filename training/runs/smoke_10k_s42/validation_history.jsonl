@@ -1,0 +1,3 @@
+{"split": "validation", "episodes": 8, "successes": 2, "success_rate": 0.25, "collision_rate": 0.0, "mean_success_time": 39.25, "mean_intervention_duration": 0.0, "mean_reward": 3.5659220757300942, "timesteps": 5000, "wall_seconds": 6.172016700031236}
+{"split": "validation", "episodes": 8, "successes": 2, "success_rate": 0.25, "collision_rate": 0.0, "mean_success_time": 43.65, "mean_intervention_duration": 0.0, "mean_reward": 1.230303569075824, "timesteps": 10000, "wall_seconds": 13.471698600100353}
+{"split": "validation", "episodes": 8, "successes": 1, "success_rate": 0.125, "collision_rate": 0.0, "mean_success_time": 30.700000000000003, "mean_intervention_duration": 0.0, "mean_reward": -1.3678683307536321, "timesteps": 10240, "wall_seconds": 16.319620300084352}

@@ -1,0 +1,1908 @@
+Logging to E:\ROS2\runs\split_mixed_100k_s42\logs
+---------------------------------------
+| rollout/                 |          |
+|    ep_len_mean           | 116      |
+|    ep_rew_mean           | 20.8     |
+| task/                    |          |
+|    collision             | 0        |
+|    intervention_duration | 2.43     |
+|    interventions         | 2.47     |
+|    min_clearance         | 0.296    |
+|    path_length           | 2.07     |
+|    reference_length      | 2.64     |
+|    reward_clearance      | -0.454   |
+|    reward_collision      | 0        |
+|    reward_progress       | 3.83     |
+|    reward_smoothness     | -0.0949  |
+|    reward_success        | 14.7     |
+|    reward_time           | -1.15    |
+|    sim_time              | 11.5     |
+|    steps                 | 115      |
+|    success               | 0.733    |
+| time/                    |          |
+|    fps                   | 2938     |
+|    iterations            | 1        |
+|    time_elapsed          | 0        |
+|    total_timesteps       | 102048   |
+---------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 20.1        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 2.19        |
+|    interventions         | 2.65        |
+|    min_clearance         | 0.553       |
+|    path_length           | 2.38        |
+|    reference_length      | 2.78        |
+|    reward_clearance      | -0.41       |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.26        |
+|    reward_smoothness     | -0.0995     |
+|    reward_success        | 15.3        |
+|    reward_time           | -1.24       |
+|    sim_time              | 12.4        |
+|    steps                 | 124         |
+|    success               | 0.765       |
+| time/                    |             |
+|    fps                   | 2567        |
+|    iterations            | 2           |
+|    time_elapsed          | 1           |
+|    total_timesteps       | 104096      |
+| train/                   |             |
+|    approx_kl             | 0.012071241 |
+|    clip_fraction         | 0.134       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.869       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.197       |
+|    n_updates             | 490         |
+|    policy_gradient_loss  | -1.46e-05   |
+|    std                   | 0.97        |
+|    value_loss            | 1.04        |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.4        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.81        |
+|    interventions         | 1.5         |
+|    min_clearance         | 0.339       |
+|    path_length           | 2.07        |
+|    reference_length      | 2.6         |
+|    reward_clearance      | -0.291      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.94        |
+|    reward_smoothness     | -0.0911     |
+|    reward_success        | 16          |
+|    reward_time           | -1.06       |
+|    sim_time              | 10.6        |
+|    steps                 | 106         |
+|    success               | 0.8         |
+| time/                    |             |
+|    fps                   | 2507        |
+|    iterations            | 3           |
+|    time_elapsed          | 2           |
+|    total_timesteps       | 106144      |
+| train/                   |             |
+|    approx_kl             | 0.011409382 |
+|    clip_fraction         | 0.126       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.722       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.356       |
+|    n_updates             | 500         |
+|    policy_gradient_loss  | 0.00298     |
+|    std                   | 0.967       |
+|    value_loss            | 1.48        |
+------------------------------------------
+-----------------------------------------
+| rollout/                 |            |
+|    ep_len_mean           | 112        |
+|    ep_rew_mean           | 19.5       |
+| task/                    |            |
+|    collision             | 0          |
+|    intervention_duration | 0.905      |
+|    interventions         | 1          |
+|    min_clearance         | 0.49       |
+|    path_length           | 2.29       |
+|    reference_length      | 2.26       |
+|    reward_clearance      | -0.168     |
+|    reward_collision      | 0          |
+|    reward_progress       | 4.1        |
+|    reward_smoothness     | -0.0871    |
+|    reward_success        | 18         |
+|    reward_time           | -1.05      |
+|    sim_time              | 10.5       |
+|    steps                 | 105        |
+|    success               | 0.9        |
+| time/                    |            |
+|    fps                   | 2470       |
+|    iterations            | 4          |
+|    time_elapsed          | 3          |
+|    total_timesteps       | 108192     |
+| train/                   |            |
+|    approx_kl             | 0.00691808 |
+|    clip_fraction         | 0.093      |
+|    clip_range            | 0.2        |
+|    entropy_loss          | -2.77      |
+|    explained_variance    | 0.859      |
+|    learning_rate         | 0.0003     |
+|    loss                  | 0.292      |
+|    n_updates             | 510        |
+|    policy_gradient_loss  | -0.000248  |
+|    std                   | 0.97       |
+|    value_loss            | 1.08       |
+-----------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 115         |
+|    ep_rew_mean           | 18.3        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 3.64        |
+|    interventions         | 3.47        |
+|    min_clearance         | 0.337       |
+|    path_length           | 2.14        |
+|    reference_length      | 2.65        |
+|    reward_clearance      | -0.607      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.8         |
+|    reward_smoothness     | -0.104      |
+|    reward_success        | 12          |
+|    reward_time           | -1.31       |
+|    sim_time              | 13.1        |
+|    steps                 | 131         |
+|    success               | 0.6         |
+| time/                    |             |
+|    fps                   | 2460        |
+|    iterations            | 5           |
+|    time_elapsed          | 4           |
+|    total_timesteps       | 110240      |
+| train/                   |             |
+|    approx_kl             | 0.007687293 |
+|    clip_fraction         | 0.0963      |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.86        |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.197       |
+|    n_updates             | 520         |
+|    policy_gradient_loss  | -0.00199    |
+|    std                   | 0.969       |
+|    value_loss            | 0.707       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 116         |
+|    ep_rew_mean           | 17.8        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.59        |
+|    interventions         | 1.62        |
+|    min_clearance         | 0.556       |
+|    path_length           | 2.49        |
+|    reference_length      | 2.7         |
+|    reward_clearance      | -0.271      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.46        |
+|    reward_smoothness     | -0.0992     |
+|    reward_success        | 16.2        |
+|    reward_time           | -1.22       |
+|    sim_time              | 12.2        |
+|    steps                 | 122         |
+|    success               | 0.812       |
+| time/                    |             |
+|    fps                   | 2443        |
+|    iterations            | 6           |
+|    time_elapsed          | 5           |
+|    total_timesteps       | 112288      |
+| train/                   |             |
+|    approx_kl             | 0.008848763 |
+|    clip_fraction         | 0.0883      |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.874       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.242       |
+|    n_updates             | 530         |
+|    policy_gradient_loss  | -0.00325    |
+|    std                   | 0.967       |
+|    value_loss            | 1.19        |
+------------------------------------------
+----------------------------------------
+| rollout/                 |           |
+|    ep_len_mean           | 115       |
+|    ep_rew_mean           | 18.3      |
+| task/                    |           |
+|    collision             | 0         |
+|    intervention_duration | 1.43      |
+|    interventions         | 1.63      |
+|    min_clearance         | 0.558     |
+|    path_length           | 2.34      |
+|    reference_length      | 2.45      |
+|    reward_clearance      | -0.256    |
+|    reward_collision      | 0         |
+|    reward_progress       | 4.18      |
+|    reward_smoothness     | -0.0929   |
+|    reward_success        | 16.8      |
+|    reward_time           | -1.14     |
+|    sim_time              | 11.4      |
+|    steps                 | 114       |
+|    success               | 0.842     |
+| time/                    |           |
+|    fps                   | 2406      |
+|    iterations            | 7         |
+|    time_elapsed          | 5         |
+|    total_timesteps       | 114336    |
+| train/                   |           |
+|    approx_kl             | 0.0173756 |
+|    clip_fraction         | 0.141     |
+|    clip_range            | 0.2       |
+|    entropy_loss          | -2.77     |
+|    explained_variance    | 0.942     |
+|    learning_rate         | 0.0003    |
+|    loss                  | 0.0533    |
+|    n_updates             | 540       |
+|    policy_gradient_loss  | -0.00149  |
+|    std                   | 0.966     |
+|    value_loss            | 0.458     |
+----------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.1        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.581       |
+|    interventions         | 0.812       |
+|    min_clearance         | 0.481       |
+|    path_length           | 2.77        |
+|    reference_length      | 2.8         |
+|    reward_clearance      | -0.132      |
+|    reward_collision      | 0           |
+|    reward_progress       | 5.1         |
+|    reward_smoothness     | -0.105      |
+|    reward_success        | 18.7        |
+|    reward_time           | -1.22       |
+|    sim_time              | 12.2        |
+|    steps                 | 122         |
+|    success               | 0.937       |
+| time/                    |             |
+|    fps                   | 2405        |
+|    iterations            | 8           |
+|    time_elapsed          | 6           |
+|    total_timesteps       | 116384      |
+| train/                   |             |
+|    approx_kl             | 0.013679251 |
+|    clip_fraction         | 0.137       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.883       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.193       |
+|    n_updates             | 550         |
+|    policy_gradient_loss  | 0.00141     |
+|    std                   | 0.967       |
+|    value_loss            | 0.809       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.4        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.8         |
+|    interventions         | 1.1         |
+|    min_clearance         | 0.561       |
+|    path_length           | 2.44        |
+|    reference_length      | 2.56        |
+|    reward_clearance      | -0.161      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.58        |
+|    reward_smoothness     | -0.0923     |
+|    reward_success        | 18          |
+|    reward_time           | -1.1        |
+|    sim_time              | 11          |
+|    steps                 | 110         |
+|    success               | 0.9         |
+| time/                    |             |
+|    fps                   | 2394        |
+|    iterations            | 9           |
+|    time_elapsed          | 7           |
+|    total_timesteps       | 118432      |
+| train/                   |             |
+|    approx_kl             | 0.008289471 |
+|    clip_fraction         | 0.103       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.931       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.126       |
+|    n_updates             | 560         |
+|    policy_gradient_loss  | -0.00675    |
+|    std                   | 0.97        |
+|    value_loss            | 0.456       |
+------------------------------------------
+VALIDATION {"split": "validation", "episodes": 8, "successes": 6, "success_rate": 0.75, "collision_rate": 0.0, "mean_success_time": 10.75, "mean_intervention_duration": 2.2375, "mean_reward": 18.065181202212965, "timesteps": 120000, "wall_seconds": 9.134018699987791}
+----------------------------------------------
+| rollout/                      |            |
+|    ep_len_mean                | 118        |
+|    ep_rew_mean                | 19.7       |
+| task/                         |            |
+|    collision                  | 0          |
+|    intervention_duration      | 1.09       |
+|    interventions              | 1.06       |
+|    min_clearance              | 0.546      |
+|    path_length                | 2.47       |
+|    reference_length           | 2.7        |
+|    reward_clearance           | -0.175     |
+|    reward_collision           | 0          |
+|    reward_progress            | 4.59       |
+|    reward_smoothness          | -0.098     |
+|    reward_success             | 17.6       |
+|    reward_time                | -1.12      |
+|    sim_time                   | 11.2       |
+|    steps                      | 112        |
+|    success                    | 0.882      |
+| time/                         |            |
+|    fps                        | 2208       |
+|    iterations                 | 10         |
+|    time_elapsed               | 9          |
+|    total_timesteps            | 120480     |
+| train/                        |            |
+|    approx_kl                  | 0.01473565 |
+|    clip_fraction              | 0.147      |
+|    clip_range                 | 0.2        |
+|    entropy_loss               | -2.77      |
+|    explained_variance         | 0.936      |
+|    learning_rate              | 0.0003     |
+|    loss                       | 0.0999     |
+|    n_updates                  | 570        |
+|    policy_gradient_loss       | -0.00326   |
+|    std                        | 0.968      |
+|    value_loss                 | 0.384      |
+| validation/                   |            |
+|    collision_rate             | 0          |
+|    episodes                   | 8          |
+|    mean_intervention_duration | 2.24       |
+|    mean_reward                | 18.1       |
+|    mean_success_time          | 10.8       |
+|    success_rate               | 0.75       |
+|    successes                  | 6          |
+|    timesteps                  | 120000     |
+|    wall_seconds               | 9.13       |
+----------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 118         |
+|    ep_rew_mean           | 19.7        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 3.83        |
+|    interventions         | 4.2         |
+|    min_clearance         | 0.487       |
+|    path_length           | 2.05        |
+|    reference_length      | 2.75        |
+|    reward_clearance      | -0.691      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.66        |
+|    reward_smoothness     | -0.0953     |
+|    reward_success        | 12          |
+|    reward_time           | -1.3        |
+|    sim_time              | 13          |
+|    steps                 | 130         |
+|    success               | 0.6         |
+| time/                    |             |
+|    fps                   | 2230        |
+|    iterations            | 11          |
+|    time_elapsed          | 10          |
+|    total_timesteps       | 122528      |
+| train/                   |             |
+|    approx_kl             | 0.012157414 |
+|    clip_fraction         | 0.0981      |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.955       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.105       |
+|    n_updates             | 580         |
+|    policy_gradient_loss  | -0.00605    |
+|    std                   | 0.963       |
+|    value_loss            | 0.397       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.2        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.96        |
+|    interventions         | 2.42        |
+|    min_clearance         | 0.598       |
+|    path_length           | 2.24        |
+|    reference_length      | 2.54        |
+|    reward_clearance      | -0.365      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.98        |
+|    reward_smoothness     | -0.0907     |
+|    reward_success        | 15.8        |
+|    reward_time           | -1.15       |
+|    sim_time              | 11.5        |
+|    steps                 | 115         |
+|    success               | 0.789       |
+| time/                    |             |
+|    fps                   | 2245        |
+|    iterations            | 12          |
+|    time_elapsed          | 10          |
+|    total_timesteps       | 124576      |
+| train/                   |             |
+|    approx_kl             | 0.011220336 |
+|    clip_fraction         | 0.125       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.76       |
+|    explained_variance    | 0.915       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.177       |
+|    n_updates             | 590         |
+|    policy_gradient_loss  | -0.00313    |
+|    std                   | 0.96        |
+|    value_loss            | 0.892       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 119         |
+|    ep_rew_mean           | 17.9        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 4.64        |
+|    interventions         | 4.69        |
+|    min_clearance         | 0.279       |
+|    path_length           | 1.91        |
+|    reference_length      | 2.71        |
+|    reward_clearance      | -0.834      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.32        |
+|    reward_smoothness     | -0.0956     |
+|    reward_success        | 10          |
+|    reward_time           | -1.31       |
+|    sim_time              | 13.1        |
+|    steps                 | 131         |
+|    success               | 0.5         |
+| time/                    |             |
+|    fps                   | 2259        |
+|    iterations            | 13          |
+|    time_elapsed          | 11          |
+|    total_timesteps       | 126624      |
+| train/                   |             |
+|    approx_kl             | 0.014345223 |
+|    clip_fraction         | 0.158       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.75       |
+|    explained_variance    | 0.919       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.164       |
+|    n_updates             | 600         |
+|    policy_gradient_loss  | -0.00248    |
+|    std                   | 0.958       |
+|    value_loss            | 0.698       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 17.9        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.883       |
+|    interventions         | 1.06        |
+|    min_clearance         | 0.394       |
+|    path_length           | 2.36        |
+|    reference_length      | 2.58        |
+|    reward_clearance      | -0.166      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.33        |
+|    reward_smoothness     | -0.0912     |
+|    reward_success        | 17.8        |
+|    reward_time           | -1.07       |
+|    sim_time              | 10.7        |
+|    steps                 | 107         |
+|    success               | 0.889       |
+| time/                    |             |
+|    fps                   | 2271        |
+|    iterations            | 14          |
+|    time_elapsed          | 12          |
+|    total_timesteps       | 128672      |
+| train/                   |             |
+|    approx_kl             | 0.011571663 |
+|    clip_fraction         | 0.125       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.75       |
+|    explained_variance    | 0.933       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0897      |
+|    n_updates             | 610         |
+|    policy_gradient_loss  | -0.000277   |
+|    std                   | 0.961       |
+|    value_loss            | 0.668       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 120         |
+|    ep_rew_mean           | 17.9        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.553       |
+|    interventions         | 0.471       |
+|    min_clearance         | 0.511       |
+|    path_length           | 2.9         |
+|    reference_length      | 2.81        |
+|    reward_clearance      | -0.124      |
+|    reward_collision      | 0           |
+|    reward_progress       | 5.3         |
+|    reward_smoothness     | -0.107      |
+|    reward_success        | 18.8        |
+|    reward_time           | -1.26       |
+|    sim_time              | 12.6        |
+|    steps                 | 126         |
+|    success               | 0.941       |
+| time/                    |             |
+|    fps                   | 2279        |
+|    iterations            | 15          |
+|    time_elapsed          | 13          |
+|    total_timesteps       | 130720      |
+| train/                   |             |
+|    approx_kl             | 0.020701772 |
+|    clip_fraction         | 0.231       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.76       |
+|    explained_variance    | 0.92        |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0319      |
+|    n_updates             | 620         |
+|    policy_gradient_loss  | -0.000672   |
+|    std                   | 0.966       |
+|    value_loss            | 0.483       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 118         |
+|    ep_rew_mean           | 17.8        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.05        |
+|    interventions         | 1.11        |
+|    min_clearance         | 0.684       |
+|    path_length           | 2.39        |
+|    reference_length      | 2.39        |
+|    reward_clearance      | -0.201      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.28        |
+|    reward_smoothness     | -0.0923     |
+|    reward_success        | 17.8        |
+|    reward_time           | -1.1        |
+|    sim_time              | 11          |
+|    steps                 | 110         |
+|    success               | 0.889       |
+| time/                    |             |
+|    fps                   | 2277        |
+|    iterations            | 16          |
+|    time_elapsed          | 14          |
+|    total_timesteps       | 132768      |
+| train/                   |             |
+|    approx_kl             | 0.016959334 |
+|    clip_fraction         | 0.185       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.931       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0299      |
+|    n_updates             | 630         |
+|    policy_gradient_loss  | -0.00304    |
+|    std                   | 0.969       |
+|    value_loss            | 0.394       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.1        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.35        |
+|    interventions         | 2.05        |
+|    min_clearance         | 0.599       |
+|    path_length           | 2.46        |
+|    reference_length      | 2.49        |
+|    reward_clearance      | -0.255      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.34        |
+|    reward_smoothness     | -0.0943     |
+|    reward_success        | 17.9        |
+|    reward_time           | -1.17       |
+|    sim_time              | 11.7        |
+|    steps                 | 117         |
+|    success               | 0.895       |
+| time/                    |             |
+|    fps                   | 2290        |
+|    iterations            | 17          |
+|    time_elapsed          | 15          |
+|    total_timesteps       | 134816      |
+| train/                   |             |
+|    approx_kl             | 0.011614505 |
+|    clip_fraction         | 0.135       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.902       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0972      |
+|    n_updates             | 640         |
+|    policy_gradient_loss  | -0.00206    |
+|    std                   | 0.97        |
+|    value_loss            | 0.791       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.1        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 2.7         |
+|    interventions         | 2.35        |
+|    min_clearance         | 0.393       |
+|    path_length           | 2.22        |
+|    reference_length      | 2.65        |
+|    reward_clearance      | -0.484      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.95        |
+|    reward_smoothness     | -0.0953     |
+|    reward_success        | 14.1        |
+|    reward_time           | -1.21       |
+|    sim_time              | 12.1        |
+|    steps                 | 121         |
+|    success               | 0.706       |
+| time/                    |             |
+|    fps                   | 2298        |
+|    iterations            | 18          |
+|    time_elapsed          | 16          |
+|    total_timesteps       | 136864      |
+| train/                   |             |
+|    approx_kl             | 0.011151299 |
+|    clip_fraction         | 0.0952      |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.962       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0698      |
+|    n_updates             | 650         |
+|    policy_gradient_loss  | -0.000569   |
+|    std                   | 0.97        |
+|    value_loss            | 0.376       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 114         |
+|    ep_rew_mean           | 20.1        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.7         |
+|    interventions         | 2           |
+|    min_clearance         | 0.482       |
+|    path_length           | 2           |
+|    reference_length      | 2.27        |
+|    reward_clearance      | -0.302      |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.7         |
+|    reward_smoothness     | -0.0809     |
+|    reward_success        | 16.2        |
+|    reward_time           | -1.01       |
+|    sim_time              | 10.1        |
+|    steps                 | 101         |
+|    success               | 0.81        |
+| time/                    |             |
+|    fps                   | 2305        |
+|    iterations            | 19          |
+|    time_elapsed          | 16          |
+|    total_timesteps       | 138912      |
+| train/                   |             |
+|    approx_kl             | 0.018393092 |
+|    clip_fraction         | 0.21        |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.828       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.252       |
+|    n_updates             | 660         |
+|    policy_gradient_loss  | -0.000913   |
+|    std                   | 0.971       |
+|    value_loss            | 1.13        |
+------------------------------------------
+VALIDATION {"split": "validation", "episodes": 8, "successes": 6, "success_rate": 0.75, "collision_rate": 0.0, "mean_success_time": 10.816666666666668, "mean_intervention_duration": 2.2375, "mean_reward": 18.070435843182963, "timesteps": 140000, "wall_seconds": 18.105789799941704}
+-----------------------------------------------
+| rollout/                      |             |
+|    ep_len_mean                | 112         |
+|    ep_rew_mean                | 20          |
+| task/                         |             |
+|    collision                  | 0           |
+|    intervention_duration      | 0.522       |
+|    interventions              | 0.5         |
+|    min_clearance              | 0.47        |
+|    path_length                | 2.45        |
+|    reference_length           | 2.38        |
+|    reward_clearance           | -0.104      |
+|    reward_collision           | 0           |
+|    reward_progress            | 4.5         |
+|    reward_smoothness          | -0.0902     |
+|    reward_success             | 18.9        |
+|    reward_time                | -1.06       |
+|    sim_time                   | 10.6        |
+|    steps                      | 106         |
+|    success                    | 0.944       |
+| time/                         |             |
+|    fps                        | 2231        |
+|    iterations                 | 20          |
+|    time_elapsed               | 18          |
+|    total_timesteps            | 140960      |
+| train/                        |             |
+|    approx_kl                  | 0.012149902 |
+|    clip_fraction              | 0.101       |
+|    clip_range                 | 0.2         |
+|    entropy_loss               | -2.78       |
+|    explained_variance         | 0.936       |
+|    learning_rate              | 0.0003      |
+|    loss                       | 0.113       |
+|    n_updates                  | 670         |
+|    policy_gradient_loss       | -0.00429    |
+|    std                        | 0.974       |
+|    value_loss                 | 0.594       |
+| validation/                   |             |
+|    collision_rate             | 0           |
+|    episodes                   | 8           |
+|    mean_intervention_duration | 2.24        |
+|    mean_reward                | 18.1        |
+|    mean_success_time          | 10.8        |
+|    success_rate               | 0.75        |
+|    successes                  | 6           |
+|    timesteps                  | 140000      |
+|    wall_seconds               | 18.1        |
+-----------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 112         |
+|    ep_rew_mean           | 19.5        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 2.04        |
+|    interventions         | 3.18        |
+|    min_clearance         | 0.562       |
+|    path_length           | 2.45        |
+|    reference_length      | 2.71        |
+|    reward_clearance      | -0.394      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.59        |
+|    reward_smoothness     | -0.099      |
+|    reward_success        | 16.5        |
+|    reward_time           | -1.23       |
+|    sim_time              | 12.3        |
+|    steps                 | 123         |
+|    success               | 0.824       |
+| time/                    |             |
+|    fps                   | 2240        |
+|    iterations            | 21          |
+|    time_elapsed          | 19          |
+|    total_timesteps       | 143008      |
+| train/                   |             |
+|    approx_kl             | 0.016655017 |
+|    clip_fraction         | 0.165       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.93        |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0847      |
+|    n_updates             | 680         |
+|    policy_gradient_loss  | -0.00629    |
+|    std                   | 0.976       |
+|    value_loss            | 0.502       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 112         |
+|    ep_rew_mean           | 19.3        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.55        |
+|    interventions         | 2.18        |
+|    min_clearance         | 0.585       |
+|    path_length           | 2.34        |
+|    reference_length      | 2.63        |
+|    reward_clearance      | -0.303      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.21        |
+|    reward_smoothness     | -0.0937     |
+|    reward_success        | 16.5        |
+|    reward_time           | -1.14       |
+|    sim_time              | 11.4        |
+|    steps                 | 114         |
+|    success               | 0.824       |
+| time/                    |             |
+|    fps                   | 2249        |
+|    iterations            | 22          |
+|    time_elapsed          | 20          |
+|    total_timesteps       | 145056      |
+| train/                   |             |
+|    approx_kl             | 0.011027251 |
+|    clip_fraction         | 0.134       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.79       |
+|    explained_variance    | 0.94        |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.097       |
+|    n_updates             | 690         |
+|    policy_gradient_loss  | -0.000249   |
+|    std                   | 0.975       |
+|    value_loss            | 0.584       |
+------------------------------------------
+-------------------------------------------
+| rollout/                 |              |
+|    ep_len_mean           | 113          |
+|    ep_rew_mean           | 19.1         |
+| task/                    |              |
+|    collision             | 0            |
+|    intervention_duration | 2.04         |
+|    interventions         | 1.78         |
+|    min_clearance         | 0.371        |
+|    path_length           | 2.31         |
+|    reference_length      | 2.62         |
+|    reward_clearance      | -0.342       |
+|    reward_collision      | 0            |
+|    reward_progress       | 4.26         |
+|    reward_smoothness     | -0.0977      |
+|    reward_success        | 15.6         |
+|    reward_time           | -1.16        |
+|    sim_time              | 11.6         |
+|    steps                 | 116          |
+|    success               | 0.778        |
+| time/                    |              |
+|    fps                   | 2257         |
+|    iterations            | 23           |
+|    time_elapsed          | 20           |
+|    total_timesteps       | 147104       |
+| train/                   |              |
+|    approx_kl             | 0.0119474195 |
+|    clip_fraction         | 0.166        |
+|    clip_range            | 0.2          |
+|    entropy_loss          | -2.79        |
+|    explained_variance    | 0.868        |
+|    learning_rate         | 0.0003       |
+|    loss                  | 0.234        |
+|    n_updates             | 700          |
+|    policy_gradient_loss  | -0.00433     |
+|    std                   | 0.978        |
+|    value_loss            | 1.09         |
+-------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 113         |
+|    ep_rew_mean           | 19.6        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.547       |
+|    interventions         | 1.16        |
+|    min_clearance         | 0.376       |
+|    path_length           | 2.53        |
+|    reference_length      | 2.43        |
+|    reward_clearance      | -0.131      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.51        |
+|    reward_smoothness     | -0.0936     |
+|    reward_success        | 18.9        |
+|    reward_time           | -1.11       |
+|    sim_time              | 11.1        |
+|    steps                 | 111         |
+|    success               | 0.947       |
+| time/                    |             |
+|    fps                   | 2264        |
+|    iterations            | 24          |
+|    time_elapsed          | 21          |
+|    total_timesteps       | 149152      |
+| train/                   |             |
+|    approx_kl             | 0.010382669 |
+|    clip_fraction         | 0.103       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.79       |
+|    explained_variance    | 0.909       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.245       |
+|    n_updates             | 710         |
+|    policy_gradient_loss  | -0.00138    |
+|    std                   | 0.98        |
+|    value_loss            | 0.89        |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 114         |
+|    ep_rew_mean           | 19.8        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.41        |
+|    interventions         | 1.28        |
+|    min_clearance         | 0.457       |
+|    path_length           | 2.33        |
+|    reference_length      | 2.44        |
+|    reward_clearance      | -0.244      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.1         |
+|    reward_smoothness     | -0.0891     |
+|    reward_success        | 16.7        |
+|    reward_time           | -1.12       |
+|    sim_time              | 11.2        |
+|    steps                 | 112         |
+|    success               | 0.833       |
+| time/                    |             |
+|    fps                   | 2271        |
+|    iterations            | 25          |
+|    time_elapsed          | 22          |
+|    total_timesteps       | 151200      |
+| train/                   |             |
+|    approx_kl             | 0.012145624 |
+|    clip_fraction         | 0.128       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.79       |
+|    explained_variance    | 0.868       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0965      |
+|    n_updates             | 720         |
+|    policy_gradient_loss  | -0.00138    |
+|    std                   | 0.975       |
+|    value_loss            | 0.653       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 116         |
+|    ep_rew_mean           | 19.9        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.14        |
+|    interventions         | 1           |
+|    min_clearance         | 0.605       |
+|    path_length           | 2.62        |
+|    reference_length      | 2.64        |
+|    reward_clearance      | -0.195      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.77        |
+|    reward_smoothness     | -0.0989     |
+|    reward_success        | 17.5        |
+|    reward_time           | -1.18       |
+|    sim_time              | 11.8        |
+|    steps                 | 118         |
+|    success               | 0.875       |
+| time/                    |             |
+|    fps                   | 2278        |
+|    iterations            | 26          |
+|    time_elapsed          | 23          |
+|    total_timesteps       | 153248      |
+| train/                   |             |
+|    approx_kl             | 0.022803698 |
+|    clip_fraction         | 0.137       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.929       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.104       |
+|    n_updates             | 730         |
+|    policy_gradient_loss  | -0.0015     |
+|    std                   | 0.975       |
+|    value_loss            | 0.487       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 19.9        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 2.16        |
+|    interventions         | 2.41        |
+|    min_clearance         | 0.353       |
+|    path_length           | 2.51        |
+|    reference_length      | 2.87        |
+|    reward_clearance      | -0.409      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.51        |
+|    reward_smoothness     | -0.0982     |
+|    reward_success        | 15.3        |
+|    reward_time           | -1.27       |
+|    sim_time              | 12.7        |
+|    steps                 | 127         |
+|    success               | 0.765       |
+| time/                    |             |
+|    fps                   | 2284        |
+|    iterations            | 27          |
+|    time_elapsed          | 24          |
+|    total_timesteps       | 155296      |
+| train/                   |             |
+|    approx_kl             | 0.012905102 |
+|    clip_fraction         | 0.121       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.79       |
+|    explained_variance    | 0.939       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0804      |
+|    n_updates             | 740         |
+|    policy_gradient_loss  | -0.00641    |
+|    std                   | 0.976       |
+|    value_loss            | 0.54        |
+------------------------------------------
+-----------------------------------------
+| rollout/                 |            |
+|    ep_len_mean           | 118        |
+|    ep_rew_mean           | 20.3       |
+| task/                    |            |
+|    collision             | 0          |
+|    intervention_duration | 0.6        |
+|    interventions         | 0.75       |
+|    min_clearance         | 0.584      |
+|    path_length           | 2.92       |
+|    reference_length      | 2.85       |
+|    reward_clearance      | -0.118     |
+|    reward_collision      | 0          |
+|    reward_progress       | 5.27       |
+|    reward_smoothness     | -0.106     |
+|    reward_success        | 18.7       |
+|    reward_time           | -1.25      |
+|    sim_time              | 12.5       |
+|    steps                 | 125        |
+|    success               | 0.937      |
+| time/                    |            |
+|    fps                   | 2291       |
+|    iterations            | 28         |
+|    time_elapsed          | 25         |
+|    total_timesteps       | 157344     |
+| train/                   |            |
+|    approx_kl             | 0.01191626 |
+|    clip_fraction         | 0.124      |
+|    clip_range            | 0.2        |
+|    entropy_loss          | -2.79      |
+|    explained_variance    | 0.926      |
+|    learning_rate         | 0.0003     |
+|    loss                  | 0.0942     |
+|    n_updates             | 750        |
+|    policy_gradient_loss  | -0.00343   |
+|    std                   | 0.978      |
+|    value_loss            | 0.672      |
+-----------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 118         |
+|    ep_rew_mean           | 20.2        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.81        |
+|    interventions         | 3           |
+|    min_clearance         | 0.442       |
+|    path_length           | 2.3         |
+|    reference_length      | 2.42        |
+|    reward_clearance      | -0.35       |
+|    reward_collision      | 0           |
+|    reward_progress       | 3.96        |
+|    reward_smoothness     | -0.0877     |
+|    reward_success        | 16.5        |
+|    reward_time           | -1.17       |
+|    sim_time              | 11.7        |
+|    steps                 | 117         |
+|    success               | 0.824       |
+| time/                    |             |
+|    fps                   | 2297        |
+|    iterations            | 29          |
+|    time_elapsed          | 25          |
+|    total_timesteps       | 159392      |
+| train/                   |             |
+|    approx_kl             | 0.007957642 |
+|    clip_fraction         | 0.105       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.79       |
+|    explained_variance    | 0.955       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0599      |
+|    n_updates             | 760         |
+|    policy_gradient_loss  | -0.00079    |
+|    std                   | 0.974       |
+|    value_loss            | 0.393       |
+------------------------------------------
+VALIDATION {"split": "validation", "episodes": 8, "successes": 6, "success_rate": 0.75, "collision_rate": 0.0, "mean_success_time": 10.833333333333334, "mean_intervention_duration": 2.25, "mean_reward": 18.087704338007477, "timesteps": 160000, "wall_seconds": 26.96893580001779}
+-----------------------------------------------
+| rollout/                      |             |
+|    ep_len_mean                | 120         |
+|    ep_rew_mean                | 19.8        |
+| task/                         |             |
+|    collision                  | 0           |
+|    intervention_duration      | 1.51        |
+|    interventions              | 1.22        |
+|    min_clearance              | 0.536       |
+|    path_length                | 2.65        |
+|    reference_length           | 2.8         |
+|    reward_clearance           | -0.261      |
+|    reward_collision           | 0           |
+|    reward_progress            | 4.88        |
+|    reward_smoothness          | -0.105      |
+|    reward_success             | 16.7        |
+|    reward_time                | -1.23       |
+|    sim_time                   | 12.3        |
+|    steps                      | 123         |
+|    success                    | 0.833       |
+| time/                         |             |
+|    fps                        | 2248        |
+|    iterations                 | 30          |
+|    time_elapsed               | 27          |
+|    total_timesteps            | 161440      |
+| train/                        |             |
+|    approx_kl                  | 0.008188812 |
+|    clip_fraction              | 0.0871      |
+|    clip_range                 | 0.2         |
+|    entropy_loss               | -2.78       |
+|    explained_variance         | 0.928       |
+|    learning_rate              | 0.0003      |
+|    loss                       | 0.129       |
+|    n_updates                  | 770         |
+|    policy_gradient_loss       | -0.00184    |
+|    std                        | 0.97        |
+|    value_loss                 | 0.551       |
+| validation/                   |             |
+|    collision_rate             | 0           |
+|    episodes                   | 8           |
+|    mean_intervention_duration | 2.25        |
+|    mean_reward                | 18.1        |
+|    mean_success_time          | 10.8        |
+|    success_rate               | 0.75        |
+|    successes                  | 6           |
+|    timesteps                  | 160000      |
+|    wall_seconds               | 27          |
+-----------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 120         |
+|    ep_rew_mean           | 20.3        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.65        |
+|    interventions         | 1.22        |
+|    min_clearance         | 0.632       |
+|    path_length           | 2.46        |
+|    reference_length      | 2.37        |
+|    reward_clearance      | -0.138      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.5         |
+|    reward_smoothness     | -0.0914     |
+|    reward_success        | 18.9        |
+|    reward_time           | -1.09       |
+|    sim_time              | 10.9        |
+|    steps                 | 109         |
+|    success               | 0.944       |
+| time/                    |             |
+|    fps                   | 2254        |
+|    iterations            | 31          |
+|    time_elapsed          | 28          |
+|    total_timesteps       | 163488      |
+| train/                   |             |
+|    approx_kl             | 0.010134736 |
+|    clip_fraction         | 0.113       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.936       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0951      |
+|    n_updates             | 780         |
+|    policy_gradient_loss  | -0.00449    |
+|    std                   | 0.967       |
+|    value_loss            | 0.493       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 119         |
+|    ep_rew_mean           | 20.5        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.58        |
+|    interventions         | 1.47        |
+|    min_clearance         | 0.571       |
+|    path_length           | 2.58        |
+|    reference_length      | 2.85        |
+|    reward_clearance      | -0.263      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.58        |
+|    reward_smoothness     | -0.0987     |
+|    reward_success        | 16.5        |
+|    reward_time           | -1.23       |
+|    sim_time              | 12.3        |
+|    steps                 | 123         |
+|    success               | 0.824       |
+| time/                    |             |
+|    fps                   | 2260        |
+|    iterations            | 32          |
+|    time_elapsed          | 28          |
+|    total_timesteps       | 165536      |
+| train/                   |             |
+|    approx_kl             | 0.012025187 |
+|    clip_fraction         | 0.119       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.954       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0567      |
+|    n_updates             | 790         |
+|    policy_gradient_loss  | -0.0071     |
+|    std                   | 0.971       |
+|    value_loss            | 0.381       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 20.7        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.517       |
+|    interventions         | 0.444       |
+|    min_clearance         | 0.744       |
+|    path_length           | 2.59        |
+|    reference_length      | 2.53        |
+|    reward_clearance      | -0.0868     |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.73        |
+|    reward_smoothness     | -0.0979     |
+|    reward_success        | 18.9        |
+|    reward_time           | -1.1        |
+|    sim_time              | 11          |
+|    steps                 | 110         |
+|    success               | 0.944       |
+| time/                    |             |
+|    fps                   | 2266        |
+|    iterations            | 33          |
+|    time_elapsed          | 29          |
+|    total_timesteps       | 167584      |
+| train/                   |             |
+|    approx_kl             | 0.013472924 |
+|    clip_fraction         | 0.162       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.941       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0774      |
+|    n_updates             | 800         |
+|    policy_gradient_loss  | -0.000493   |
+|    std                   | 0.972       |
+|    value_loss            | 0.465       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 114         |
+|    ep_rew_mean           | 21.2        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.91        |
+|    interventions         | 1.24        |
+|    min_clearance         | 0.504       |
+|    path_length           | 2.33        |
+|    reference_length      | 2.38        |
+|    reward_clearance      | -0.191      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.19        |
+|    reward_smoothness     | -0.0883     |
+|    reward_success        | 18.1        |
+|    reward_time           | -1.06       |
+|    sim_time              | 10.6        |
+|    steps                 | 106         |
+|    success               | 0.905       |
+| time/                    |             |
+|    fps                   | 2271        |
+|    iterations            | 34          |
+|    time_elapsed          | 30          |
+|    total_timesteps       | 169632      |
+| train/                   |             |
+|    approx_kl             | 0.013694158 |
+|    clip_fraction         | 0.143       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.906       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0894      |
+|    n_updates             | 810         |
+|    policy_gradient_loss  | -5.59e-05   |
+|    std                   | 0.97        |
+|    value_loss            | 0.467       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 113         |
+|    ep_rew_mean           | 21.3        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.72        |
+|    interventions         | 2.2         |
+|    min_clearance         | 0.688       |
+|    path_length           | 2.64        |
+|    reference_length      | 2.42        |
+|    reward_clearance      | -0.194      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.75        |
+|    reward_smoothness     | -0.0996     |
+|    reward_success        | 20          |
+|    reward_time           | -1.17       |
+|    sim_time              | 11.7        |
+|    steps                 | 117         |
+|    success               | 1           |
+| time/                    |             |
+|    fps                   | 2276        |
+|    iterations            | 35          |
+|    time_elapsed          | 31          |
+|    total_timesteps       | 171680      |
+| train/                   |             |
+|    approx_kl             | 0.015550065 |
+|    clip_fraction         | 0.183       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.931       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.071       |
+|    n_updates             | 820         |
+|    policy_gradient_loss  | 0.00315     |
+|    std                   | 0.966       |
+|    value_loss            | 0.526       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 113         |
+|    ep_rew_mean           | 21.3        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.43        |
+|    interventions         | 1.63        |
+|    min_clearance         | 0.526       |
+|    path_length           | 2.36        |
+|    reference_length      | 2.48        |
+|    reward_clearance      | -0.286      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.17        |
+|    reward_smoothness     | -0.0914     |
+|    reward_success        | 16.8        |
+|    reward_time           | -1.12       |
+|    sim_time              | 11.2        |
+|    steps                 | 112         |
+|    success               | 0.842       |
+| time/                    |             |
+|    fps                   | 2280        |
+|    iterations            | 36          |
+|    time_elapsed          | 32          |
+|    total_timesteps       | 173728      |
+| train/                   |             |
+|    approx_kl             | 0.012707571 |
+|    clip_fraction         | 0.126       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.939       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.084       |
+|    n_updates             | 830         |
+|    policy_gradient_loss  | -0.00756    |
+|    std                   | 0.965       |
+|    value_loss            | 0.421       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 110         |
+|    ep_rew_mean           | 21.8        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.455       |
+|    interventions         | 0.55        |
+|    min_clearance         | 0.627       |
+|    path_length           | 2.5         |
+|    reference_length      | 2.44        |
+|    reward_clearance      | -0.0749     |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.57        |
+|    reward_smoothness     | -0.0913     |
+|    reward_success        | 19          |
+|    reward_time           | -1.07       |
+|    sim_time              | 10.7        |
+|    steps                 | 107         |
+|    success               | 0.95        |
+| time/                    |             |
+|    fps                   | 2285        |
+|    iterations            | 37          |
+|    time_elapsed          | 33          |
+|    total_timesteps       | 175776      |
+| train/                   |             |
+|    approx_kl             | 0.019837132 |
+|    clip_fraction         | 0.238       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.886       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.115       |
+|    n_updates             | 840         |
+|    policy_gradient_loss  | 0.00166     |
+|    std                   | 0.969       |
+|    value_loss            | 0.557       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 111         |
+|    ep_rew_mean           | 21          |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.52        |
+|    interventions         | 1.61        |
+|    min_clearance         | 0.452       |
+|    path_length           | 2.39        |
+|    reference_length      | 2.42        |
+|    reward_clearance      | -0.27       |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.25        |
+|    reward_smoothness     | -0.0943     |
+|    reward_success        | 16.7        |
+|    reward_time           | -1.15       |
+|    sim_time              | 11.5        |
+|    steps                 | 115         |
+|    success               | 0.833       |
+| time/                    |             |
+|    fps                   | 2288        |
+|    iterations            | 38          |
+|    time_elapsed          | 34          |
+|    total_timesteps       | 177824      |
+| train/                   |             |
+|    approx_kl             | 0.013914538 |
+|    clip_fraction         | 0.138       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.928       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0435      |
+|    n_updates             | 850         |
+|    policy_gradient_loss  | -0.00416    |
+|    std                   | 0.971       |
+|    value_loss            | 0.374       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 112         |
+|    ep_rew_mean           | 20.8        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.5         |
+|    interventions         | 1.5         |
+|    min_clearance         | 0.373       |
+|    path_length           | 2.49        |
+|    reference_length      | 2.77        |
+|    reward_clearance      | -0.272      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.6         |
+|    reward_smoothness     | -0.0968     |
+|    reward_success        | 16.7        |
+|    reward_time           | -1.2        |
+|    sim_time              | 12          |
+|    steps                 | 120         |
+|    success               | 0.833       |
+| time/                    |             |
+|    fps                   | 2291        |
+|    iterations            | 39          |
+|    time_elapsed          | 34          |
+|    total_timesteps       | 179872      |
+| train/                   |             |
+|    approx_kl             | 0.009870845 |
+|    clip_fraction         | 0.129       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.917       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.134       |
+|    n_updates             | 860         |
+|    policy_gradient_loss  | -0.00205    |
+|    std                   | 0.969       |
+|    value_loss            | 0.631       |
+------------------------------------------
+VALIDATION {"split": "validation", "episodes": 8, "successes": 6, "success_rate": 0.75, "collision_rate": 0.0, "mean_success_time": 10.716666666666669, "mean_intervention_duration": 2.25, "mean_reward": 18.048729466247607, "timesteps": 180000, "wall_seconds": 35.85451979993377}
+-----------------------------------------------
+| rollout/                      |             |
+|    ep_len_mean                | 116         |
+|    ep_rew_mean                | 20.6        |
+| task/                         |             |
+|    collision                  | 0           |
+|    intervention_duration      | 1.14        |
+|    interventions              | 1.25        |
+|    min_clearance              | 0.345       |
+|    path_length                | 2.6         |
+|    reference_length           | 2.82        |
+|    reward_clearance           | -0.221      |
+|    reward_collision           | 0           |
+|    reward_progress            | 4.7         |
+|    reward_smoothness          | -0.1        |
+|    reward_success             | 17.5        |
+|    reward_time                | -1.22       |
+|    sim_time                   | 12.2        |
+|    steps                      | 122         |
+|    success                    | 0.875       |
+| time/                         |             |
+|    fps                        | 2254        |
+|    iterations                 | 40          |
+|    time_elapsed               | 36          |
+|    total_timesteps            | 181920      |
+| train/                        |             |
+|    approx_kl                  | 0.012266371 |
+|    clip_fraction              | 0.123       |
+|    clip_range                 | 0.2         |
+|    entropy_loss               | -2.78       |
+|    explained_variance         | 0.932       |
+|    learning_rate              | 0.0003      |
+|    loss                       | 0.212       |
+|    n_updates                  | 870         |
+|    policy_gradient_loss       | 0.000323    |
+|    std                        | 0.974       |
+|    value_loss                 | 0.577       |
+| validation/                   |             |
+|    collision_rate             | 0           |
+|    episodes                   | 8           |
+|    mean_intervention_duration | 2.25        |
+|    mean_reward                | 18          |
+|    mean_success_time          | 10.7        |
+|    success_rate               | 0.75        |
+|    successes                  | 6           |
+|    timesteps                  | 180000      |
+|    wall_seconds               | 35.9        |
+-----------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 114         |
+|    ep_rew_mean           | 21.4        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.316       |
+|    interventions         | 0.842       |
+|    min_clearance         | 0.638       |
+|    path_length           | 2.63        |
+|    reference_length      | 2.46        |
+|    reward_clearance      | -0.082      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.83        |
+|    reward_smoothness     | -0.0971     |
+|    reward_success        | 20          |
+|    reward_time           | -1.12       |
+|    sim_time              | 11.2        |
+|    steps                 | 112         |
+|    success               | 1           |
+| time/                    |             |
+|    fps                   | 2258        |
+|    iterations            | 41          |
+|    time_elapsed          | 37          |
+|    total_timesteps       | 183968      |
+| train/                   |             |
+|    approx_kl             | 0.016786661 |
+|    clip_fraction         | 0.159       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.913       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.112       |
+|    n_updates             | 880         |
+|    policy_gradient_loss  | -0.00165    |
+|    std                   | 0.973       |
+|    value_loss            | 0.631       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 113         |
+|    ep_rew_mean           | 21.1        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.517       |
+|    interventions         | 0.556       |
+|    min_clearance         | 0.441       |
+|    path_length           | 2.33        |
+|    reference_length      | 2.32        |
+|    reward_clearance      | -0.0945     |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.32        |
+|    reward_smoothness     | -0.087      |
+|    reward_success        | 18.9        |
+|    reward_time           | -1.02       |
+|    sim_time              | 10.2        |
+|    steps                 | 102         |
+|    success               | 0.944       |
+| time/                    |             |
+|    fps                   | 2263        |
+|    iterations            | 42          |
+|    time_elapsed          | 38          |
+|    total_timesteps       | 186016      |
+| train/                   |             |
+|    approx_kl             | 0.017037326 |
+|    clip_fraction         | 0.172       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.77       |
+|    explained_variance    | 0.926       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0709      |
+|    n_updates             | 890         |
+|    policy_gradient_loss  | -0.00384    |
+|    std                   | 0.966       |
+|    value_loss            | 0.356       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 115         |
+|    ep_rew_mean           | 21.2        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.541       |
+|    interventions         | 0.706       |
+|    min_clearance         | 0.493       |
+|    path_length           | 2.77        |
+|    reference_length      | 2.72        |
+|    reward_clearance      | -0.112      |
+|    reward_collision      | 0           |
+|    reward_progress       | 5.19        |
+|    reward_smoothness     | -0.104      |
+|    reward_success        | 18.8        |
+|    reward_time           | -1.18       |
+|    sim_time              | 11.8        |
+|    steps                 | 118         |
+|    success               | 0.941       |
+| time/                    |             |
+|    fps                   | 2267        |
+|    iterations            | 43          |
+|    time_elapsed          | 38          |
+|    total_timesteps       | 188064      |
+| train/                   |             |
+|    approx_kl             | 0.012109958 |
+|    clip_fraction         | 0.165       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.76       |
+|    explained_variance    | 0.93        |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0811      |
+|    n_updates             | 900         |
+|    policy_gradient_loss  | -0.00269    |
+|    std                   | 0.958       |
+|    value_loss            | 0.412       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 115         |
+|    ep_rew_mean           | 21.7        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.94        |
+|    interventions         | 3.83        |
+|    min_clearance         | 0.45        |
+|    path_length           | 2.47        |
+|    reference_length      | 3.02        |
+|    reward_clearance      | -0.427      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.62        |
+|    reward_smoothness     | -0.103      |
+|    reward_success        | 16.7        |
+|    reward_time           | -1.24       |
+|    sim_time              | 12.4        |
+|    steps                 | 124         |
+|    success               | 0.833       |
+| time/                    |             |
+|    fps                   | 2270        |
+|    iterations            | 44          |
+|    time_elapsed          | 39          |
+|    total_timesteps       | 190112      |
+| train/                   |             |
+|    approx_kl             | 0.011365984 |
+|    clip_fraction         | 0.121       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.75       |
+|    explained_variance    | 0.929       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.109       |
+|    n_updates             | 910         |
+|    policy_gradient_loss  | -0.00306    |
+|    std                   | 0.963       |
+|    value_loss            | 0.454       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 115         |
+|    ep_rew_mean           | 21.4        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.06        |
+|    interventions         | 1           |
+|    min_clearance         | 0.417       |
+|    path_length           | 2.56        |
+|    reference_length      | 2.61        |
+|    reward_clearance      | -0.179      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.59        |
+|    reward_smoothness     | -0.0994     |
+|    reward_success        | 17.6        |
+|    reward_time           | -1.19       |
+|    sim_time              | 11.9        |
+|    steps                 | 119         |
+|    success               | 0.882       |
+| time/                    |             |
+|    fps                   | 2274        |
+|    iterations            | 45          |
+|    time_elapsed          | 40          |
+|    total_timesteps       | 192160      |
+| train/                   |             |
+|    approx_kl             | 0.014393526 |
+|    clip_fraction         | 0.16        |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.76       |
+|    explained_variance    | 0.907       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.0765      |
+|    n_updates             | 920         |
+|    policy_gradient_loss  | 0.00139     |
+|    std                   | 0.962       |
+|    value_loss            | 0.603       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 116         |
+|    ep_rew_mean           | 22          |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 0.0235      |
+|    interventions         | 0.235       |
+|    min_clearance         | 0.428       |
+|    path_length           | 2.92        |
+|    reference_length      | 2.78        |
+|    reward_clearance      | -0.0642     |
+|    reward_collision      | 0           |
+|    reward_progress       | 5.45        |
+|    reward_smoothness     | -0.107      |
+|    reward_success        | 20          |
+|    reward_time           | -1.21       |
+|    sim_time              | 12.1        |
+|    steps                 | 121         |
+|    success               | 1           |
+| time/                    |             |
+|    fps                   | 2277        |
+|    iterations            | 46          |
+|    time_elapsed          | 41          |
+|    total_timesteps       | 194208      |
+| train/                   |             |
+|    approx_kl             | 0.018203296 |
+|    clip_fraction         | 0.156       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.76       |
+|    explained_variance    | 0.917       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.111       |
+|    n_updates             | 930         |
+|    policy_gradient_loss  | -0.00163    |
+|    std                   | 0.972       |
+|    value_loss            | 0.491       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 116         |
+|    ep_rew_mean           | 21.5        |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.85        |
+|    interventions         | 2.47        |
+|    min_clearance         | 0.635       |
+|    path_length           | 2.22        |
+|    reference_length      | 2.43        |
+|    reward_clearance      | -0.337      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.05        |
+|    reward_smoothness     | -0.0928     |
+|    reward_success        | 16.5        |
+|    reward_time           | -1.12       |
+|    sim_time              | 11.2        |
+|    steps                 | 112         |
+|    success               | 0.824       |
+| time/                    |             |
+|    fps                   | 2280        |
+|    iterations            | 47          |
+|    time_elapsed          | 42          |
+|    total_timesteps       | 196256      |
+| train/                   |             |
+|    approx_kl             | 0.013409485 |
+|    clip_fraction         | 0.155       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.922       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.03        |
+|    n_updates             | 940         |
+|    policy_gradient_loss  | -0.00407    |
+|    std                   | 0.97        |
+|    value_loss            | 0.335       |
+------------------------------------------
+------------------------------------------
+| rollout/                 |             |
+|    ep_len_mean           | 117         |
+|    ep_rew_mean           | 21          |
+| task/                    |             |
+|    collision             | 0           |
+|    intervention_duration | 1.38        |
+|    interventions         | 2.06        |
+|    min_clearance         | 0.565       |
+|    path_length           | 2.56        |
+|    reference_length      | 2.73        |
+|    reward_clearance      | -0.238      |
+|    reward_collision      | 0           |
+|    reward_progress       | 4.68        |
+|    reward_smoothness     | -0.101      |
+|    reward_success        | 16.7        |
+|    reward_time           | -1.2        |
+|    sim_time              | 12          |
+|    steps                 | 120         |
+|    success               | 0.833       |
+| time/                    |             |
+|    fps                   | 2283        |
+|    iterations            | 48          |
+|    time_elapsed          | 43          |
+|    total_timesteps       | 198304      |
+| train/                   |             |
+|    approx_kl             | 0.013224805 |
+|    clip_fraction         | 0.147       |
+|    clip_range            | 0.2         |
+|    entropy_loss          | -2.78       |
+|    explained_variance    | 0.867       |
+|    learning_rate         | 0.0003      |
+|    loss                  | 0.17        |
+|    n_updates             | 950         |
+|    policy_gradient_loss  | -0.00102    |
+|    std                   | 0.979       |
+|    value_loss            | 0.917       |
+------------------------------------------
+VALIDATION {"split": "validation", "episodes": 8, "successes": 7, "success_rate": 0.875, "collision_rate": 0.0, "mean_success_time": 11.22857142857143, "mean_intervention_duration": 1.1375, "mean_reward": 21.17232733593876, "timesteps": 200000, "wall_seconds": 44.43731810001191}
+-----------------------------------------------
+| rollout/                      |             |
+|    ep_len_mean                | 119         |
+|    ep_rew_mean                | 20.5        |
+| task/                         |             |
+|    collision                  | 0           |
+|    intervention_duration      | 1.61        |
+|    interventions              | 2           |
+|    min_clearance              | 0.485       |
+|    path_length                | 2.38        |
+|    reference_length           | 2.42        |
+|    reward_clearance           | -0.289      |
+|    reward_collision           | 0           |
+|    reward_progress            | 4.39        |
+|    reward_smoothness          | -0.0931     |
+|    reward_success             | 16.5        |
+|    reward_time                | -1.15       |
+|    sim_time                   | 11.5        |
+|    steps                      | 115         |
+|    success                    | 0.824       |
+| time/                         |             |
+|    fps                        | 2253        |
+|    iterations                 | 49          |
+|    time_elapsed               | 44          |
+|    total_timesteps            | 200352      |
+| train/                        |             |
+|    approx_kl                  | 0.008810274 |
+|    clip_fraction              | 0.11        |
+|    clip_range                 | 0.2         |
+|    entropy_loss               | -2.8        |
+|    explained_variance         | 0.936       |
+|    learning_rate              | 0.0003      |
+|    loss                       | 0.0643      |
+|    n_updates                  | 960         |
+|    policy_gradient_loss       | -0.00466    |
+|    std                        | 0.983       |
+|    value_loss                 | 0.457       |
+| validation/                   |             |
+|    collision_rate             | 0           |
+|    episodes                   | 8           |
+|    mean_intervention_duration | 1.14        |
+|    mean_reward                | 21.2        |
+|    mean_success_time          | 11.2        |
+|    success_rate               | 0.875       |
+|    successes                  | 7           |
+|    timesteps                  | 200000      |
+|    wall_seconds               | 44.4        |
+-----------------------------------------------
+VALIDATION {"split": "validation", "episodes": 8, "successes": 6, "success_rate": 0.75, "collision_rate": 0.0, "mean_success_time": 10.65, "mean_intervention_duration": 2.3375000000000004, "mean_reward": 18.092043823240328, "timesteps": 200352, "wall_seconds": 45.50159499992151}
+RUN COMPLETE: E:\ROS2\runs\split_mixed_100k_s42

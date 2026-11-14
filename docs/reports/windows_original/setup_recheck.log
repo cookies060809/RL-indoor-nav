@@ -1,0 +1,35 @@
+Checked 1 package in 2ms
+Checked 45 packages in 5ms
+Checked 45 packages in 1ms
+All installed packages are compatible
+Using cpu device
+{
+  "python": "3.10.22 (main, Oct  9 2026, 15:18:58) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "E:\\ROS2\\.venv\\Scripts\\python.exe",
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "stable-baselines3": "2.9.2",
+    "gymnasium": "1.4.0",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.63.1",
+    "PyYAML": "6.0.3",
+    "tensorboard": "2.21.0",
+    "psutil": "7.2.2"
+  },
+  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "physical_cores": 20,
+  "logical_cores": 28,
+  "ram_gb": 63.772972106933594,
+  "cuda": false,
+  "obs_shape": [
+    2056
+  ],
+  "action": [
+    -0.001664565410465002,
+    0.009015808813273907
+  ],
+  "gym_check": "passed",
+  "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+}
+READY. Use run.cmd from this directory.

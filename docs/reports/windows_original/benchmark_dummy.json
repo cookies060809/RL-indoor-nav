@@ -1,0 +1,44 @@
+[
+  {
+    "n_envs": 1,
+    "vec_env": "dummy",
+    "torch_threads": 2,
+    "startup_seconds": 0.00021650001872330904,
+    "sample_steps": 10000,
+    "sample_seconds": 3.201582800014876,
+    "sample_fps": 3123.4550610259203,
+    "ppo_actual_steps": 10240,
+    "ppo_seconds": 9.59791380004026,
+    "ppo_fps": 1066.8985170461779,
+    "ram_gb": 0.33786773681640625,
+    "system_cpu_percent": 2.2
+  },
+  {
+    "n_envs": 2,
+    "vec_env": "dummy",
+    "torch_threads": 2,
+    "startup_seconds": 0.0002351000439375639,
+    "sample_steps": 10000,
+    "sample_seconds": 3.343156300019473,
+    "sample_fps": 2991.185305916374,
+    "ppo_actual_steps": 10240,
+    "ppo_seconds": 7.828317600069568,
+    "ppo_fps": 1308.0716091423017,
+    "ram_gb": 0.3587684631347656,
+    "system_cpu_percent": 1.1
+  },
+  {
+    "n_envs": 4,
+    "vec_env": "dummy",
+    "torch_threads": 2,
+    "startup_seconds": 0.0003785000881180167,
+    "sample_steps": 10000,
+    "sample_seconds": 3.278712200000882,
+    "sample_fps": 3049.977976108214,
+    "ppo_actual_steps": 10240,
+    "ppo_seconds": 6.8501047000754625,
+    "ppo_fps": 1494.8676623712327,
+    "ram_gb": 0.3714866638183594,
+    "system_cpu_percent": 1.6
+  }
+]

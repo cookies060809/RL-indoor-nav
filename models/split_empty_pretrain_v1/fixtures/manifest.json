@@ -1,0 +1,42 @@
+[
+  {
+    "case": "empty",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "front_wall",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "left_wall",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "right_wall",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "corner",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "invalid",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "boundary",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "minimum",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "zero_goal",
+    "spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe"
+  },
+  {
+    "case": "offset_sensor",
+    "spec_hash": "52116d9c007ddae2952af77a0f9b7e6c850b781ec79568835142afd0a45306e5"
+  }
+]

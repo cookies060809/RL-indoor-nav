@@ -1,0 +1,5 @@
+{
+  "p50_ms": 0.24590000975877047,
+  "p95_ms": 0.365029985550791,
+  "note": "Policy-only, excludes ROS/TF/BEV communication"
+}

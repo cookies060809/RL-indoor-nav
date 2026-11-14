@@ -1,0 +1,7 @@
+﻿run,stage,extractor,seed,training_final_steps,selected_model_steps,validation_successes,validation_episodes,test_successes,test_episodes,test_collision_rate,test_success_time,training_wall_seconds
+empty_100k_s42,empty,flat,42,105352,85000,3,8,,,,,100.54794489999767
+empty_extended_s42,empty,flat,42,386056,365000,4,8,,,,,151.4236732000718
+smoke_10k_s42,empty,flat,42,10240,5000,2,8,,,,,16.320263200090267
+split_empty_200k_s42,empty,split_mlp,42,200704,80000,8,8,23,24,0.0,6.982608695652175,87.04462849989068
+split_mixed_100k_s42,mixed,split_mlp,42,200352,200000,7,8,19,24,0.0,11.194736842105264,45.501846299972385
+split_single_200k_s42,single,split_mlp,42,280704,100000,7,8,22,24,0.0,10.577272727272726,89.75002589996438

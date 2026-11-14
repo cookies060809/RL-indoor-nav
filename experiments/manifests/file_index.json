@@ -1,0 +1,992 @@
+[
+  {
+    "destination": "experiments/manifests/empty_100k_s42/best_validation.json",
+    "origin": "runs/empty_100k_s42/best_validation.json",
+    "engine": "python_2d",
+    "sha256": "41910dc71b2970b8a000195273f3ba412d11b282b551fce9d8c3f40b9a8d241e"
+  },
+  {
+    "destination": "experiments/manifests/empty_100k_s42/config.yaml",
+    "origin": "runs/empty_100k_s42/config.yaml",
+    "engine": "python_2d",
+    "sha256": "f52421afd7b116b3eb15ed5b38bc096774ea649bb0e087b518f1798da90d3b01"
+  },
+  {
+    "destination": "experiments/figures/empty_100k_s42/learning_curves.png",
+    "origin": "runs/empty_100k_s42/learning_curves.png",
+    "engine": "python_2d",
+    "sha256": "16d71d3ffd5396eef014f1d73ed53a103f751c9a952d92f4e81ce39f99f7f612"
+  },
+  {
+    "destination": "experiments/manifests/empty_100k_s42/metadata.json",
+    "origin": "runs/empty_100k_s42/metadata.json",
+    "engine": "python_2d",
+    "sha256": "5deb2855ce151129d1dc7f649b2b087622a927b04238cfc42ffd3b5995c425c5"
+  },
+  {
+    "destination": "experiments/manifests/empty_100k_s42/resume.json",
+    "origin": "runs/empty_100k_s42/resume.json",
+    "engine": "python_2d",
+    "sha256": "62cf2ff0f43aba82c398f72f8af810479ac46f2bc1513af5d51e50cb190e6089"
+  },
+  {
+    "destination": "experiments/manifests/empty_100k_s42/training_result.json",
+    "origin": "runs/empty_100k_s42/training_result.json",
+    "engine": "python_2d",
+    "sha256": "1b3ef9017aaf10a90ce4fc627dc8e16292e1557631a7e8c960c130fd617bf23c"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/best_validation.json",
+    "origin": "runs/empty_extended_s42/best_validation.json",
+    "engine": "python_2d",
+    "sha256": "a1a69d618436c61ad880b7daab4c1714b399d0de2f9cd2311b4fc7a9460d5e02"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/config.yaml",
+    "origin": "runs/empty_extended_s42/config.yaml",
+    "engine": "python_2d",
+    "sha256": "2cd58b4308c9b990cdb4a67294c1880316317e5c2ecb226949e1e3b81c73f546"
+  },
+  {
+    "destination": "experiments/figures/empty_extended_s42/learning_curves.png",
+    "origin": "runs/empty_extended_s42/learning_curves.png",
+    "engine": "python_2d",
+    "sha256": "a85d3599365386c915b343b49b5ce7e2b4aa14e426d319c303ff1136a9abdccc"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/metadata.json",
+    "origin": "runs/empty_extended_s42/metadata.json",
+    "engine": "python_2d",
+    "sha256": "16fe4c939ca0555796dbd69ef5e4701c08addcd88203a3b143d8947397ae2f7d"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/resume.json",
+    "origin": "runs/empty_extended_s42/resume.json",
+    "engine": "python_2d",
+    "sha256": "c9d51e282511f0f567b41480419f046acb1b55af55bb266ed081eff5e33cc39a"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/training_result.json",
+    "origin": "runs/empty_extended_s42/training_result.json",
+    "engine": "python_2d",
+    "sha256": "ad2660720029355425c336aeb9ade825075eb97c15664c72e8f7fb51cd67acc1"
+  },
+  {
+    "destination": "experiments/csv/empty_extended_s42/validation_12/episodes.csv",
+    "origin": "runs/empty_extended_s42/validation_12/episodes.csv",
+    "engine": "python_2d",
+    "sha256": "4f2186bb89baac11ceae7215037d238bd26e02dd3ae3e6796670f340b747e079"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/validation_12/evaluation_config.yaml",
+    "origin": "runs/empty_extended_s42/validation_12/evaluation_config.yaml",
+    "engine": "python_2d",
+    "sha256": "2cd58b4308c9b990cdb4a67294c1880316317e5c2ecb226949e1e3b81c73f546"
+  },
+  {
+    "destination": "experiments/manifests/empty_extended_s42/validation_12/summary.json",
+    "origin": "runs/empty_extended_s42/validation_12/summary.json",
+    "engine": "python_2d",
+    "sha256": "053b3fccec182d253c910500c764748b07d90e3238ee05752f7760653aae9f5e"
+  },
+  {
+    "destination": "experiments/figures/empty_extended_s42/validation_12/trajectories.png",
+    "origin": "runs/empty_extended_s42/validation_12/trajectories.png",
+    "engine": "python_2d",
+    "sha256": "d9354d722556b50ec156f8e1d31cc1fb46236629f1169dc799ff060b1115dfcf"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_000.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_000.npz",
+    "engine": "python_2d",
+    "sha256": "1d0cb485b951a5da5b96b7b22a9fd10b32b2dae5f346171ab7f84959db600d6e"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_001.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_001.npz",
+    "engine": "python_2d",
+    "sha256": "84df172a85d5016296d9a7e2ef4df1dadec47c441d3d29bae7fc306abfb17678"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_002.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_002.npz",
+    "engine": "python_2d",
+    "sha256": "fe02dd54a0f18137541e1d1b4802c7d004759f609688fb0b59ed861f2c319474"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_003.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_003.npz",
+    "engine": "python_2d",
+    "sha256": "8d87b084d0f820616992b4c86d27a6f1e3d0c829105ea8d9f383e9a291ed9874"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_004.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_004.npz",
+    "engine": "python_2d",
+    "sha256": "53557f171f24c8b22a3426a06745e30aaa35104b953f6c94928aa02cfbb93cb6"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_005.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_005.npz",
+    "engine": "python_2d",
+    "sha256": "ca755a2bb49aec53100fc862d638403fd1a4a63d833293b06293f136b45fb5ce"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_006.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_006.npz",
+    "engine": "python_2d",
+    "sha256": "43bf44ef94fa49ea2658b8b6ed77cfef3b952af77f02ca685325d1cafd99bd63"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_007.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_007.npz",
+    "engine": "python_2d",
+    "sha256": "dc22700297863e4f19a37e5c71c416ab2ead5d22bcbc26a78c28e454f1fdca6b"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_008.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_008.npz",
+    "engine": "python_2d",
+    "sha256": "3c6060a4b2596bdf9f9eec53cad66c98d362aa4186c66a71a012e63b24d8cef5"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_009.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_009.npz",
+    "engine": "python_2d",
+    "sha256": "163be3a2bc697efd0c5b40e11ad6d1bd81de860379efc2b83880886831545011"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_010.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_010.npz",
+    "engine": "python_2d",
+    "sha256": "f2b3b45d854b1146fe2999101a97ed0bffe8d8d2a9a177b1f7dded0ffe7e8a3e"
+  },
+  {
+    "destination": "experiments/trajectories/empty_extended_s42/validation_12/trajectory_011.npz",
+    "origin": "runs/empty_extended_s42/validation_12/trajectory_011.npz",
+    "engine": "python_2d",
+    "sha256": "6a85dba036e7001d891d0b4bd0dfb60b1ad193222a4d2a8ec5da252154d6cde9"
+  },
+  {
+    "destination": "experiments/manifests/smoke_10k_s42/best_validation.json",
+    "origin": "runs/smoke_10k_s42/best_validation.json",
+    "engine": "python_2d",
+    "sha256": "0e851eea53926a6374cf58b92ccacb8dbeb6b7acc6b10bf4c8c00f43520c3b54"
+  },
+  {
+    "destination": "experiments/manifests/smoke_10k_s42/config.yaml",
+    "origin": "runs/smoke_10k_s42/config.yaml",
+    "engine": "python_2d",
+    "sha256": "ad4781117e09adbc75aff7bb0311e14df27a055cf1a2f19d9d7770589a915c53"
+  },
+  {
+    "destination": "experiments/manifests/smoke_10k_s42/metadata.json",
+    "origin": "runs/smoke_10k_s42/metadata.json",
+    "engine": "python_2d",
+    "sha256": "0b068d8e15c371249f94ea7ce2c5943b2a3a3890a92f3f89988f90875fe9dfb7"
+  },
+  {
+    "destination": "experiments/manifests/smoke_10k_s42/training_result.json",
+    "origin": "runs/smoke_10k_s42/training_result.json",
+    "engine": "python_2d",
+    "sha256": "1639ccc4e5102c3ea330c31f4b2880a62a64cda1e8f459bcc4a7431c7211ca2c"
+  },
+  {
+    "destination": "experiments/manifests/split_empty_200k_s42/best_validation.json",
+    "origin": "runs/split_empty_200k_s42/best_validation.json",
+    "engine": "python_2d",
+    "sha256": "008afef5f1c1e8a0fa76dcd8594967874cb0c38064e0ec75cee1f5701b53c24a"
+  },
+  {
+    "destination": "experiments/manifests/split_empty_200k_s42/config.yaml",
+    "origin": "runs/split_empty_200k_s42/config.yaml",
+    "engine": "python_2d",
+    "sha256": "e2cadaf6c89c5a23d01d30f6631d9e15022c0ac4b6a4851f4a6812bf08de3ba3"
+  },
+  {
+    "destination": "experiments/figures/split_empty_200k_s42/learning_curves.png",
+    "origin": "runs/split_empty_200k_s42/learning_curves.png",
+    "engine": "python_2d",
+    "sha256": "ca9c698fe5054611b3203dc25978fc4e0ad44af6a33ad2b9436e03e91f4e7670"
+  },
+  {
+    "destination": "experiments/manifests/split_empty_200k_s42/metadata.json",
+    "origin": "runs/split_empty_200k_s42/metadata.json",
+    "engine": "python_2d",
+    "sha256": "cacf751f8d5c1a5c7bede6635bd4dd258ef3de374faad47c6ebd756d0723cec1"
+  },
+  {
+    "destination": "experiments/manifests/split_empty_200k_s42/training_result.json",
+    "origin": "runs/split_empty_200k_s42/training_result.json",
+    "engine": "python_2d",
+    "sha256": "412a4048ea96f65fe41f8d0d9ccbd45dbef797e286e56cbc5e8048de55b7b91c"
+  },
+  {
+    "destination": "experiments/csv/split_empty_200k_s42/test_24/episodes.csv",
+    "origin": "runs/split_empty_200k_s42/test_24/episodes.csv",
+    "engine": "python_2d",
+    "sha256": "e9a8fc6a5ce848ec1fc4557d6c639e9521d0eb95c5b83008c29f1fea159bf87d"
+  },
+  {
+    "destination": "experiments/manifests/split_empty_200k_s42/test_24/evaluation_config.yaml",
+    "origin": "runs/split_empty_200k_s42/test_24/evaluation_config.yaml",
+    "engine": "python_2d",
+    "sha256": "e2cadaf6c89c5a23d01d30f6631d9e15022c0ac4b6a4851f4a6812bf08de3ba3"
+  },
+  {
+    "destination": "experiments/manifests/split_empty_200k_s42/test_24/summary.json",
+    "origin": "runs/split_empty_200k_s42/test_24/summary.json",
+    "engine": "python_2d",
+    "sha256": "d11588a81bde5b7824b059c16c8faf17dc00ffd9d0fdfd61745db6dbf93815c5"
+  },
+  {
+    "destination": "experiments/figures/split_empty_200k_s42/test_24/trajectories.png",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectories.png",
+    "engine": "python_2d",
+    "sha256": "241a65deaff06172ab0803c961e841f8df903fcb7613787a11c7f64d691a9576"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_000.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_000.npz",
+    "engine": "python_2d",
+    "sha256": "beb15dd70d33ef57324073bcd5e34efb424cdc9d118bacbccc77d1612a9d916a"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_001.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_001.npz",
+    "engine": "python_2d",
+    "sha256": "d225a996465079bf5947ee8e6f3adef32ff7d1bec68e394edfeb5b8207f3052d"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_002.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_002.npz",
+    "engine": "python_2d",
+    "sha256": "17eb2792652e76dec9a5dc464f5a59f7da599658dd8a0030030d4ba44e5c05bc"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_003.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_003.npz",
+    "engine": "python_2d",
+    "sha256": "d997852e637994e29b41d7126be0c6b3e2a6a688e33a5b259901e364569f5e8a"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_004.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_004.npz",
+    "engine": "python_2d",
+    "sha256": "07a3e48d886ce1ce69502f7ed8e462db875c908bcc767b43e1362286f38c71a6"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_005.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_005.npz",
+    "engine": "python_2d",
+    "sha256": "e094b9b44a30bbf7bd32f6075ea3a8a9fdf24b9569e8163452f446f1d7a336a5"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_006.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_006.npz",
+    "engine": "python_2d",
+    "sha256": "6f6c22b42525c971129b7e13bed580fa97e2e95783bc4ebf9a37361a713a90b3"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_007.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_007.npz",
+    "engine": "python_2d",
+    "sha256": "ad53203c244a138f279da48a23b5e543227a28ad8fdbe93463cc94b7607e3671"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_008.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_008.npz",
+    "engine": "python_2d",
+    "sha256": "bbc95ca21fa9179824973afd0480d6df1d66e71550e264d569ecf53cd51d9080"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_009.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_009.npz",
+    "engine": "python_2d",
+    "sha256": "d2e0b654e7561847bc29663024b3d344d242bfe715c58ed233c1de26a6fc9a1a"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_010.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_010.npz",
+    "engine": "python_2d",
+    "sha256": "1a59d7e3620ae95a0e3d3de4787ec986f3abf9820b1587185aa6dfa8023f22b4"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_011.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_011.npz",
+    "engine": "python_2d",
+    "sha256": "eb27a6577ba94c949154de9fc481127921a4523768ea4d20b0094a3aa5184e85"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_012.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_012.npz",
+    "engine": "python_2d",
+    "sha256": "70587f7fea3185211dbf0e2742b66bcc76b9c2ac8238785a99f69216bf9c6e26"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_013.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_013.npz",
+    "engine": "python_2d",
+    "sha256": "847f4ad68bff013e0c1167a24975ba31473d9f30cf32a4c3a01757c081dd61fd"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_014.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_014.npz",
+    "engine": "python_2d",
+    "sha256": "53a508179f75b82d85921fa7af6a427794da06e793eac677a1ddf382fc336b25"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_015.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_015.npz",
+    "engine": "python_2d",
+    "sha256": "59c54ae413385d7403930c95df942bf200760b60255114d55b1a9ae57a616d3d"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_016.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_016.npz",
+    "engine": "python_2d",
+    "sha256": "0855c79b79c684f57f39ee06ee2bc432dc214120528edb3ac59c13dc3d3ca820"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_017.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_017.npz",
+    "engine": "python_2d",
+    "sha256": "93c2e9a5b72e40da6d962b1dfa44260acd415a21a181ae513664d2fa0b846aab"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_018.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_018.npz",
+    "engine": "python_2d",
+    "sha256": "04848672a8a6f3c7c323dbf2a374e6b786b2fce99fef97c4b187ec6127cc6c22"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_019.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_019.npz",
+    "engine": "python_2d",
+    "sha256": "53a689d497c26bb14e36fa20437be5fde7216337f6a78a625779bec2aebab603"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_020.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_020.npz",
+    "engine": "python_2d",
+    "sha256": "63de3e04deaadb5f4bdf7aa8cc582a768e12b8a7c2c3c094b58fa88acedd9b52"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_021.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_021.npz",
+    "engine": "python_2d",
+    "sha256": "aee439163ddafc3da9d614b7cd813b15326740718bc8c275d621073aacb3063f"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_022.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_022.npz",
+    "engine": "python_2d",
+    "sha256": "8e958852a3bc32689104433a0e7e826e5c6937d5f049afbf91227dce6e77f555"
+  },
+  {
+    "destination": "experiments/trajectories/split_empty_200k_s42/test_24/trajectory_023.npz",
+    "origin": "runs/split_empty_200k_s42/test_24/trajectory_023.npz",
+    "engine": "python_2d",
+    "sha256": "0d85edf822c751c050de7888cc5344a3c2869a0b13e5edee1bb43dcee299d020"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/best_validation.json",
+    "origin": "runs/split_mixed_100k_s42/best_validation.json",
+    "engine": "python_2d",
+    "sha256": "e37f2cb63157fefb600993951dbff98cbed9247f214664b47b85d0eeb33833b2"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/config.yaml",
+    "origin": "runs/split_mixed_100k_s42/config.yaml",
+    "engine": "python_2d",
+    "sha256": "ff872b6aa85d1af6a4e2d5aa53989148872b1defe3e59c439e551fe62781e323"
+  },
+  {
+    "destination": "experiments/figures/split_mixed_100k_s42/learning_curves.png",
+    "origin": "runs/split_mixed_100k_s42/learning_curves.png",
+    "engine": "python_2d",
+    "sha256": "f8ea78affffcb6af384f0c3d057f647bb9f1a4934fbbae11ef49d5fe7d631d9d"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/metadata.json",
+    "origin": "runs/split_mixed_100k_s42/metadata.json",
+    "engine": "python_2d",
+    "sha256": "7d93c66531d2626fae0e7bb983fe12405e867bb0caad73d0b90ae68d93ac685a"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/resume.json",
+    "origin": "runs/split_mixed_100k_s42/resume.json",
+    "engine": "python_2d",
+    "sha256": "58a2bcad358bf5bbd60d4a4c20acc57ea5114a073e07d81c0df9eceed6d69418"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/training_result.json",
+    "origin": "runs/split_mixed_100k_s42/training_result.json",
+    "engine": "python_2d",
+    "sha256": "f4c6d99977b6f036a3d0c3e0d3f1254c2fc6f0376e475597ffd801aeb1b7f9b6"
+  },
+  {
+    "destination": "experiments/csv/split_mixed_100k_s42/test_24/episodes.csv",
+    "origin": "runs/split_mixed_100k_s42/test_24/episodes.csv",
+    "engine": "python_2d",
+    "sha256": "e3cbf456c1013cd06519cd2b2c0e9c83ea9a7d11e6ab478411e466d00451d2d8"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/test_24/evaluation_config.yaml",
+    "origin": "runs/split_mixed_100k_s42/test_24/evaluation_config.yaml",
+    "engine": "python_2d",
+    "sha256": "ff872b6aa85d1af6a4e2d5aa53989148872b1defe3e59c439e551fe62781e323"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/test_24/summary.json",
+    "origin": "runs/split_mixed_100k_s42/test_24/summary.json",
+    "engine": "python_2d",
+    "sha256": "c9062a62f7588a7ded67b45ae63cead1fcd00f56902eeb311f6388e82a2c9022"
+  },
+  {
+    "destination": "experiments/figures/split_mixed_100k_s42/test_24/trajectories.png",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectories.png",
+    "engine": "python_2d",
+    "sha256": "49bda92df594d0800f4e8366f36c551ad4f095ecbd3fe179d7794c5b3b20c31c"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_000.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_000.npz",
+    "engine": "python_2d",
+    "sha256": "54e3255ad9e06bc65f0ee6090ab886cb635a591a9c3e92c3ffdabe11a250e1bb"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_001.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_001.npz",
+    "engine": "python_2d",
+    "sha256": "881c94477b3988933973bccb1802b4443fc9ee28f1d05fcc2e83cde3d6a0f77e"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_002.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_002.npz",
+    "engine": "python_2d",
+    "sha256": "6f84750c89908a6d68cb8110c3c84e92d12ad5fc51d7fdba8c70457bccbbd540"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_003.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_003.npz",
+    "engine": "python_2d",
+    "sha256": "29593d9c7a2a2275f23e45380d52e1d745471d59c59317f88a6a7478ef2afb46"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_004.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_004.npz",
+    "engine": "python_2d",
+    "sha256": "1adb6b3efcab4491a6b967042dbf7c2321831d0a9360dc024aa72eeb80fc24ab"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_005.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_005.npz",
+    "engine": "python_2d",
+    "sha256": "609e0133943eddaf24c0a667f29b9a014b5f8a14107d33a427154914eea97adf"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_006.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_006.npz",
+    "engine": "python_2d",
+    "sha256": "73a11d45d8b8b91c80250bf084841c0291979f51a81b2d5808fc9c179a188f76"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_007.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_007.npz",
+    "engine": "python_2d",
+    "sha256": "6640532a5d183298a1f96c9c6ecedd5034787eb7ef8e8271755f35b51c3ce881"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_008.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_008.npz",
+    "engine": "python_2d",
+    "sha256": "8e272090f0050a7251ec10f0a4d9d67eb7aa0440766a74dc0ed2a30f82e94ae0"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_009.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_009.npz",
+    "engine": "python_2d",
+    "sha256": "da24282f18221d778022347974eb865a9e36f7ce21a6c4806146c1114e74d7d9"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_010.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_010.npz",
+    "engine": "python_2d",
+    "sha256": "9785518aaf1b3521265380b908ad32aab2f9a274c035d6228d4ddc20c81943b6"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_011.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_011.npz",
+    "engine": "python_2d",
+    "sha256": "baa70269938237173d3e8708d36aa5c8d6b70b9aa66cec6c8111b116d647f789"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_012.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_012.npz",
+    "engine": "python_2d",
+    "sha256": "44135fdcd4c67ff5da5e3ceffda6e5b62d45a53f2edceb83ac6815cdce411cb6"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_013.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_013.npz",
+    "engine": "python_2d",
+    "sha256": "902edc33d900ebb7d4761fc6928099c8e2358a21e28e408255d8a84a172c95e3"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_014.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_014.npz",
+    "engine": "python_2d",
+    "sha256": "9e025ced3db5ff210ab00c2b2ceee6f1166135f46563ceebd58f00519c8ef1d4"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_015.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_015.npz",
+    "engine": "python_2d",
+    "sha256": "a5e05489625f15d2b4f9a80e8e00ab47dd06c2606eef14fd79f87ab2b18e1381"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_016.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_016.npz",
+    "engine": "python_2d",
+    "sha256": "009d014c98553db37d70e64403a7edd013bf834de427b36d3b16e34469c545f8"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_017.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_017.npz",
+    "engine": "python_2d",
+    "sha256": "fa1d6f6a4103637770aa6f92e58482b756adc2a418309ef0d514f48c274eb056"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_018.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_018.npz",
+    "engine": "python_2d",
+    "sha256": "7e8fc9063d036b3065a96a7a6bc54f50d27debd4e230fe7ebe7db1a38a2f80a2"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_019.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_019.npz",
+    "engine": "python_2d",
+    "sha256": "9cbc5421647dfa7108003da94bb03420e9cc906e5799735acae2be58cb463b07"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_020.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_020.npz",
+    "engine": "python_2d",
+    "sha256": "39bff32d181034faf46bf9e6b7435730e56bd83312e1638788d2a759e2466ded"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_021.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_021.npz",
+    "engine": "python_2d",
+    "sha256": "82e1c9f292465db2b38102539ded4010ad362fbd3753eb160b711177bddb7fc5"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_022.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_022.npz",
+    "engine": "python_2d",
+    "sha256": "d165f4a194997d5d22f18c5c1f0b2050faa89fb65ab279d39c762bb29e107798"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/test_24/trajectory_023.npz",
+    "origin": "runs/split_mixed_100k_s42/test_24/trajectory_023.npz",
+    "engine": "python_2d",
+    "sha256": "545e0575e0b0190b24d05714c78ed9f4c19dac2a3a5ceadd3185243379bd8370"
+  },
+  {
+    "destination": "experiments/csv/split_mixed_100k_s42/validation_safe_12/episodes.csv",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/episodes.csv",
+    "engine": "python_2d",
+    "sha256": "e65fd3890559e8077ac3c64066408a35c681629e6cd5913df0a38ed934498f10"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/validation_safe_12/evaluation_config.yaml",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/evaluation_config.yaml",
+    "engine": "python_2d",
+    "sha256": "ff872b6aa85d1af6a4e2d5aa53989148872b1defe3e59c439e551fe62781e323"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/validation_safe_12/summary.json",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/summary.json",
+    "engine": "python_2d",
+    "sha256": "fe34e786298358a5cee5e46132c64dadc1b3abf2397720f879edd53cb184eb70"
+  },
+  {
+    "destination": "experiments/figures/split_mixed_100k_s42/validation_safe_12/trajectories.png",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectories.png",
+    "engine": "python_2d",
+    "sha256": "6edece43357aa50c729e480d4f9c28c6f730d3cc3f30404fdb22c50d18197109"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_000.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_000.npz",
+    "engine": "python_2d",
+    "sha256": "c995309b5ee2e6ced1b56e21c197796642bd2204fc809646c01fea959c4de972"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_001.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_001.npz",
+    "engine": "python_2d",
+    "sha256": "6681568c58dd2fe6bf8317a95ff8180525350a90f1506034648d3eb96c8e582f"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_002.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_002.npz",
+    "engine": "python_2d",
+    "sha256": "8373d8bcf257022d22ef579c7583e771d3a4cfc9f40be7f10e44378b9258f868"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_003.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_003.npz",
+    "engine": "python_2d",
+    "sha256": "5071972c07ecb3d526ead96bde83aa38c477308ec744e298d6a86ec90dffc66f"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_004.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_004.npz",
+    "engine": "python_2d",
+    "sha256": "11ac9f5730d3e9e428c6e0ce30cdc95761f158ee450c36b3a0985c25d71834eb"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_005.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_005.npz",
+    "engine": "python_2d",
+    "sha256": "60259b21a6e5ff7e348972013228af2e7eb29e3b2979607e2c124f64e9dcc81b"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_006.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_006.npz",
+    "engine": "python_2d",
+    "sha256": "ada89a924658585450f1b33d80eb8dc43b1d51b3ca7220129c6772c772b824be"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_007.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_007.npz",
+    "engine": "python_2d",
+    "sha256": "3f3e30192f9a0c32241131e7fc0e1f1ecaad25fcd524ca829e69d47e227e6750"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_008.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_008.npz",
+    "engine": "python_2d",
+    "sha256": "502552bce5daef9f703fd3ea5883e9b6d1dc10e89bcde0d33ec241a87ffab216"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_009.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_009.npz",
+    "engine": "python_2d",
+    "sha256": "37edb4d293fb7cccbe0a209a345692440ad7463b893453caafa08ecbb3f4b6ca"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_010.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_010.npz",
+    "engine": "python_2d",
+    "sha256": "cd5b5588fe381a3f9c4f4b5487fd833b0144408380edc210b5edfa3429c103a3"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_safe_12/trajectory_011.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_safe_12/trajectory_011.npz",
+    "engine": "python_2d",
+    "sha256": "90ca44995717b5fbcfcb3c7703b18917d4703fba2973c562ec85663d3b445f9c"
+  },
+  {
+    "destination": "experiments/csv/split_mixed_100k_s42/validation_unfiltered_12/episodes.csv",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/episodes.csv",
+    "engine": "python_2d",
+    "sha256": "153daefd97a892598ceee81b8da607a2e9c7e7fe308e8e37e26a49b1c28e63e0"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/validation_unfiltered_12/evaluation_config.yaml",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/evaluation_config.yaml",
+    "engine": "python_2d",
+    "sha256": "ff872b6aa85d1af6a4e2d5aa53989148872b1defe3e59c439e551fe62781e323"
+  },
+  {
+    "destination": "experiments/manifests/split_mixed_100k_s42/validation_unfiltered_12/summary.json",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/summary.json",
+    "engine": "python_2d",
+    "sha256": "4fd4c39d70929c311aec58ba3b898745fac6679e9348392bd3eb5738fac091e5"
+  },
+  {
+    "destination": "experiments/figures/split_mixed_100k_s42/validation_unfiltered_12/trajectories.png",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectories.png",
+    "engine": "python_2d",
+    "sha256": "a31e60f529657f5e548d126ca3aee5099c87d7c5c0b603df0462737415e1e1c0"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_000.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_000.npz",
+    "engine": "python_2d",
+    "sha256": "c995309b5ee2e6ced1b56e21c197796642bd2204fc809646c01fea959c4de972"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_001.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_001.npz",
+    "engine": "python_2d",
+    "sha256": "afa70b29cd6b760ec7d1de71ee45545f8df7e0ed27cf4ff941f8d5e6287dafbe"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_002.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_002.npz",
+    "engine": "python_2d",
+    "sha256": "cf5230624d6605719c73ee17a86f69a55b6f929c93385f02fcf5ff2950f65283"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_003.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_003.npz",
+    "engine": "python_2d",
+    "sha256": "5071972c07ecb3d526ead96bde83aa38c477308ec744e298d6a86ec90dffc66f"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_004.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_004.npz",
+    "engine": "python_2d",
+    "sha256": "11ac9f5730d3e9e428c6e0ce30cdc95761f158ee450c36b3a0985c25d71834eb"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_005.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_005.npz",
+    "engine": "python_2d",
+    "sha256": "60259b21a6e5ff7e348972013228af2e7eb29e3b2979607e2c124f64e9dcc81b"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_006.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_006.npz",
+    "engine": "python_2d",
+    "sha256": "ada89a924658585450f1b33d80eb8dc43b1d51b3ca7220129c6772c772b824be"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_007.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_007.npz",
+    "engine": "python_2d",
+    "sha256": "3f3e30192f9a0c32241131e7fc0e1f1ecaad25fcd524ca829e69d47e227e6750"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_008.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_008.npz",
+    "engine": "python_2d",
+    "sha256": "d44a8e5a24174b6a0dc0ce1cb71e229324c3df8deec2b0d9726ba8873f1e03f0"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_009.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_009.npz",
+    "engine": "python_2d",
+    "sha256": "37edb4d293fb7cccbe0a209a345692440ad7463b893453caafa08ecbb3f4b6ca"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_010.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_010.npz",
+    "engine": "python_2d",
+    "sha256": "e2bcdcfd1b15262758f847375f98cda681c9300e0cf2bc80d6719c2f70bfedf3"
+  },
+  {
+    "destination": "experiments/trajectories/split_mixed_100k_s42/validation_unfiltered_12/trajectory_011.npz",
+    "origin": "runs/split_mixed_100k_s42/validation_unfiltered_12/trajectory_011.npz",
+    "engine": "python_2d",
+    "sha256": "90ca44995717b5fbcfcb3c7703b18917d4703fba2973c562ec85663d3b445f9c"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/best_validation.json",
+    "origin": "runs/split_single_200k_s42/best_validation.json",
+    "engine": "python_2d",
+    "sha256": "06b84cb31d1a4b383272eba06049020353161c8e07ce0040f56a9e3a439c15f2"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/config.yaml",
+    "origin": "runs/split_single_200k_s42/config.yaml",
+    "engine": "python_2d",
+    "sha256": "06460eee2059336d85f94d7b1227908050cd69cc8706513a0846cb1656b6a583"
+  },
+  {
+    "destination": "experiments/figures/split_single_200k_s42/learning_curves.png",
+    "origin": "runs/split_single_200k_s42/learning_curves.png",
+    "engine": "python_2d",
+    "sha256": "bb04330de1d6d2e968548ebef8c4a2a865df6903d90c504d0958bb0751343490"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/metadata.json",
+    "origin": "runs/split_single_200k_s42/metadata.json",
+    "engine": "python_2d",
+    "sha256": "c62cf5affff70b9132072744ae3d017ee03b89a1bf96cba7852f6886c0fde957"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/resume.json",
+    "origin": "runs/split_single_200k_s42/resume.json",
+    "engine": "python_2d",
+    "sha256": "bd23aceebeb903767a16f6800f22753b383b3dd76533a8055ed6ec04d65e6795"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/training_result.json",
+    "origin": "runs/split_single_200k_s42/training_result.json",
+    "engine": "python_2d",
+    "sha256": "0915ff647d6e35a5a056bcdd1f748e0351b4ca6dcc84f1d582d964cce8e86e52"
+  },
+  {
+    "destination": "experiments/csv/split_single_200k_s42/test_24/episodes.csv",
+    "origin": "runs/split_single_200k_s42/test_24/episodes.csv",
+    "engine": "python_2d",
+    "sha256": "0bb9cbabf28f07e2e62626844f883b941b9a313ff89a463fe8d9d2e79c803e2e"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/test_24/evaluation_config.yaml",
+    "origin": "runs/split_single_200k_s42/test_24/evaluation_config.yaml",
+    "engine": "python_2d",
+    "sha256": "06460eee2059336d85f94d7b1227908050cd69cc8706513a0846cb1656b6a583"
+  },
+  {
+    "destination": "experiments/manifests/split_single_200k_s42/test_24/summary.json",
+    "origin": "runs/split_single_200k_s42/test_24/summary.json",
+    "engine": "python_2d",
+    "sha256": "1ea9f4c3f8af9d42d1424b72c6d66e35dd9d27eda71e2bc2f9165e04ff8b41dd"
+  },
+  {
+    "destination": "experiments/figures/split_single_200k_s42/test_24/trajectories.png",
+    "origin": "runs/split_single_200k_s42/test_24/trajectories.png",
+    "engine": "python_2d",
+    "sha256": "2ef02c5c20da3f3c60c7f642b9944b4ae111efdd45a60ccd5417d905a90d7031"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_000.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_000.npz",
+    "engine": "python_2d",
+    "sha256": "3734e03432a36a45a27ff9f38ae51f6d8460eda8e666a08d419dcc230e858104"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_001.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_001.npz",
+    "engine": "python_2d",
+    "sha256": "fc29d646df24bd0a4600a5214e6bc024dc50c72950047254c30c1c74d5d84285"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_002.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_002.npz",
+    "engine": "python_2d",
+    "sha256": "68df97265db73c812d90c02b9bd7c44fd125b3a5582a0fb711d0bd9a5e62d4d7"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_003.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_003.npz",
+    "engine": "python_2d",
+    "sha256": "6a56e8f8ba4dbdaf4845963443460d2935b3c74c2138f2f1941415e8687afd9f"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_004.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_004.npz",
+    "engine": "python_2d",
+    "sha256": "a2c087b67ed2dcba48980028aa0b3858abde66b58ed82d6f4e194fbb8e8ff4b1"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_005.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_005.npz",
+    "engine": "python_2d",
+    "sha256": "00adcfde2e7268553992df3f626164e1596e67135a302085132b24eac0990d76"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_006.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_006.npz",
+    "engine": "python_2d",
+    "sha256": "311fa73f843d6e4dacd5680c2d87037f24091d5d5b246b99b4d2aca8d6f68b00"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_007.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_007.npz",
+    "engine": "python_2d",
+    "sha256": "8792d004bb7daf2d99f916835e71482d423469b491e50d369367ae768d077e5e"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_008.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_008.npz",
+    "engine": "python_2d",
+    "sha256": "dba5a50150533d85680c5495e0f5c758430d664d544c3a9a552980aff2c31ecd"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_009.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_009.npz",
+    "engine": "python_2d",
+    "sha256": "9d20bf9a4b34841e4c5e4499ca091a814c463b6e867b1ac4df211692610c3f07"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_010.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_010.npz",
+    "engine": "python_2d",
+    "sha256": "e17e19347ef9a34f6f22d82f621e92ddfdece39aeccd341f61ef8c8098a09152"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_011.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_011.npz",
+    "engine": "python_2d",
+    "sha256": "a6c9b88ea671f0337dc972f469e5d48d98098519e6e65982eb81540205a35cd7"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_012.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_012.npz",
+    "engine": "python_2d",
+    "sha256": "466d473cb2624123bbdb82e1a8ebc5fa103d097cee00c0c2192bb0db71d98b8d"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_013.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_013.npz",
+    "engine": "python_2d",
+    "sha256": "ea19bb4647ce370509837fdeed66100f0e1d0d680bb31a0031cdd04cdfbef166"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_014.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_014.npz",
+    "engine": "python_2d",
+    "sha256": "34a325402a562d670a27d751cbc9d2e00800903188a879425f0b1b41cba8a3ba"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_015.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_015.npz",
+    "engine": "python_2d",
+    "sha256": "51ab7d4c4148f8aee9c054451116a16deeb4577db16624e56ea9705b76828209"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_016.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_016.npz",
+    "engine": "python_2d",
+    "sha256": "ff4f61df4a64b3ff31b542951f803294d0a0bd2d5986841c08049306288956a4"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_017.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_017.npz",
+    "engine": "python_2d",
+    "sha256": "f0643b0820a5b87215a44664ee045abcfcd2743aeb6e6c483047c367e15b78d4"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_018.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_018.npz",
+    "engine": "python_2d",
+    "sha256": "37a7e527f77f427f3e6294d52a97808b2ecf3a1f8a440b370ac0d2b194bb9114"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_019.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_019.npz",
+    "engine": "python_2d",
+    "sha256": "00a22cf910b6f41812610654c0b4dd4583c26b6a6a9d958bb4e9b9c140adf9f1"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_020.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_020.npz",
+    "engine": "python_2d",
+    "sha256": "362c77464c5bec5e81360c5472821758dd43bb724bec7d32fd8dcbad71a89361"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_021.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_021.npz",
+    "engine": "python_2d",
+    "sha256": "96e3567ad1369b50631afb4c27a41fb80333b6996cd2d3f27bd28de015c416a3"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_022.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_022.npz",
+    "engine": "python_2d",
+    "sha256": "c0a0507bbfb224f64a9dcdb15a33bb20da487db1e5dfabb3652e345a918cef23"
+  },
+  {
+    "destination": "experiments/trajectories/split_single_200k_s42/test_24/trajectory_023.npz",
+    "origin": "runs/split_single_200k_s42/test_24/trajectory_023.npz",
+    "engine": "python_2d",
+    "sha256": "eeb946ea3ae670f1204e6cfa6b09f8569b3abd33c1170faa213d0cf9cb51a015"
+  }
+]

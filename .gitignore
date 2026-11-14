@@ -1,0 +1,19 @@
+# Local interpreters, caches and generated build products
+.venv/
+.runtime/
+.tools/
+.cache/
+.tmp/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.nbc
+*.nbi
+checkpoint_*.zip
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+.env
+.env.*
+*.pem
+*.key

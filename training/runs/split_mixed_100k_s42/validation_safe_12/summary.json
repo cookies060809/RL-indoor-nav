@@ -1,0 +1,10 @@
+{
+  "split": "validation",
+  "episodes": 12,
+  "successes": 9,
+  "success_rate": 0.75,
+  "collision_rate": 0.0,
+  "mean_success_time": 10.866666666666667,
+  "mean_intervention_duration": 2.3083333333333336,
+  "mean_reward": 17.642407187165364
+}

@@ -1,0 +1,2 @@
+# Preserve exact artifact bytes across platforms for FILE_MANIFEST.json.
+* -text

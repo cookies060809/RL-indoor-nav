@@ -1,0 +1,10 @@
+{
+  "split": "test",
+  "episodes": 24,
+  "successes": 22,
+  "success_rate": 0.9166666666666666,
+  "collision_rate": 0.0,
+  "mean_success_time": 10.577272727272726,
+  "mean_intervention_duration": 0.7833333333333335,
+  "mean_reward": 21.73052645726055
+}
