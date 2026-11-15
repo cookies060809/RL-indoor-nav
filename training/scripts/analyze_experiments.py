@@ -158,7 +158,7 @@ def plot_training_curves(run_root, output):
         if not histories:
             continue
         length = min(len(history) for history in histories)
-        x = [history[0]['timesteps'] for history in histories if history]
+        x = [record['timesteps'] for record in histories[0][:length]]
         for metric, axis in zip(('success_rate', 'collision_rate'), axes):
             curves = np.asarray([[history[index][metric] for index in range(length)] for history in histories])
             axis.plot(x, curves.mean(axis=0), marker='o', label=variant)
@@ -240,6 +240,12 @@ def main():
         'runs': runs,
         'variants': aggregate_by_variant,
     }, indent=2, ensure_ascii=False), encoding='utf-8')
+    reward_runs = {
+        name: info for name, info in runs.items()
+        if name.startswith('reward_') or name.startswith('adaptive30k')
+    }
+    (output / 'reward_summary.json').write_text(
+        json.dumps(reward_runs, indent=2, ensure_ascii=False), encoding='utf-8')
     rows = []
     for name, info in runs.items():
         for split in ('validation', 'test'):

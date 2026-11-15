@@ -1,0 +1,148 @@
+{
+  "split": "test",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter",
+    "dense",
+    "tight_turn",
+    "protective"
+  ],
+  "episodes": 84,
+  "successes": 15,
+  "success_rate": 0.17857142857142858,
+  "collision_rate": 0.0,
+  "mean_success_time": 22.56666666666667,
+  "mean_intervention_duration": 4.004761904761905,
+  "mean_requested_speed": 0.2490211718743002,
+  "mean_executed_speed": 0.23021549612492803,
+  "mean_reward": 3.2702784214742375,
+  "failure_reasons": {
+    "stuck": 69
+  },
+  "intervention_reasons": {
+    "braking_sweep": 1179,
+    "footprint_overlap": 2185
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 12,
+      "successes": 4,
+      "success_rate": 0.3333333333333333,
+      "collision_rate": 0.0,
+      "mean_success_time": 26.175000000000004,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.30580278102517505,
+      "mean_executed_speed": 0.30580278102517505,
+      "failure_reasons": {
+        "stuck": 8
+      },
+      "intervention_reasons": {}
+    },
+    "single": {
+      "episodes": 12,
+      "successes": 3,
+      "success_rate": 0.25,
+      "collision_rate": 0.0,
+      "mean_success_time": 24.833333333333332,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.29560546655122144,
+      "mean_executed_speed": 0.29560546655122144,
+      "failure_reasons": {
+        "stuck": 9
+      },
+      "intervention_reasons": {}
+    },
+    "turn": {
+      "episodes": 12,
+      "successes": 2,
+      "success_rate": 0.16666666666666666,
+      "collision_rate": 0.0,
+      "mean_success_time": 18.3,
+      "mean_intervention_duration": 2.7583333333333333,
+      "mean_requested_speed": 0.27736655871498167,
+      "mean_executed_speed": 0.26173048335576615,
+      "failure_reasons": {
+        "stuck": 10
+      },
+      "intervention_reasons": {
+        "braking_sweep": 141,
+        "footprint_overlap": 190
+      }
+    },
+    "clutter": {
+      "episodes": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 5.9750000000000005,
+      "mean_requested_speed": 0.24223015878681786,
+      "mean_executed_speed": 0.2193694026056828,
+      "failure_reasons": {
+        "stuck": 12
+      },
+      "intervention_reasons": {
+        "braking_sweep": 294,
+        "footprint_overlap": 423
+      }
+    },
+    "dense": {
+      "episodes": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 6.841666666666668,
+      "mean_requested_speed": 0.2192822990767159,
+      "mean_executed_speed": 0.1987865991820408,
+      "failure_reasons": {
+        "stuck": 12
+      },
+      "intervention_reasons": {
+        "braking_sweep": 234,
+        "footprint_overlap": 587
+      }
+    },
+    "tight_turn": {
+      "episodes": 12,
+      "successes": 6,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 20.450000000000003,
+      "mean_intervention_duration": 1.3583333333333334,
+      "mean_requested_speed": 0.2768062332224208,
+      "mean_executed_speed": 0.2736360226258019,
+      "failure_reasons": {
+        "stuck": 6
+      },
+      "intervention_reasons": {
+        "braking_sweep": 112,
+        "footprint_overlap": 51
+      }
+    },
+    "protective": {
+      "episodes": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 11.1,
+      "mean_requested_speed": 0.12605470574276886,
+      "mean_executed_speed": 0.0565777175288082,
+      "failure_reasons": {
+        "stuck": 12
+      },
+      "intervention_reasons": {
+        "braking_sweep": 398,
+        "footprint_overlap": 934
+      }
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "d2c2f2648d82814e78c63e21da76cc3f532007bcbbfb1f83c2b409b50e74449f",
+  "seed_base": 200000,
+  "seed_offsets": "stage_index*1000+episode"
+}

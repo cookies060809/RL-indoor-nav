@@ -1,0 +1,151 @@
+{
+  "split": "validation",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter",
+    "dense",
+    "tight_turn",
+    "protective"
+  ],
+  "episodes": 14,
+  "successes": 5,
+  "success_rate": 0.35714285714285715,
+  "collision_rate": 0.0,
+  "mean_success_time": 21.8,
+  "mean_intervention_duration": 3.8214285714285716,
+  "mean_requested_speed": 0.20131298254755325,
+  "mean_executed_speed": 0.18419268341006073,
+  "mean_reward": 8.275900186950171,
+  "failure_reasons": {
+    "stuck": 9
+  },
+  "intervention_reasons": {
+    "braking_sweep": 237,
+    "footprint_overlap": 298
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 17.8,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.21906215398231635,
+      "mean_executed_speed": 0.21906215398231635,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {}
+    },
+    "single": {
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 28.55,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.2214177301542599,
+      "mean_executed_speed": 0.2214177301542599,
+      "failure_reasons": {},
+      "intervention_reasons": {}
+    },
+    "turn": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 4.9,
+      "mean_requested_speed": 0.20150519478158935,
+      "mean_executed_speed": 0.19378587645442819,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 40,
+        "footprint_overlap": 58
+      }
+    },
+    "clutter": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 2.15,
+      "mean_requested_speed": 0.16348310822300102,
+      "mean_executed_speed": 0.15269581597232565,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 30,
+        "footprint_overlap": 13
+      }
+    },
+    "dense": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 22.0,
+      "mean_intervention_duration": 5.2,
+      "mean_requested_speed": 0.23543047319922605,
+      "mean_executed_speed": 0.2205859432201387,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 59,
+        "footprint_overlap": 45
+      }
+    },
+    "tight_turn": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 9.100000000000001,
+      "mean_requested_speed": 0.1899709420093228,
+      "mean_executed_speed": 0.14525424302539655,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 50,
+        "footprint_overlap": 132
+      }
+    },
+    "protective": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 12.100000000000001,
+      "mean_intervention_duration": 5.4,
+      "mean_requested_speed": 0.1783212754831573,
+      "mean_executed_speed": 0.13654702106155978,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 58,
+        "footprint_overlap": 50
+      }
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "9b8cb5e14a7752e3e2046c3b3734000e67bc09c6953e6e5cca24e094014a29c4",
+  "seed_base": 100000,
+  "seed_offsets": "stage_index*1000+episode",
+  "timesteps": 40000,
+  "wall_seconds": 184.0913776999805,
+  "weights_file": "best_model.zip",
+  "weights_sha256": "1ab409edd73cd64269ff6cfceb9a860c17900f5d0a49f9ee034dc6305493b3b2",
+  "num_timesteps": 40000
+}

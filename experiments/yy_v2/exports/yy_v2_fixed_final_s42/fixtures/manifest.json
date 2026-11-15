@@ -1,0 +1,46 @@
+[
+  {
+    "case": "empty",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "front_wall",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "left_wall",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "right_wall",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "corner",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "invalid",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "boundary",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "minimum",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "above_max",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "zero_goal",
+    "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff"
+  },
+  {
+    "case": "offset_sensor",
+    "spec_hash": "7c708f4f570fc16844002d99bf7efed6e811a06fe429b70dd5f8d14625c4b3b9"
+  }
+]

@@ -1,0 +1,154 @@
+{
+  "split": "validation",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter",
+    "dense",
+    "tight_turn",
+    "protective"
+  ],
+  "episodes": 56,
+  "successes": 12,
+  "success_rate": 0.21428571428571427,
+  "collision_rate": 0.0,
+  "mean_success_time": 20.225,
+  "mean_intervention_duration": 5.632142857142858,
+  "mean_requested_speed": 0.2163916253464293,
+  "mean_executed_speed": 0.1830222774616439,
+  "mean_reward": 3.6257799408631795,
+  "failure_reasons": {
+    "stuck": 44
+  },
+  "intervention_reasons": {
+    "braking_sweep": 1138,
+    "footprint_overlap": 2016
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 8,
+      "successes": 1,
+      "success_rate": 0.125,
+      "collision_rate": 0.0,
+      "mean_success_time": 18.7,
+      "mean_intervention_duration": 1.3250000000000002,
+      "mean_requested_speed": 0.23240400885263426,
+      "mean_executed_speed": 0.22825402057916852,
+      "failure_reasons": {
+        "stuck": 7
+      },
+      "intervention_reasons": {
+        "braking_sweep": 24,
+        "footprint_overlap": 82
+      }
+    },
+    "single": {
+      "episodes": 8,
+      "successes": 4,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 21.35,
+      "mean_intervention_duration": 2.6500000000000004,
+      "mean_requested_speed": 0.2324263214303181,
+      "mean_executed_speed": 0.2214185103875085,
+      "failure_reasons": {
+        "stuck": 4
+      },
+      "intervention_reasons": {
+        "braking_sweep": 100,
+        "footprint_overlap": 112
+      }
+    },
+    "turn": {
+      "episodes": 8,
+      "successes": 2,
+      "success_rate": 0.25,
+      "collision_rate": 0.0,
+      "mean_success_time": 11.75,
+      "mean_intervention_duration": 5.487500000000001,
+      "mean_requested_speed": 0.25036157386946956,
+      "mean_executed_speed": 0.2046672737000369,
+      "failure_reasons": {
+        "stuck": 6
+      },
+      "intervention_reasons": {
+        "braking_sweep": 155,
+        "footprint_overlap": 284
+      }
+    },
+    "clutter": {
+      "episodes": 8,
+      "successes": 1,
+      "success_rate": 0.125,
+      "collision_rate": 0.0,
+      "mean_success_time": 20.400000000000002,
+      "mean_intervention_duration": 5.0875,
+      "mean_requested_speed": 0.23307686173736425,
+      "mean_executed_speed": 0.19379036207725395,
+      "failure_reasons": {
+        "stuck": 7
+      },
+      "intervention_reasons": {
+        "braking_sweep": 175,
+        "footprint_overlap": 232
+      }
+    },
+    "dense": {
+      "episodes": 8,
+      "successes": 1,
+      "success_rate": 0.125,
+      "collision_rate": 0.0,
+      "mean_success_time": 38.1,
+      "mean_intervention_duration": 9.425,
+      "mean_requested_speed": 0.21118865469670245,
+      "mean_executed_speed": 0.15953796081378002,
+      "failure_reasons": {
+        "stuck": 7
+      },
+      "intervention_reasons": {
+        "braking_sweep": 272,
+        "footprint_overlap": 482
+      }
+    },
+    "tight_turn": {
+      "episodes": 8,
+      "successes": 3,
+      "success_rate": 0.375,
+      "collision_rate": 0.0,
+      "mean_success_time": 18.866666666666664,
+      "mean_intervention_duration": 4.2625,
+      "mean_requested_speed": 0.21041701299827675,
+      "mean_executed_speed": 0.1969065521336807,
+      "failure_reasons": {
+        "stuck": 5
+      },
+      "intervention_reasons": {
+        "braking_sweep": 122,
+        "footprint_overlap": 219
+      }
+    },
+    "protective": {
+      "episodes": 8,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 11.1875,
+      "mean_requested_speed": 0.14486694384023988,
+      "mean_executed_speed": 0.07658126254007865,
+      "failure_reasons": {
+        "stuck": 8
+      },
+      "intervention_reasons": {
+        "braking_sweep": 290,
+        "footprint_overlap": 605
+      }
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "1ca6e8b0b884c901601cba117cdc6324d2f6f77cdc06ceea7fe62753e6cfd74f",
+  "seed_base": 100000,
+  "seed_offsets": "stage_index*1000+episode"
+}

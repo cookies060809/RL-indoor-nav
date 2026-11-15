@@ -1,0 +1,11 @@
+# CPU torch is installed separately from the official CPU index.
+stable-baselines3==2.9.2
+gymnasium==1.4.0
+numpy>=1.26,<2.3
+scipy>=1.13,<1.16
+numba>=0.61,<0.64
+matplotlib>=3.9,<3.11
+PyYAML>=6.0,<7
+tensorboard>=2.19,<2.22
+pytest>=8,<9
+psutil>=6,<8

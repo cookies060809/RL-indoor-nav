@@ -1,0 +1,146 @@
+{
+  "split": "validation",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter",
+    "dense",
+    "tight_turn",
+    "protective"
+  ],
+  "episodes": 14,
+  "successes": 4,
+  "success_rate": 0.2857142857142857,
+  "collision_rate": 0.0,
+  "mean_success_time": 22.3,
+  "mean_intervention_duration": 3.3142857142857145,
+  "mean_requested_speed": 0.2169804430808027,
+  "mean_executed_speed": 0.19202287055144432,
+  "mean_reward": 6.783398259231743,
+  "failure_reasons": {
+    "stuck": 10
+  },
+  "intervention_reasons": {
+    "braking_sweep": 173,
+    "footprint_overlap": 291
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.2302824788580099,
+      "mean_executed_speed": 0.2302824788580099,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {}
+    },
+    "single": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 23.0,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.20203546662006733,
+      "mean_executed_speed": 0.20203546662006733,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {}
+    },
+    "turn": {
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 22.5,
+      "mean_intervention_duration": 1.6500000000000001,
+      "mean_requested_speed": 0.2303260429388429,
+      "mean_executed_speed": 0.22152018687242409,
+      "failure_reasons": {},
+      "intervention_reasons": {
+        "braking_sweep": 7,
+        "footprint_overlap": 26
+      }
+    },
+    "clutter": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 21.200000000000003,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.2453600662240182,
+      "mean_executed_speed": 0.2453600662240182,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {}
+    },
+    "dense": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 8.8,
+      "mean_requested_speed": 0.20659481610868802,
+      "mean_executed_speed": 0.12586000315734072,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 67,
+        "footprint_overlap": 109
+      }
+    },
+    "tight_turn": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 1.2000000000000002,
+      "mean_requested_speed": 0.20923201473710845,
+      "mean_executed_speed": 0.20168029705180257,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 13,
+        "footprint_overlap": 11
+      }
+    },
+    "protective": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 11.55,
+      "mean_requested_speed": 0.19503221607888407,
+      "mean_executed_speed": 0.11742159507644714,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 86,
+        "footprint_overlap": 145
+      }
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "2f9e1b47a46cc0124f601fc299ccab21d4ce03c30bc5a5bcc874161b65828c05",
+  "seed_base": 100000,
+  "seed_offsets": "stage_index*1000+episode",
+  "weights_file": "final_model.zip",
+  "weights_sha256": "18b026559530b4eaf97222f6c0a81c305d475eda9be93ba29ad764a4902542a2",
+  "num_timesteps": 51200
+}

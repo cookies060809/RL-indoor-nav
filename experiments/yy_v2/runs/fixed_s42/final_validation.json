@@ -1,0 +1,146 @@
+{
+  "split": "validation",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter",
+    "dense",
+    "tight_turn",
+    "protective"
+  ],
+  "episodes": 14,
+  "successes": 5,
+  "success_rate": 0.35714285714285715,
+  "collision_rate": 0.0,
+  "mean_success_time": 18.9,
+  "mean_intervention_duration": 5.064285714285715,
+  "mean_requested_speed": 0.25533486713815307,
+  "mean_executed_speed": 0.23720954643785302,
+  "mean_reward": 8.011519763480127,
+  "failure_reasons": {
+    "stuck": 9
+  },
+  "intervention_reasons": {
+    "braking_sweep": 320,
+    "footprint_overlap": 389
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 21.5,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.324938516563251,
+      "mean_executed_speed": 0.324938516563251,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {}
+    },
+    "single": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 20.200000000000003,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.30819353972374064,
+      "mean_executed_speed": 0.30819353972374064,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {}
+    },
+    "turn": {
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 16.75,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.32142667524246216,
+      "mean_executed_speed": 0.32142667524246216,
+      "failure_reasons": {},
+      "intervention_reasons": {}
+    },
+    "clutter": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 19.3,
+      "mean_intervention_duration": 5.0,
+      "mean_requested_speed": 0.2439394951802995,
+      "mean_executed_speed": 0.22989205086271294,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 27,
+        "footprint_overlap": 73
+      }
+    },
+    "dense": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 8.9,
+      "mean_requested_speed": 0.20767496041799094,
+      "mean_executed_speed": 0.18332755644175092,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 73,
+        "footprint_overlap": 105
+      }
+    },
+    "tight_turn": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 8.15,
+      "mean_requested_speed": 0.15085126097810075,
+      "mean_executed_speed": 0.12254491996639902,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 73,
+        "footprint_overlap": 90
+      }
+    },
+    "protective": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 13.400000000000002,
+      "mean_requested_speed": 0.2303196218612263,
+      "mean_executed_speed": 0.1701435662646547,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 147,
+        "footprint_overlap": 121
+      }
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "b6248bb5156505776da0a19421284111bc9d0e3add366575c8801d4ca9ae5c90",
+  "seed_base": 100000,
+  "seed_offsets": "stage_index*1000+episode",
+  "weights_file": "final_model.zip",
+  "weights_sha256": "fec223fb624eb1711a4d5a503ffec603e223169eb5ce77f667e51add9f5bd28e",
+  "num_timesteps": 51200
+}

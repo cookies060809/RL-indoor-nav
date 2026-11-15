@@ -33,7 +33,7 @@
 
 ## 4 已实测
 
-- [x] `pytest training/tests/unit`：62 项通过。
+- [x] `pytest training/tests/unit`：63 项通过。
 - [x] `run.py doctor`：Gymnasium `check_env` 通过，输入 2056 维。
 - [x] 2,048 步 SubprocVecEnv 短训完成，四个新阶段均可生成可达任务。
 - [x] 旧 run 的 `final_model` 隔离子进程导出成功，`verify_bundle.py` 通过，final 未携带 best 成绩。

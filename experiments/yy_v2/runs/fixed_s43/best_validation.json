@@ -1,0 +1,154 @@
+{
+  "split": "validation",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter",
+    "dense",
+    "tight_turn",
+    "protective"
+  ],
+  "episodes": 14,
+  "successes": 7,
+  "success_rate": 0.5,
+  "collision_rate": 0.0,
+  "mean_success_time": 20.900000000000002,
+  "mean_intervention_duration": 3.607142857142857,
+  "mean_requested_speed": 0.2209748578051125,
+  "mean_executed_speed": 0.2031620043750014,
+  "mean_reward": 11.724458361483803,
+  "failure_reasons": {
+    "stuck": 7
+  },
+  "intervention_reasons": {
+    "braking_sweep": 199,
+    "footprint_overlap": 306
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 2,
+      "successes": 0,
+      "success_rate": 0.0,
+      "collision_rate": 0.0,
+      "mean_success_time": null,
+      "mean_intervention_duration": 4.75,
+      "mean_requested_speed": 0.2085414607569682,
+      "mean_executed_speed": 0.20260651484122116,
+      "failure_reasons": {
+        "stuck": 2
+      },
+      "intervention_reasons": {
+        "braking_sweep": 57,
+        "footprint_overlap": 38
+      }
+    },
+    "single": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 20.900000000000002,
+      "mean_intervention_duration": 0.9500000000000001,
+      "mean_requested_speed": 0.21472914754785494,
+      "mean_executed_speed": 0.21371515862558121,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 16,
+        "footprint_overlap": 3
+      }
+    },
+    "turn": {
+      "episodes": 2,
+      "successes": 2,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 23.6,
+      "mean_intervention_duration": 3.5,
+      "mean_requested_speed": 0.24152873152168808,
+      "mean_executed_speed": 0.22185324156904113,
+      "failure_reasons": {},
+      "intervention_reasons": {
+        "braking_sweep": 11,
+        "footprint_overlap": 59
+      }
+    },
+    "clutter": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 21.3,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.25192581906374695,
+      "mean_executed_speed": 0.25192581906374695,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {}
+    },
+    "dense": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 26.1,
+      "mean_intervention_duration": 7.45,
+      "mean_requested_speed": 0.2050750869790582,
+      "mean_executed_speed": 0.18129424951519701,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 45,
+        "footprint_overlap": 104
+      }
+    },
+    "tight_turn": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 22.900000000000002,
+      "mean_intervention_duration": 3.5,
+      "mean_requested_speed": 0.19797324217319584,
+      "mean_executed_speed": 0.186429092867457,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "footprint_overlap": 30,
+        "braking_sweep": 40
+      }
+    },
+    "protective": {
+      "episodes": 2,
+      "successes": 1,
+      "success_rate": 0.5,
+      "collision_rate": 0.0,
+      "mean_success_time": 7.9,
+      "mean_intervention_duration": 5.1000000000000005,
+      "mean_requested_speed": 0.2270505165932752,
+      "mean_executed_speed": 0.16430995414276547,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 30,
+        "footprint_overlap": 72
+      }
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "2f9e1b47a46cc0124f601fc299ccab21d4ce03c30bc5a5bcc874161b65828c05",
+  "seed_base": 100000,
+  "seed_offsets": "stage_index*1000+episode",
+  "timesteps": 50000,
+  "wall_seconds": 194.32947569998214,
+  "weights_file": "best_model.zip",
+  "weights_sha256": "e36ae44ba7ca57142f75509fbca4da812d51ea861da377c4031b7dd642442aa2",
+  "num_timesteps": 50000
+}
