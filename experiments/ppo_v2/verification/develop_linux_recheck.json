@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-15",
+  "branch": "develop",
+  "commit": "40bc49437f81dbf180e0d916a0dda3d13981a934",
+  "model": "models/ppo_v2_recommended",
+  "model_policy_sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+  "runtime_sha256": "70938d961e5d6eb0a298deac35c71c9c0501f54597a8eef14f430fb3f2e0f668",
+  "scope": "Ubuntu 22.04 + ROS 2 Humble + Gazebo Classic 11 recheck of the bounded visible-escape change. Nav2 and the fixed-mode simple demo do not use PathTracker and were unchanged since 40f2434.",
+  "checks": {
+    "python_unit_tests": {"passed": 98, "failed": 0},
+    "file_manifest": {"files": 1362, "result": "PASS"},
+    "bev_fixtures": {"fixtures": 11, "failures": 0},
+    "safety_parity": {"cases": 1200, "mismatches": 0},
+    "model_bundles": {"bundles": 4, "result": "PASS"}
+  },
+  "multi_goal_sequence": {
+    "goals_map": [[0.0, 0.0], [2.0, 3.0], [4.5, -2.0]],
+    "reset_before_index": 2,
+    "runs": [
+      {
+        "goal": [0.0, 0.0], "reached": true, "sim_seconds": 23.8, "path_length_m": 5.36,
+        "final_distance_m": 0.237, "tracking_samples": 195, "goal_hold_samples": 8,
+        "escape_samples": 0, "intervention_samples": 0
+      },
+      {
+        "goal": [2.0, 3.0], "reached": true, "sim_seconds": 17.7, "path_length_m": 4.16,
+        "final_distance_m": 0.230, "tracking_samples": 151, "goal_hold_samples": 9,
+        "escape_samples": 0, "intervention_samples": 0
+      },
+      {
+        "goal": [4.5, -2.0], "reached": true, "sim_seconds": 38.8, "path_length_m": 9.01,
+        "final_distance_m": 0.226, "tracking_samples": 346, "goal_hold_samples": 9,
+        "escape_samples": 3, "intervention_samples": 0
+      }
+    ],
+    "csv": "experiments/ppo_v2/linux_home/develop_multi_goal.csv",
+    "note": "The reset at (1.7,3.0) left the mapped footprint close to furniture. The bounded escape produced 3 samples (about 0.3 s), then normal tracking resumed and the goal was reached."
+  },
+  "mid_motion_goal_change": {
+    "first_goal_map": [0.0, 0.0],
+    "second_goal_map": [-5.5, -0.5],
+    "switch_after_seconds": 6.0,
+    "mid_pose": [-4.64, -0.48],
+    "reached": true,
+    "sim_seconds_after_switch": 7.4,
+    "path_length_m": 1.17,
+    "final_distance_m": 0.222,
+    "goal_generation_changed": true,
+    "intervention_samples": 0
+  },
+  "conclusion": {
+    "home_map": "At 40f2434, v1 and v2 were close on the standalone home-map goals (about 23 s to (0,0), 38-39 s from spawn to (2,3)). This recheck confirms the bounded escape does not regress multi-goal/reset or mid-motion goal changes; it is not a new v1/v2 comparison.",
+    "v2_advantage": "Not proven in Gazebo. The 95/96 result is a Windows 2D holdout; these Linux runs are not a success-rate estimate.",
+    "escape_change": "The bounded escape resolves the mapped-overlap deadlock after reset and returns to normal visibility quickly. No intervention was recorded."
+  }
+}

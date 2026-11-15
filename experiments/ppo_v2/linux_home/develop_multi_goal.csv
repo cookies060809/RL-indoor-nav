@@ -1,0 +1,4 @@
+index,goal,reached,sim_seconds,path_length,final_distance,intervention_samples,samples,nav_reasons,end_pose
+0,"(0.0, 0.0)",True,23.8,5.36,0.23702283063931487,0,204,"{'tracking': 195, 'goal_hold': 8, 'goal_reached': 1}","(-0.33, -0.05)"
+1,"(2.0, 3.0)",True,17.7,4.16,0.22986047261543513,0,161,"{'tracking': 151, 'goal_hold': 9, 'goal_reached': 1}","(1.66, 3.06)"
+2,"(4.5, -2.0)",True,38.8,9.01,0.22585401600152127,0,359,"{'tracking': 346, 'tracking_escape': 3, 'goal_hold': 9, 'goal_reached': 1}","(4.17, -1.83)"

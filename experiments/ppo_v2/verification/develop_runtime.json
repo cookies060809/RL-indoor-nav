@@ -12,7 +12,7 @@
   },
   "changed_runtime": "ros2_ws/src/rl_nav_pkg/rl_nav_pkg/path_tracking.py",
   "runtime_sha256": "70938d961e5d6eb0a298deac35c71c9c0501f54597a8eef14f430fb3f2e0f668",
-  "scope": "Windows pure Python regression. Existing Linux report is for develop base; updated visible escape still needs VM recheck.",
+  "scope": "Windows pure Python regression; Ubuntu/Gazebo recheck of the bounded escape is recorded in develop_linux_recheck.json.",
   "python_unit_tests": {
     "passed": 98,
     "failed": 0,
