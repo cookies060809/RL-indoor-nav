@@ -14,5 +14,9 @@ setup(
     maintainer_email='course-project@example.invalid',
     description='BEV PPO inference for the course project',
     license='TODO',
-    entry_points={'console_scripts':['policy_node = rl_nav_pkg.policy_node:main']},
+    entry_points={'console_scripts':[
+        'policy_node = rl_nav_pkg.policy_node:main',
+        'route_manager = rl_nav_pkg.route_manager:main',
+        'local_goal_node = rl_nav_pkg.local_goal_node:main',
+    ]},
 )

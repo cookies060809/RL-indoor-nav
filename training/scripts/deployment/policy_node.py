@@ -32,12 +32,14 @@ class PolicyNode(Node):
         self.declare_parameter('wall_timeout', 1.0)
         self.declare_parameter('max_inference_seconds', 0.5)
         self.declare_parameter('reset_topic', '/policy_reset')
+        self.declare_parameter('goal_stop_radius', 0.3)
         path = Path(self.get_parameter('model_path').value)
         sys.path.insert(0, str(path.parent.resolve()))
         torch.set_num_threads(2)
         self.model = PPO.load(path, device='cpu')
         with (path.parent / 'config.yaml').open(encoding='utf-8') as handle:
             self.cfg = yaml.safe_load(handle)
+        self.goal_reached = False
         self.steady_clock = Clock(clock_type=ClockType.STEADY_TIME)
         self.gate = ObservationGate(
             timeout=self.get_parameter('wall_timeout').value,
@@ -57,6 +59,7 @@ class PolicyNode(Node):
 
     def on_reset(self, _message):
         self.gate.reset()
+        self.goal_reached = False
         self.stop()
 
     def watchdog(self):
@@ -80,6 +83,15 @@ class PolicyNode(Node):
         if not valid or not np.all(np.isfinite(observation)) or not self.model.observation_space.contains(observation):
             self.stop()
             return
+        stop_radius = self.get_parameter('goal_stop_radius').value
+        distance = float(message.goal[2]) * self.cfg['observation']['goal_distance_scale']
+        if stop_radius > 0.0 and distance <= stop_radius:
+            if not self.goal_reached:
+                self.get_logger().info(f'goal reached: {distance:.2f} m, holding stop')
+                self.goal_reached = True
+            self.stop()
+            return
+        self.goal_reached = False
         now_steady = self.steady_seconds()
         now_sim_ns = self.get_clock().now().nanoseconds
         token, error = self.gate.begin(stamp_ns, now_steady, now_sim_ns)
@@ -99,7 +111,6 @@ class PolicyNode(Node):
         command.angular.z = float(clipped[1] * robot['w_max'])
         self.publisher.publish(command)
         self.gate.mark_publish(finished)
-
 
 def main(args=None):
     rclpy.init(args=args)

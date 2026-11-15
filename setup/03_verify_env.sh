@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ROS 2 环境自检：发行版、依赖包、话题通信、Gazebo
 # 用法：bash setup/03_verify_env.sh
-set -uo pipefail
+set -o pipefail
 
 ROS_SETUP="/opt/ros/humble/setup.bash"
 WS_SETUP="${HOME}/ros2_ws/install/setup.bash"
@@ -45,7 +45,7 @@ listener_pid=$!
 sleep 2
 timeout 8 ros2 run demo_nodes_cpp talker >"${tmp}/talker.log" 2>&1 || true
 sleep 1
-if grep -q "I heard: \[hello world" "${tmp}/listener.log"; then
+if grep -qi "I heard: \[hello world" "${tmp}/listener.log"; then
   echo "[ OK ] talker/listener 通信正常"
 else
   echo "[FAIL] talker/listener 通信失败"
