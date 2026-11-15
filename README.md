@@ -1,5 +1,7 @@
 # 室内移动机器人导航项目
 
+本分支为 **develop（v2 开发）**。按约定 main 保持在 `59783f2`，v1 模型与固定前视行为作为对照保留；v2 的代码修复和后续实验只提交到 develop。当前居家地图实测未显示 v2 相对 v1 的明显优势。分支使用和本次修改见 [v2 开发说明](docs/v2开发说明.md)。
+
 ## 2026-11-15：yy v2 集成与重训
 
 居家地图默认模型已改为 `ppo_v2_recommended`。新 96 个二维任务成功 95 个，旧 main 整栈成功 82 个；均无碰撞。前视目标和运行逻辑贡献了主要成功率提升，本次微调进一步减少安全干预。Windows 通过 89 项 Python 测试、21 个 C++ BEV 样例及 1,200 个安全核对照。Ubuntu 22.04 + Gazebo 11 已完成新版闭环验收：居家目标到点、多目标与 reset、Nav2 回归均通过，Linux 91 项测试、11 个 BEV 样例和 1,200 组安全核对照通过，数据见 [linux_gazebo.json](experiments/ppo_v2/verification/linux_gazebo.json)。
@@ -8,7 +10,8 @@
 
 ```bash
 cd ~/ROS2hw
-git pull --ff-only origin main
+git switch develop
+git pull --ff-only origin develop
 bash setup/run_ppo_v2.sh
 ```
 
@@ -17,7 +20,7 @@ bash setup/run_ppo_v2.sh
 ## 直接从 GitHub 下载到虚拟机
 
 ```bash
-git clone https://github.com/cookies060809/RL-indoor-nav.git ~/ROS2hw
+git clone --branch develop https://github.com/cookies060809/RL-indoor-nav.git ~/ROS2hw
 cd ~/ROS2hw
 python3 training/scripts/verify_project.py
 bash training/scripts/setup_ubuntu.sh

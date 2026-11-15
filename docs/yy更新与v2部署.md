@@ -2,6 +2,8 @@
 
 交付日期：2026-11-15。默认居家地图模型：`models/ppo_v2_recommended`。
 
+当前文档位于 **develop**。main 按用户约定冻结，后续 v2 改动和实验只在 develop 进行；具体边界见 [v2 开发说明](v2开发说明.md)。
+
 ## 这次 yy 比刚才多了什么
 
 上一轮查看的是 `9849ce9084d07fc05bb901edf4a35ef8a4c9cc9b`；本轮 yy 是 `d98da4b5dec218533bd455e9b3f65ef1be508cec`。d98 的两个父提交正是 9849 和 main 的 `e020a96`，主要把 main 的 C++ BEV、安全节点、Nav2/PPO 启动、全局路径和演示数据合回 yy，并增加 `goal_stop_radius`。这次没有新的网络架构或奖励函数。
@@ -53,7 +55,8 @@ seed 44 保留初始化检查点，说明训练并非每次都能改善策略。
 
 ```bash
 cd ~/ROS2hw
-git pull --ff-only origin main
+git switch develop
+git pull --ff-only origin develop
 bash setup/run_ppo_v2.sh
 ```
 

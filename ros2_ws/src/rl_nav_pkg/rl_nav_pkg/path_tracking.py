@@ -1,14 +1,27 @@
 """ROS-independent path validity, visible carrots, and final-goal settling."""
 import math
 import numpy as np
-from scipy.ndimage import distance_transform_edt
+from scipy.ndimage import distance_transform_edt, map_coordinates as sample_distance_field
+
+
+def map_coordinates(points, origin, yaw):
+    points = np.asarray(points) - origin
+    c, s = math.cos(yaw), math.sin(yaw)
+    return c * points[..., 0] + s * points[..., 1], -s * points[..., 0] + c * points[..., 1]
+
+
+def cell_indices(x, y, resolution, shape):
+    # Rotating a point back into its map must not move an exact cell boundary
+    # to the preceding cell through floating-point roundoff. Callers validate
+    # physical map bounds before this final roundoff/clipping step.
+    cols = np.clip(np.floor(x / resolution + 1e-9).astype(int), 0, shape[1] - 1)
+    rows = np.clip(np.floor(y / resolution + 1e-9).astype(int), 0, shape[0] - 1)
+    return cols, rows
 
 
 def chord_is_free(start, end, field, origin, resolution, radius, yaw=0.0):
     count = max(2, int(math.ceil(np.linalg.norm(np.asarray(end) - start) / (resolution / 2))) + 1)
-    points = np.linspace(start, end, count) - origin
-    c, s = math.cos(yaw), math.sin(yaw)
-    x, y = c * points[:, 0] + s * points[:, 1], -s * points[:, 0] + c * points[:, 1]
+    x, y = map_coordinates(np.linspace(start, end, count), origin, yaw)
     guard = radius + resolution * (math.sqrt(2) / 2 + 0.25)
     boundary = np.minimum.reduce([x, y, field.shape[1] * resolution - x,
                                   field.shape[0] * resolution - y])
@@ -19,7 +32,7 @@ def chord_is_free(start, end, field, origin, resolution, radius, yaw=0.0):
     if (required <= 0 or np.any(boundary < required - 1e-8)
             or boundary[-1] < guard):
         return False
-    cols, rows = np.floor(x / resolution).astype(int), np.floor(y / resolution).astype(int)
+    cols, rows = cell_indices(x, y, resolution, field.shape)
     return bool(np.all(field[rows, cols] * resolution > guard))
 
 
@@ -67,6 +80,52 @@ class PathTracker:
     def invalid_status(self, reason):
         return {'ready': False, 'reached': False, 'reason': reason,
                 'goal_generation': self.generation, 'final_distance': None}
+
+    def escape_goal(self, position):
+        """A bounded carrot that never moves the mapped footprint closer in.
+
+        Only an existing mapped footprint overlap may use this fallback. The
+        robot centre cannot cross occupied/unknown cells or the map boundary.
+        Live LaserScan protection remains authoritative in safety_node.
+        """
+        x0, y0 = map_coordinates(position, self.origin, self.origin_yaw)
+        if not (0 < x0 < self.field.shape[1] * self.resolution
+                and 0 < y0 < self.field.shape[0] * self.resolution):
+            return None
+        column, row = cell_indices(x0, y0, self.resolution, self.field.shape)
+        guard = self.radius + self.resolution * (math.sqrt(2) / 2 + 0.25)
+        # Use the same conservative cell test as ordinary visibility to decide
+        # whether recovery is needed; use interpolation only to compare motion.
+        if not 0 < self.field[row, column] * self.resolution <= guard:
+            return None
+        def distances(x, y):
+            return sample_distance_field(self.field, [np.atleast_1d(y / self.resolution - 0.5),
+                                                      np.atleast_1d(x / self.resolution - 0.5)],
+                                         order=1, mode='nearest', prefilter=False) * self.resolution
+        clearance = float(distances(x0, y0)[0])
+        # Interpolate on the polyline rather than rounding up to the next
+        # waypoint: a sparse Nav2 path must not turn 0.4 m into several metres.
+        remaining, previous, goal = 0.4, position, None
+        for point in self.path[self.index:]:
+            length = float(np.linalg.norm(point - previous))
+            if length > remaining:
+                goal = previous + (point - previous) * (remaining / length)
+                break
+            remaining -= length
+            previous = point
+            goal = point
+        if goal is None or np.linalg.norm(goal - position) < 1e-6:
+            return None
+        count = max(2, int(math.ceil(np.linalg.norm(goal - position) / (self.resolution / 2))) + 1)
+        x, y = map_coordinates(np.linspace(position, goal, count), self.origin, self.origin_yaw)
+        boundary = np.minimum.reduce([x, y, self.field.shape[1] * self.resolution - x,
+                                      self.field.shape[0] * self.resolution - y])
+        if boundary[0] <= 0 or np.any(boundary < min(guard, boundary[0]) - 1e-8):
+            return None
+        cols, rows = cell_indices(x, y, self.resolution, self.field.shape)
+        if np.any(self.field[rows, cols] <= 0) or np.any(distances(x, y) < clearance - 1e-8):
+            return None
+        return goal.copy()
 
     def update(self, position, now_sim, now_steady):
         if self.last_sim is not None and now_sim < self.last_sim - 0.5:
@@ -119,16 +178,9 @@ class PathTracker:
         # every chord fails at the start cell. Escape along the planner's path
         # with a short carrot; full visibility returns once a chord is clear.
         # A clear pose that merely has no visible chord stays stopped.
-        column = int(math.floor((position[0] - self.origin[0]) / self.resolution))
-        row = int(math.floor((position[1] - self.origin[1]) / self.resolution))
-        if 0 <= row < self.field.shape[0] and 0 <= column < self.field.shape[1]:
-            min_guard = self.radius + self.resolution * (math.sqrt(2) / 2 + 0.25)
-            if self.field[row, column] * self.resolution <= min_guard:
-                escape = min(float(self.arc[-1]), float(self.arc[self.index]) + 0.4)
-                j = min(len(self.path) - 1, int(np.searchsorted(self.arc, escape)))
-                if j > self.index:
-                    status = dict(status, reason='tracking_escape')
-                    return self.path[j].copy(), status
+        goal = self.escape_goal(position)
+        if goal is not None:
+            return goal, dict(status, reason='tracking_escape')
         return None, self.invalid_status('no_visible_carrot')
 
 

@@ -89,6 +89,63 @@ def test_visibility_escapes_when_footprint_overlaps_the_map():
     goal, status = tracker.update([1.7, 2.1], 0, 0)
     assert status['ready'] and status['reason'] == 'tracking_escape'
     assert goal[0] > 1.7
+    assert np.linalg.norm(goal - [1.7, 2.1]) <= 0.4 + 1e-8
+
+
+def test_escape_handles_coarse_visibility_guard():
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[18, :] = 100
+    tracker.set_map(grid, [0, 0], 0.1)
+    tracker.set_path([[1.7, 2.2], [4.0, 2.2]], 0)
+    goal, status = tracker.update([1.7, 2.19], 0, 0)
+    assert status['reason'] == 'tracking_escape' and np.linalg.norm(goal - [1.7, 2.19]) <= 0.4 + 1e-8
+
+
+def test_escape_uses_rotated_map_origin():
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[15:19, 17:22] = 100
+    origin = np.array([5.0, -3.0])
+    rotation = np.array([[0.0, -1.0], [1.0, 0.0]])
+    position = rotation @ [1.7, 2.1] + origin
+    tracker.set_map(grid, origin, 0.1, np.pi / 2)
+    tracker.set_path(np.array([[1.7, 2.2], [4.0, 2.2]]) @ rotation.T + origin, 0)
+    goal, status = tracker.update(position, 0, 0)
+    assert status['reason'] == 'tracking_escape'
+    assert np.linalg.norm(goal - position) <= 0.4 + 1e-8
+
+
+@pytest.mark.parametrize('blocked', [100, -1])
+def test_escape_cannot_cross_wall_or_unknown_cells(blocked):
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[:, 20] = blocked
+    tracker.set_map(grid, [0, 0], 0.1)
+    tracker.set_path([[1.8, 2.0], [3.0, 2.0]], 0)
+    goal, status = tracker.update([1.8, 2.0], 0, 0)
+    assert goal is None and not status['ready']
+
+
+def test_escape_cannot_move_closer_to_wall_even_if_centre_stays_free():
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[:, 20] = 100
+    tracker.set_map(grid, [0, 0], 0.1)
+    tracker.set_path([[1.8, 2.0], [1.95, 3.0]], 0)
+    goal, status = tracker.update([1.8, 2.0], 0, 0)
+    assert goal is None and not status['ready']
+
+
+@pytest.mark.parametrize('blocked', [100, -1])
+def test_escape_does_not_start_from_occupied_or_unknown_centre(blocked):
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[21, 17] = blocked
+    tracker.set_map(grid, [0, 0], 0.1)
+    tracker.set_path([[1.7, 2.2], [4.0, 2.2]], 0)
+    goal, status = tracker.update([1.7, 2.1], 0, 0)
+    assert goal is None and not status['ready']
 
 
 def test_old_plan_generation_never_reappears():

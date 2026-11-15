@@ -1,0 +1,25 @@
+{
+  "main_frozen": "59783f238af4543232bee9505a2a2525ae9a1978",
+  "develop_base": "40f243485b024ac6ab4e7a0a09da5d283ab8fb19",
+  "fixed_mode_comparisons": 2400,
+  "fixed_mode_differences": 0,
+  "model_files_identical_to_main": 248,
+  "policy_sha256": {
+    "models/ppo_v2_recommended/policy.zip": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+    "models/split_empty_pretrain_v1/policy.zip": "2d35fb4a62758756ec67ea458108addd6203bc12a1d4afa0eb80311ce47e0e48",
+    "models/split_mixed_pretrain_v1/policy.zip": "840264d71abaac7e089dd9305b881d5fc45b43fe4ed26f9d392ae35c35c2ede3",
+    "models/split_single_pretrain_v1/policy.zip": "55e06bb30e22bfd66dc80a9621cd6b2631c02adec9262f353ae4c669fd877530"
+  },
+  "changed_runtime": "ros2_ws/src/rl_nav_pkg/rl_nav_pkg/path_tracking.py",
+  "runtime_sha256": "70938d961e5d6eb0a298deac35c71c9c0501f54597a8eef14f430fb3f2e0f668",
+  "scope": "Windows pure Python regression. Existing Linux report is for develop base; updated visible escape still needs VM recheck.",
+  "python_unit_tests": {
+    "passed": 98,
+    "failed": 0,
+    "command": "python -m pytest training/tests/unit -q"
+  },
+  "model_bundle_verification": {
+    "bundles": 4,
+    "result": "PASS"
+  }
+}
