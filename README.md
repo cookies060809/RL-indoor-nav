@@ -75,6 +75,7 @@ cd ~/ROS2hw
 bash setup/04_setup_rl_env.sh    # 首次建立 venv 与依赖
 bash run.sh doctor
 ./setup/run_rl_nav.sh            # PPO 闭环：Gazebo + BEV + 策略 + safety
+./setup/run_ppo_home.sh          # PPO + 居家地图：Nav2 全局规划 + 1.2 m 前视目标
 ./setup/run_nav2_home.sh         # Nav2 + 居家地图：唯一 /cmd_vel 出口仍是 safety
 ```
 

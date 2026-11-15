@@ -28,6 +28,35 @@ cd ~/ROS2hw
           /cmd_vel → Gazebo 底盘
 ```
 
+## PPO 居家地图（Nav2 规划 + 前视目标）
+
+```bash
+cd ~/ROS2hw
+./setup/run_ppo_home.sh
+```
+
+启动内容：`robocup_home.world`、课程地图、`map_server`、AMCL、`planner_server`、`route_manager`、`local_goal_node`、BEV、策略、`safety_node`、RViz。AMCL 初始位姿 (-5.9, -0.5)：出发点在地图边界，向图内偏 0.1 m 以避免规划器判起点越界。
+
+| 参数 | 默认 | 说明 |
+|---|---|---|
+| `model_id` | `split_mixed_pretrain_v1` | 模型目录 |
+| `rviz` | `true` | 是否启动 RViz |
+| `policy` | `true` | 是否启动策略节点 |
+| `initial_x` / `initial_y` / `initial_yaw` | -5.9 / -0.5 / 0.0 | AMCL 初始位姿 |
+
+发送最终目标（RViz `2D Goal Pose` 或命令行）：
+
+```bash
+ros2 topic pub --once /goal_pose geometry_msgs/msg/PoseStamped \
+  "{header: {frame_id: map}, pose: {position: {x: 0.0, y: 0.0}, orientation: {w: 1.0}}}"
+```
+
+```text
+/goal_pose → route_manager → /compute_path_to_pose → /global_path
+/global_path + TF → local_goal_node → /local_goal (1.2 m lookahead)
+/local_goal → bev_node → policy_node → /cmd_vel_rl → safety_node → /cmd_vel
+```
+
 ## Nav2 基线（居家地图）
 
 ```bash
