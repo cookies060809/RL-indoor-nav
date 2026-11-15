@@ -1,8 +1,0 @@
-{
-  "elapsed_seconds": 295.33132840000326,
-  "model_timesteps": 51200,
-  "requested_additional_steps": 50000,
-  "final_weights_sha256": "1b51783b08790e5a2473315bc0653312e39a3d861bbc730d57fc9f74373b5d9a",
-  "best_weights_sha256": "9f2051a8a383bbf4c7d141fe6bbc04c2e62bc37f5e9f9d8b48726a6968dc6a2c",
-  "best_num_timesteps": 40000
-}

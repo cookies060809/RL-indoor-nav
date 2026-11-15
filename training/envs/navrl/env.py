@@ -7,9 +7,6 @@ from gymnasium import spaces
 from .geometry import raycast, clearance_at, plan_path, integrate
 from .observation import make_observation
 from .control import scale_action, limit_rate, filter_velocity
-from .goal import select_local_goal
-
-STAGE_NAMES = ('empty', 'single', 'turn', 'clutter', 'dense', 'tight_turn', 'protective')
 
 
 class IndoorNavEnv(gym.Env):
@@ -28,16 +25,6 @@ class IndoorNavEnv(gym.Env):
         self.observation_space = spaces.Box(low, high, dtype=np.float32)
         self.action_space = spaces.Box(-1, 1, (2,), dtype=np.float32)
 
-    def _choose_stage(self):
-        configured = self.cfg['environment']['stage']
-        if configured != 'mixed':
-            return configured
-        weights = self.cfg['environment']['stage_weights']
-        names = list(weights)
-        probabilities = np.asarray([weights[name] for name in names], dtype=float)
-        probabilities = probabilities / probabilities.sum()
-        return str(self.np_random.choice(names, p=probabilities))
-
     def _make_layout(self, stage):
         half = self.cfg['environment']['room_half_size']
         rectangles = [
@@ -46,67 +33,41 @@ class IndoorNavEnv(gym.Env):
             [-half, -half - 0.2, half, -half],
             [-half, half, half, half + 0.2],
         ]
+        if stage == 'mixed':
+            stage = self.np_random.choice(['empty', 'single', 'turn', 'clutter'])
         if stage == 'turn':
             rectangles.append([-0.2, -1.8, 0.2, 0.7])
-        elif stage == 'tight_turn':
-            rectangles.append([-0.2, -1.8, 0.2, 0.7])
-            rectangles.append([0.45, 1.55, 1.05, 2.05])
-        elif stage == 'protective':
-            # Narrow 0.8 m corridor; start and goal are sampled inside it.
-            rectangles.append([-half - 0.2, -half - 0.2, -0.4, half + 0.2])
-            rectangles.append([0.4, -half - 0.2, half + 0.2, half + 0.2])
         else:
-            count = {'empty': 0, 'single': 1, 'clutter': 5, 'dense': 9}[stage]
-            width_range = (0.20, 0.45) if stage == 'dense' else (0.25, 0.65)
-            extent = 2.2 if stage == 'dense' else 1.8
+            count = {'empty': 0, 'single': 1, 'clutter': 5}[stage]
             for _ in range(count):
-                center = self.np_random.uniform(-extent, extent, 2)
-                width = self.np_random.uniform(*width_range, 2)
+                center = self.np_random.uniform(-1.8, 1.8, 2)
+                width = self.np_random.uniform(0.25, 0.65, 2)
                 rectangles.append([*(center - width / 2), *(center + width / 2)])
+        self.actual_stage = str(stage)
         return np.asarray(rectangles, dtype=float)
-
-    def _free_cells(self):
-        environment = self.cfg['environment']
-        robot = self.cfg['robot']
-        margin = environment['planner_margin'] + 0.02
-        half = environment['room_half_size'] - robot['radius'] - 0.3
-        resolution = environment['task_grid_resolution']
-        axis = np.arange(-half, half + 1e-9, resolution)
-        x, y = np.meshgrid(axis, axis)
-        clearance = np.full_like(x, np.inf)
-        for rectangle in self.rectangles:
-            dx = np.maximum(np.maximum(rectangle[0] - x, 0), x - rectangle[2])
-            dy = np.maximum(np.maximum(rectangle[1] - y, 0), y - rectangle[3])
-            clearance = np.minimum(clearance, np.hypot(dx, dy) - robot['radius'])
-        free = clearance >= margin
-        return np.column_stack([x[free], y[free]])
-
-    def _sample_task(self, stage):
-        environment = self.cfg['environment']
-        for _ in range(environment['layout_attempts']):
-            self.rectangles = self._make_layout(stage)
-            cells = self._free_cells()
-            if len(cells) < 2:
-                continue
-            for _ in range(environment['task_attempts']):
-                indices = self.np_random.integers(0, len(cells), size=2)
-                start = cells[indices[0]]
-                goal = cells[indices[1]]
-                distance = float(np.linalg.norm(goal - start))
-                if distance < environment['min_goal_distance'] or distance > environment['max_goal_distance']:
-                    continue
-                path = plan_path(start, goal, self.rectangles, self.cfg)
-                if path is not None:
-                    return start, goal, path
-        raise RuntimeError(f'Could not generate reachable task for fixed stage {stage}')
 
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed)
         environment = self.cfg['environment']
         robot = self.cfg['robot']
-        stage = self._choose_stage()
-        start, goal, path = self._sample_task(stage)
-        self.actual_stage = stage
+        for _ in range(120):
+            self.rectangles = self._make_layout(environment['stage'])
+            half = environment['room_half_size'] - robot['radius'] - 0.3
+            start = self.np_random.uniform(-half, half, 2)
+            angle = self.np_random.uniform(-np.pi, np.pi)
+            distance = self.np_random.uniform(environment['min_goal_distance'],
+                                               environment['max_goal_distance'])
+            goal = start + distance * np.array([np.cos(angle), np.sin(angle)])
+            if np.any(np.abs(goal) > half):
+                continue
+            if min(clearance_at(start, self.rectangles, robot['radius']),
+                   clearance_at(goal, self.rectangles, robot['radius'])) < environment['planner_margin'] + 0.05:
+                continue
+            path = plan_path(start, goal, self.rectangles, self.cfg)
+            if path is not None:
+                break
+        else:
+            raise RuntimeError('Could not generate reachable task; inspect task distances/layout bounds')
         self.goal = goal
         self.path = path
         self.arc = np.concatenate([[0.0], np.cumsum(np.linalg.norm(np.diff(path, axis=0), axis=1))])
@@ -133,8 +94,8 @@ class IndoorNavEnv(gym.Env):
         self.max_steps = max(environment['max_steps'], int(math.ceil(
             (environment['timeout_factor'] * self.reference_length / robot['v_max'] + 15) / robot['dt'])))
         self.ranges = self._scan()
-        self.path_index = 0
-        _, self.local_goal = select_local_goal(self.path, self.arc, self.pose, self.cfg, 0)
+        self.local_goal = self.path[min(len(self.path) - 1,
+                                        np.searchsorted(self.arc, environment['lookahead']))]
         self.previous_heading_error = self._heading_error()
         return self._observation(), {'stage': self.actual_stage, 'reference_length': self.reference_length}
 
@@ -161,8 +122,9 @@ class IndoorNavEnv(gym.Env):
         high = min(len(self.path), self.path_index + 35)
         self.path_index = low + int(np.argmin(np.linalg.norm(self.path[low:high] - self.pose[:2], axis=1)))
         self.progress = float(self.arc[self.path_index])
-        _, self.local_goal = select_local_goal(
-            self.path, self.arc, self.pose, self.cfg, self.path_index)
+        target = min(self.reference_length, self.progress + self.cfg['environment']['lookahead'])
+        index = min(len(self.path) - 1, int(np.searchsorted(self.arc, target)))
+        self.local_goal = self.path[index]
 
     def _observation(self):
         delta = self.local_goal - self.pose[:2]
@@ -170,12 +132,9 @@ class IndoorNavEnv(gym.Env):
         local = np.array([cosine * delta[0] + sine * delta[1], -sine * delta[0] + cosine * delta[1]])
         return make_observation(self.ranges, local, self.velocity, self.previous_executed, self.cfg)
 
-    def _compute_reward(self, delta_progress, clearance, success, collision, old_w,
-                        requested, executed, intervening):
+    def _compute_reward(self, delta_progress, clearance, success, collision, old_w):
         """Primary tuning point: every component is exposed in episode summaries."""
         reward = self.cfg['reward']
-        scale = np.array([self.cfg['robot']['v_max'], self.cfg['robot']['w_max']])
-        deviation = np.linalg.norm((np.asarray(requested) - np.asarray(executed)) / scale)
         terms = {
             'progress': reward['progress'] * delta_progress,
             'time': reward['time'],
@@ -184,8 +143,6 @@ class IndoorNavEnv(gym.Env):
             'smoothness': reward['smoothness'] * abs(self.velocity[1] - old_w),
             'success': reward['success'] if success else 0.0,
             'collision': reward['collision'] if collision else 0.0,
-            'intervention': reward.get('intervention', 0.0) * float(intervening),
-            'action_deviation': reward.get('action_deviation', 0.0) * float(deviation),
         }
         for key, value in terms.items():
             self.reward_sums[key] = self.reward_sums.get(key, 0.0) + float(value)
@@ -255,8 +212,7 @@ class IndoorNavEnv(gym.Env):
         else:
             reason = ''
         reward, terms = self._compute_reward(
-            delta_progress, clearance, success, collision, old_velocity[1],
-            rate_limited, self.velocity, intervening)
+            delta_progress, clearance, success, collision, old_velocity[1])
         self.ranges = self._scan()
         info = {
             'reward_terms': terms,

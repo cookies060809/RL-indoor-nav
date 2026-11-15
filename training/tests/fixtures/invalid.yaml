@@ -38,26 +38,9 @@ environment:
   stuck_seconds: 10.0
   min_goal_distance: 1.0
   max_goal_distance: 2.5
-  stage_weights:
-    empty: 0.05
-    single: 0.1
-    turn: 0.15
-    clutter: 0.2
-    dense: 0.2
-    tight_turn: 0.15
-    protective: 0.15
-  task_grid_resolution: 0.05
-  layout_attempts: 24
-  task_attempts: 120
   turn_grace_seconds: 4.0
   turn_rate_threshold: 0.2
   progress_epsilon: 0.005
-  goal_selection:
-    mode: fixed
-    min_lookahead: 0.5
-    turn_angle_threshold: 0.35
-    turn_scan_distance: 0.8
-    direct_corridor: 0.35
 reward:
   progress: 2.0
   time: -0.01
@@ -66,8 +49,6 @@ reward:
   smoothness: -0.005
   success: 20.0
   collision: -20.0
-  intervention: 0.0
-  action_deviation: 0.0
 ppo:
   learning_rate: 0.0003
   n_steps: 512
@@ -93,6 +74,3 @@ training:
   - single
   - turn
   - clutter
-  - dense
-  - tight_turn
-  - protective

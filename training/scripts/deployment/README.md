@@ -1,10 +1,9 @@
 # 模型导出辅助文件
 
-本目录保留策略节点、看门狗状态机、局部目标参考、消息源文件与模型包校验脚本。`run.py export` 会把本目录复制到新模型包；已有 v1 模型包内的旧副本保持原样。
+本目录保留策略节点、看门狗状态机、消息源文件与模型包校验脚本。`run.py export` 会把本目录复制到新模型包；已有 v1 模型包内的旧副本保持原样。
 
 - `policy_node.py`：STEADY_TIME 看门狗、重置清空、推理 token/超时检查；只发布 `/cmd_vel_rl`。
 - `watchdog.py`：不依赖 rclpy 的新鲜度状态机，可在 Windows 单元测试。
-- `route_goal.py`：与训练环境相同的 `navrl.goal.select_local_goal` 部署参考。
 - `verify_bundle.py`：校验 SHA256、`export_manifest.json` 权重绑定、final 不携带 best 成绩，并比对固定推理输出。
 - `PolicyObservation.msg`：观测消息源文件。
 

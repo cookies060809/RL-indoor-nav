@@ -34,6 +34,6 @@ def test_stage_and_stages_are_mutually_exclusive(cfg):
 def test_stages_override_is_recorded_without_losing_model_stage(cfg):
     model_cfg = copy.deepcopy(cfg)
     model_cfg['environment']['stage'] = 'mixed'
-    effective = resolve_evaluation_config(model_cfg, stages=['empty', 'dense'])
+    effective = resolve_evaluation_config(model_cfg, stages=['empty', 'single'])
     assert effective['environment']['stage'] == 'mixed'
-    assert effective['evaluation']['stages'] == ['empty', 'dense']
+    assert effective['evaluation']['stages'] == ['empty', 'single']

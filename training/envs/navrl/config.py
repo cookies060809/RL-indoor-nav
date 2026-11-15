@@ -7,7 +7,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[3]
 CURRENT_SPEC = 'bev_nav_v2'
-STAGES = ('empty', 'single', 'turn', 'clutter', 'dense', 'tight_turn', 'protective')
+STAGES = ('empty', 'single', 'turn', 'clutter')
 
 
 def load_config(path=None, strict=True):
@@ -97,38 +97,12 @@ def validate_config(cfg, require_current=True):
              'environment.min_goal_distance must not exceed max_goal_distance')
     _require(environment['max_goal_distance'] <= 2 * environment['room_half_size'] * math.sqrt(2),
              'environment.max_goal_distance exceeds the room diagonal')
-    _positive(cfg, 'environment', 'task_grid_resolution')
-    _require(isinstance(environment['layout_attempts'], int) and environment['layout_attempts'] > 0,
-             'environment.layout_attempts must be a positive integer')
-    _require(isinstance(environment['task_attempts'], int) and environment['task_attempts'] > 0,
-             'environment.task_attempts must be a positive integer')
-
-    weights = environment['stage_weights']
-    _require(isinstance(weights, dict) and weights, 'environment.stage_weights must be a non-empty mapping')
-    _require(all(name in STAGES for name in weights), 'environment.stage_weights contains an unknown stage')
-    _require(all(isinstance(value, (int, float)) and math.isfinite(value) and value >= 0
-                 for value in weights.values()), 'stage weights must be non-negative finite numbers')
-    _require(sum(weights.values()) > 0, 'stage weights must not all be zero')
-
-    selection = environment['goal_selection']
-    _require(selection['mode'] in ('fixed', 'adaptive'), 'goal_selection.mode must be fixed or adaptive')
-    _require(0 < selection['min_lookahead'] <= environment['lookahead'],
-             'goal_selection.min_lookahead must be in (0, lookahead]')
-    _require(0 <= selection['turn_angle_threshold'] <= math.pi / 2,
-             'goal_selection.turn_angle_threshold must be in [0, pi/2]')
-    for key in ('turn_scan_distance', 'direct_corridor'):
-        _require(isinstance(selection[key], (int, float)) and math.isfinite(selection[key]) and selection[key] > 0,
-                 f'goal_selection.{key} must be positive')
 
     reward = cfg['reward']
     _positive(cfg, 'reward', 'progress')
     _positive(cfg, 'reward', 'clearance_threshold')
     _require(reward['success'] > 0, 'reward.success must be positive')
     _require(reward['collision'] < 0, 'reward.collision must be negative')
-    for key in ('intervention', 'action_deviation'):
-        if key in reward:
-            _require(isinstance(reward[key], (int, float)) and reward[key] <= 0,
-                     f'reward.{key} must be non-positive')
 
     ppo = cfg['ppo']
     _positive(cfg, 'ppo', 'learning_rate')

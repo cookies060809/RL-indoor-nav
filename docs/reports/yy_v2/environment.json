@@ -21,14 +21,14 @@
     2056
   ],
   "action": [
-    -0.006522997748106718,
-    0.009017317555844784
+    -0.001664566807448864,
+    0.009015807881951332
   ],
   "gym_check": "passed",
   "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff",
   "spec_version": "bev_nav_v2",
   "git": {
-    "commit": "2de32dcdf6001d2bc0b2092a4c27ec659875cfa4",
-    "dirty": false
+    "commit": "8d60cbfa60acbb49b46461e54f8ef153c0a2f36a",
+    "dirty": true
   }
 }

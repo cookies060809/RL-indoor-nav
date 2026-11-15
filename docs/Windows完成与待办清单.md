@@ -16,7 +16,7 @@
 - Python 3.10.22；torch 2.8.0+cpu；SB3 2.9.2；Gymnasium 1.4.0；NumPy 2.2.6；SciPy 1.15.3；Numba 0.63.1。
 - 当前 Windows 实测 14 个物理核、20 个逻辑线程、约 31.7 GB 内存、无 CUDA；以 `docs/reports/yy_v2/environment.json` 为准。
 - 项目内 `.venv` 由 `setup_windows.ps1` 重建；运行入口 `run.cmd`/`python.cmd`。
-- 所有新训练、评估、图表和报告写入 `experiments/yy_v2/` 与 `docs/reports/yy_v2/`。
+- 新训练和评估写入 `training/runs/`；v2 环境与 fixtures 诊断在 `docs/reports/yy_v2/`。
 
 ## 3 本次完成的代码
 
@@ -28,14 +28,13 @@
 - [x] 导出在隔离子进程中只使用训练快照，记录权重哈希、步数和成绩绑定；final 不携带 best 成绩。
 - [x] 卡死按持续无进展判定，移除角速度豁免，增加有限转向宽限期。
 - [x] 配置范围检查、续训检查前置、临时目录导出、逐步评估记录（动作、请求/执行速度、干预原因、版本）。
-- [x] 新增自适应局部目标、`dense`/`tight_turn`/`protective` 场景和显式 `stage_weights`。
-- [x] 默认关闭的干预/动作偏差奖励开关，支持单因素实验。
+- [x] 策略恢复为原有固定 1.2 m 前视和四场景课程；未保留扩展场景权重、局部目标模式或额外奖励项。
 
 ## 4 已实测
 
-- [x] `pytest training/tests/unit`：63 项通过。
+- [x] `pytest training/tests/unit`：55 项通过。
 - [x] `run.py doctor`：Gymnasium `check_env` 通过，输入 2056 维。
-- [x] 2,048 步 SubprocVecEnv 短训完成，四个新阶段均可生成可达任务。
+- [x] 2,048 步 SubprocVecEnv 短训完成，原有四类场景均可生成可达任务。
 - [x] 旧 run 的 `final_model` 隔离子进程导出成功，`verify_bundle.py` 通过，final 未携带 best 成绩。
 - [x] 旧 v1 模型普通 `--resume` 被拒绝且未创建实验目录；`--init-from` 成功并记录来源。
 - [x] 评估 CLI 的 `--no-safety` 与模型配置组合已验证：执行、保存配置和 `effective_safety` 一致。
@@ -65,12 +64,11 @@
 | 保护与覆盖 | `training/envs/navrl/control.py` |
 | BEV | `training/envs/navrl/observation.py` |
 | 环境、场景、卡死 | `training/envs/navrl/env.py` |
-| 局部目标 | `training/envs/navrl/goal.py` |
 | 评估记录 | `training/envs/navrl/evaluation.py` |
 | 训练/评估/导出入口 | `training/scripts/run.py` |
 | 隔离导出 | `training/scripts/export_bundle.py` |
 | 看门狗状态机 | `training/scripts/deployment/watchdog.py` |
 | 策略节点 | `training/scripts/deployment/policy_node.py` |
-| v2 报告 | `docs/reports/yy_v2/` |
+| v2 环境与 fixtures | `docs/reports/yy_v2/` |
 
 历史 Windows 实测摘要仍见 `docs/reports/windows_original/验收摘要.md`；那些结果的模型、语义版本和测试集与本页不同，不能直接合并比较。
