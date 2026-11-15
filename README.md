@@ -3,8 +3,8 @@
 ## 直接从 GitHub 下载到虚拟机
 
 ```bash
-git clone https://github.com/cookies060809/RL-indoor-nav.git ~/RL-indoor-nav
-cd ~/RL-indoor-nav
+git clone https://github.com/cookies060809/RL-indoor-nav.git ~/ROS2hw
+cd ~/ROS2hw
 python3 training/scripts/verify_project.py
 bash training/scripts/setup_ubuntu.sh
 bash run.sh doctor
@@ -34,11 +34,11 @@ project/
 ├── ros2_ws/src/
 │   ├── wpr_simulation2/          说明目录，课程源码沿用虚拟机现有版本
 │   ├── project_msgs/             消息定义及构建文件，待 Ubuntu 编译
-│   ├── bev_pkg/                  待实现 C++ BEV
-│   ├── rl_nav_pkg/               Python 推理节点及构建文件，待 Ubuntu 验证
-│   ├── safety_pkg/               待实现独立安全节点
-│   ├── evaluation_pkg/           待实现 Gazebo 评测
-│   └── project_bringup/          待集成路径管理和整体启动
+│   ├── bev_pkg/                  C++ BEV 核心、节点与一致性校验
+│   ├── rl_nav_pkg/               Python 推理节点及构建文件
+│   ├── safety_pkg/               独立安全节点，唯一 /cmd_vel 发布者
+│   ├── evaluation_pkg/           Gazebo 评测（待实现）
+│   └── project_bringup/          PPO/Nav2 启动、俯视相机与录像
 ├── training/
 │   ├── envs/navrl/               二维环境、BEV、奖励、控制和特征提取器
 │   ├── scripts/                  训练、评估、打包与安装工具
@@ -71,13 +71,14 @@ cd E:\ROS2\project
 ## Ubuntu 使用
 
 ```bash
-cd ~/ROS2_project_import/project
-python3 training/scripts/verify_project.py
-bash training/scripts/setup_ubuntu.sh
+cd ~/ROS2hw
+bash setup/04_setup_rl_env.sh    # 首次建立 venv 与依赖
 bash run.sh doctor
+./setup/run_rl_nav.sh            # PPO 闭环：Gazebo + BEV + 策略 + safety
+./setup/run_nav2_home.sh         # Nav2 + 居家地图：唯一 /cmd_vel 出口仍是 safety
 ```
 
-训练环境、模型和数据可以检查；完整 Gazebo 系统仍需实现 BEV、安全控制、主动规划与评测。不要直接把 `/cmd_vel_rl` 接到底盘替代安全节点。
+已实现 C++ BEV、独立安全节点、Nav2 经 safety 的统一速度出口，并在 `experiments/videos/` 生成两段演示视频。PPO 主动全局规划、`evaluation_pkg` 与正式 A/B/C 实验仍在进行，详见 [中期审查进展](docs/中期审查进展.md)。不要直接把 `/cmd_vel_rl` 接到底盘替代安全节点。
 
 ## 模型和既有结果
 

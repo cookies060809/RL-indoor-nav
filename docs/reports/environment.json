@@ -1,6 +1,6 @@
 {
-  "python": "3.10.22 (main, Oct  9 2026, 15:18:58) [MSC v.1944 64 bit (AMD64)]",
-  "executable": "E:\\ROS2\\.venv\\Scripts\\python.exe",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "executable": "/home/qiqi/ROS2hw/.venv/bin/python",
   "versions": {
     "torch": "2.8.0+cpu",
     "stable-baselines3": "2.9.2",
@@ -12,16 +12,16 @@
     "tensorboard": "2.21.0",
     "psutil": "7.2.2"
   },
-  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
-  "physical_cores": 20,
-  "logical_cores": 28,
-  "ram_gb": 63.772972106933594,
+  "cpu": "x86_64",
+  "physical_cores": 8,
+  "logical_cores": 8,
+  "ram_gb": 31.29922866821289,
   "cuda": false,
   "obs_shape": [
     2056
   ],
   "action": [
-    -0.001664565410465002,
+    -0.0016645656432956457,
     0.009015808813273907
   ],
   "gym_check": "passed",

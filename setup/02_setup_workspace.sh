@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 初始化 ROS 2 工作空间、拉取课程仿真包并编译
 # 用法：bash setup/02_setup_workspace.sh
-set -euo pipefail
+set -eo pipefail
 
 ROS_DISTRO=humble
 ROS_SETUP="/opt/ros/${ROS_DISTRO}/setup.bash"
@@ -45,8 +45,8 @@ source /opt/ros/humble/setup.bash
 if [ -f "$HOME/ros2_ws/install/setup.bash" ]; then
   source "$HOME/ros2_ws/install/setup.bash"
 fi
-# 本机调试时推荐开启；需要跨机器通信时注释掉
-export ROS_LOCALHOST_ONLY=1
+# 默认不设置 ROS_LOCALHOST_ONLY；所有终端保持一致即可
+# export ROS_LOCALHOST_ONLY=1
 # <<< ros2-humble <<<
 EOF
   echo "已写入 ~/.bashrc"
