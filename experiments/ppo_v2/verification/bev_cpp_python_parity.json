@@ -1,0 +1,20 @@
+{
+  "platform": "Windows native C++ portable core, Zig 0.13.0; ROS node integration not run",
+  "results": [
+    {
+      "spec_version": "bev_nav_v1",
+      "output": "PASS boundary occ=0 dist=0 goal=0\nPASS corner occ=0 dist=0 goal=0\nPASS empty occ=0 dist=0 goal=0\nPASS front_wall occ=0 dist=0 goal=0\nPASS invalid occ=0 dist=0 goal=0\nPASS left_wall occ=0 dist=0 goal=0\nPASS minimum occ=0 dist=0 goal=0\nPASS offset_sensor occ=0 dist=0 goal=0\nPASS right_wall occ=0 dist=0 goal=0\nPASS zero_goal occ=0 dist=0 goal=0\n10 fixtures, 0 failures",
+      "cases": 10
+    },
+    {
+      "spec_version": "bev_nav_v2",
+      "output": "PASS above_max occ=0 dist=0 goal=0\nPASS boundary occ=0 dist=0 goal=0\nPASS corner occ=0 dist=0 goal=0\nPASS empty occ=0 dist=0 goal=0\nPASS front_wall occ=0 dist=0 goal=0\nPASS invalid occ=0 dist=0 goal=0\nPASS left_wall occ=0 dist=0 goal=0\nPASS minimum occ=0 dist=0 goal=0\nPASS offset_sensor occ=0 dist=0 goal=0\nPASS right_wall occ=0 dist=0 goal=0\nPASS zero_goal occ=0 dist=0 goal=0\n11 fixtures, 0 failures",
+      "cases": 11
+    }
+  ],
+  "source_hashes": {
+    "ros2_ws/src/bev_pkg/src/bev_core.cpp": "72f868405b21428ef46b1c07a5a2c4e4c1732e1dfe29c24ec7d54ea869206e1a",
+    "ros2_ws/src/bev_pkg/include/bev_pkg/bev_core.hpp": "8c14eb4bd82ecdd06b60f6b91639bf622d84076fa633ac1c67c974e18c447887",
+    "ros2_ws/src/bev_pkg/test/bev_fixture_check.cpp": "3dcb8e9d778bad3e89993942e6fc55e7a84ead95b437e2004fc96f53cc9db73f"
+  }
+}

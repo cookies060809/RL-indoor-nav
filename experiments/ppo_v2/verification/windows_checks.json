@@ -1,0 +1,22 @@
+{
+  "python_unit_tests": {
+    "passed": 89,
+    "command": "python -m pytest training/tests/unit -q"
+  },
+  "export_regression_after_cache_fix": {
+    "passed": 3,
+    "command": "python -m pytest training/tests/unit/test_export.py -q"
+  },
+  "python_ast": "pass",
+  "bash_syntax": {
+    "setup/run_ppo_v2.sh": "pass",
+    "setup/04_setup_rl_env.sh": "pass",
+    "setup/run_ppo_home.sh": "pass",
+    "setup/run_rl_nav.sh": "pass",
+    "training/scripts/verify_ros_runtime.sh": "pass",
+    "training/scripts/setup_ubuntu.sh": "pass",
+    "training/scripts/build_ros_interfaces.sh": "pass",
+    "training/scripts/run_policy.sh": "pass"
+  },
+  "scope": "Windows tests and native portable C++ cores; Ubuntu colcon and Gazebo require VM execution"
+}

@@ -20,6 +20,9 @@ PYTHON="$ROOT/.venv/bin/python"
 "$PYTHON" -m pip install --upgrade pip
 "$PYTHON" -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 "$PYTHON" -m pip install -r "$ROOT/config/requirements-core-lock.txt"
+# System ROS OpenCV/coverage may target an older NumPy API; isolate compatible
+# replacements in this venv rather than modifying Ubuntu's system Python.
+"$PYTHON" -m pip install 'opencv-python-headless>=4.10' 'coverage>=7.4'
 "$PYTHON" -m pip check
 "$PYTHON" -m pip freeze > "$ROOT/config/requirements-linux-observed.txt"
 "$PYTHON" "$ROOT/training/scripts/verify_project.py" --models-only

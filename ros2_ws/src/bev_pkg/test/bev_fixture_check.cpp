@@ -1,5 +1,6 @@
 #include <cmath>
 #include <cstdint>
+#include <cstring>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -51,6 +52,18 @@ int main(int argc, char ** argv)
       std::cerr << "cannot open " << entry.path() << "\n";
       return 2;
     }
+    char magic[4] = {0};
+    in.read(magic, sizeof(magic));
+    uint32_t version = 1;
+    if (std::memcmp(magic, "BFV2", 4) == 0) {
+      if (!read_value(in, version) || (version != 1 && version != 2)) {
+        std::cerr << "unsupported fixture version\n";
+        return 2;
+      }
+    } else {
+      in.clear();
+      in.seekg(0);  // Legacy fixtures had no version prefix and always meant v1.
+    }
     double header[11] = {0};
     in.read(reinterpret_cast<char *>(header), sizeof(header));
     int32_t count = 0;
@@ -76,6 +89,7 @@ int main(int argc, char ** argv)
 
     bev_pkg::BevConfig cfg;
     cfg.n = static_cast<int>(header[0]);
+    cfg.strict_scan = version == 2;
     cfg.extent = header[1];
     cfg.range_min = header[2];
     cfg.range_max = header[3];

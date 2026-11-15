@@ -146,6 +146,10 @@ def generate_launch_description():
         parameters=[{
             'use_sim_time': True,
             'candidate_topic': '/cmd_vel_nav_smoothed',
+            'strict_scan_coverage': True,
+            'canonical_beams': 360,
+            'range_min': 0.24,
+            'range_max': 10.0,
             'v_max': 0.26,
             'w_max': 1.0,
             'acceleration': 0.8,

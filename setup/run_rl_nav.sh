@@ -8,4 +8,4 @@ if [[ -f "$HOME/ros2_ws/install/setup.bash" ]]; then
   source "$HOME/ros2_ws/install/setup.bash"
 fi
 source "$ROOT/ros2_ws/install/setup.bash"
-exec ros2 launch project_bringup rl_nav.launch.py "$@"
+exec ros2 launch project_bringup rl_nav.launch.py "project_root:=$ROOT" "$@"

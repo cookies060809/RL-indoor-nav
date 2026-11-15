@@ -1,7 +1,9 @@
+#include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <memory>
 #include <string>
+#include <stdexcept>
 #include <vector>
 
 #include "bev_pkg/bev_core.hpp"
@@ -35,6 +37,10 @@ public:
     cfg_.distance_clip = declare_parameter<double>("distance_clip", 1.0);
     cfg_.goal_distance_scale = declare_parameter<double>("goal_distance_scale", 5.0);
     spec_version_ = declare_parameter<std::string>("spec_version", "bev_nav_v1");
+    if (spec_version_ != "bev_nav_v1" && spec_version_ != "bev_nav_v2") {
+      throw std::invalid_argument("Unsupported BEV spec_version: " + spec_version_);
+    }
+    cfg_.strict_scan = spec_version_ == "bev_nav_v2";
     beams_ = declare_parameter<int>("beams", 360);
     goal_frame_ = declare_parameter<std::string>("goal_frame", "odom");
     goal_x_ = declare_parameter<double>("goal_x", 0.0);
@@ -44,6 +50,10 @@ public:
     const double range_min = declare_parameter<double>("range_min", 0.24);
     const double range_max = declare_parameter<double>("range_max", 10.0);
     publish_grid_ = declare_parameter<bool>("publish_grid", true);
+    require_local_goal_ = declare_parameter<bool>("require_local_goal", false);
+    local_goal_timeout_ = declare_parameter<double>("local_goal_timeout", 1.0);
+    require_fresh_feedback_ = declare_parameter<bool>("require_fresh_feedback", cfg_.strict_scan);
+    feedback_timeout_ = declare_parameter<double>("feedback_timeout", 0.5);
 
     rclcpp::QoS reliable(10);
     pub_observation_ = create_publisher<project_msgs::msg::PolicyObservation>(
@@ -59,6 +69,7 @@ public:
         odom_v_ = msg->twist.twist.linear.x;
         odom_w_ = msg->twist.twist.angular.z;
         odom_stamp_ = rclcpp::Time(msg->header.stamp);
+        odom_received_ = std::chrono::steady_clock::now();
         have_odom_ = true;
       });
     sub_cmd_ = create_subscription<geometry_msgs::msg::Twist>(
@@ -66,12 +77,15 @@ public:
       [this](geometry_msgs::msg::Twist::SharedPtr msg) {
         prev_v_ = msg->linear.x;
         prev_w_ = msg->angular.z;
+        command_received_ = std::chrono::steady_clock::now();
+        have_command_ = true;
       });
     sub_goal_ = create_subscription<geometry_msgs::msg::PoseStamped>(
       "/local_goal", reliable,
       [this](geometry_msgs::msg::PoseStamped::SharedPtr msg) {
         local_goal_ = *msg;
         have_local_goal_ = true;
+        goal_received_ = std::chrono::steady_clock::now();
       });
 
     timer_log_ = create_wall_timer(
@@ -101,6 +115,22 @@ private:
   void onScan(const sensor_msgs::msg::LaserScan::SharedPtr msg)
   {
     const auto t0 = std::chrono::steady_clock::now();
+    const auto age = [t0](const std::chrono::steady_clock::time_point & received) {
+        return std::chrono::duration<double>(t0 - received).count();
+      };
+    if (require_local_goal_ &&
+      (!have_local_goal_ || age(goal_received_) > local_goal_timeout_))
+    {
+      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000, "no fresh local goal; withholding observation");
+      return;
+    }
+    if (require_fresh_feedback_ &&
+      (!have_odom_ || !have_command_ || age(odom_received_) > feedback_timeout_ ||
+      age(command_received_) > feedback_timeout_))
+    {
+      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000, "motion feedback stale; withholding observation");
+      return;
+    }
     std::vector<float> canonical = bev_pkg::canonicalize_scan(
       msg->ranges, msg->angle_min, msg->angle_increment, beams_);
     if (canonical.empty()) {
@@ -109,6 +139,19 @@ private:
     }
 
     bev_pkg::BevConfig cfg = cfg_;
+    if (cfg.strict_scan) {
+      if (!std::isfinite(msg->range_min) || !std::isfinite(msg->range_max) ||
+        msg->range_min <= 0 || msg->range_max <= msg->range_min)
+      {
+        RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000, "invalid scan range metadata");
+        return;
+      }
+      cfg.range_min = std::max(cfg.range_min, static_cast<double>(msg->range_min));
+      cfg.range_max = std::min(cfg.range_max, static_cast<double>(msg->range_max));
+      if (cfg.range_max <= cfg.range_min) {
+        return;
+      }
+    }
 
     const rclcpp::Time stamp(msg->header.stamp);
     geometry_msgs::msg::TransformStamped sensor_tf;
@@ -128,7 +171,7 @@ private:
     double gx = goal_x_;
     double gy = goal_y_;
     std::string frame = goal_frame_;
-    if (have_local_goal_) {
+    if (have_local_goal_ && (!require_local_goal_ || age(goal_received_) <= local_goal_timeout_)) {
       gx = local_goal_.pose.position.x;
       gy = local_goal_.pose.position.y;
       frame = local_goal_.header.frame_id;
@@ -165,6 +208,9 @@ private:
       if (std::fabs(age) <= 0.2) {
         v = odom_v_;
         w = odom_w_;
+      } else if (require_fresh_feedback_) {
+        RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000, "odometry stamp not aligned to scan");
+        return;
       }
     }
 
@@ -238,6 +284,14 @@ private:
   double prev_w_ = 0.0;
 
   bool have_local_goal_ = false;
+  bool require_local_goal_ = false;
+  bool require_fresh_feedback_ = false;
+  bool have_command_ = false;
+  double local_goal_timeout_ = 1.0;
+  double feedback_timeout_ = 0.5;
+  std::chrono::steady_clock::time_point goal_received_;
+  std::chrono::steady_clock::time_point odom_received_;
+  std::chrono::steady_clock::time_point command_received_;
   geometry_msgs::msg::PoseStamped local_goal_;
 
   size_t frames_ = 0;

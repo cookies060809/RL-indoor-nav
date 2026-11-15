@@ -1,5 +1,19 @@
 # 室内移动机器人导航项目
 
+## 2026-11-15：yy v2 集成与重训
+
+居家地图默认模型已改为 `ppo_v2_recommended`。新 96 个二维任务成功 95 个，旧 main 整栈成功 82 个；均无碰撞。前视目标和运行逻辑贡献了主要成功率提升，本次微调进一步减少安全干预。Windows 通过 89 项 Python 测试、21 个 C++ BEV 样例及 1,200 个安全核对照；Ubuntu/Gazebo 新版闭环需要本机验收。
+
+虚拟机关闭旧仿真后：
+
+```bash
+cd ~/ROS2hw
+git pull --ff-only origin main
+bash setup/run_ppo_v2.sh
+```
+
+该脚本安装依赖、重编译五个包、检查模型与 C++ 一致性并启动。后续直接 `bash setup/run_ppo_home.sh`。具体差异、完整实验结果、状态排查、回退和调参函数见 [yy 更新与 v2 部署](docs/yy更新与v2部署.md)。
+
 ## 直接从 GitHub 下载到虚拟机
 
 ```bash
@@ -44,7 +58,7 @@ project/
 │   ├── scripts/                  训练、评估、打包与安装工具
 │   ├── tests/                    单元测试及固定观测样例
 │   └── runs/                     已有 best/final 模型、日志与配置快照
-├── models/<model_id>/            三个可独立验证的模型包
+├── models/<model_id>/            三个历史 v1 包和新 v2 发布包
 ├── maps/                         待保存正式 PGM 与 YAML 地图
 ├── experiments/
 │   ├── manifests/               二维实验索引、配置与摘要
@@ -75,11 +89,11 @@ cd ~/ROS2hw
 bash setup/04_setup_rl_env.sh    # 首次建立 venv 与依赖
 bash run.sh doctor
 ./setup/run_rl_nav.sh            # PPO 闭环：Gazebo + BEV + 策略 + safety
-./setup/run_ppo_home.sh          # PPO + 居家地图：Nav2 全局规划 + 1.2 m 前视目标
+./setup/run_ppo_home.sh          # PPO v2 + 居家地图：Nav2 全局规划 + 可见前视目标
 ./setup/run_nav2_home.sh         # Nav2 + 居家地图：唯一 /cmd_vel 出口仍是 safety
 ```
 
-已实现 C++ BEV、独立安全节点、Nav2 经 safety 的统一速度出口，并在 `experiments/videos/` 生成两段演示视频。PPO 主动全局规划、`evaluation_pkg` 与正式 A/B/C 实验仍在进行，详见 [中期审查进展](docs/中期审查进展.md)。不要直接把 `/cmd_vel_rl` 接到底盘替代安全节点。
+已实现 C++ BEV、独立安全节点、Nav2 经 safety 的统一速度出口及 PPO 全局路径与可见前视目标。`experiments/videos/` 保留历史演示；它们不代表本次 v2 的 Gazebo 验收。`evaluation_pkg` 与正式 A/B/C 实验仍在进行。不要直接把 `/cmd_vel_rl` 接到底盘替代安全节点。
 
 ## 模型和既有结果
 

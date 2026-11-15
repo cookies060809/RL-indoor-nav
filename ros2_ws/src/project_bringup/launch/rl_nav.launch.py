@@ -2,11 +2,12 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription, OpaqueFunction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
+from rl_nav_pkg.launch_support import runtime_nodes
 
 
 def generate_launch_description():
@@ -25,56 +26,7 @@ def generate_launch_description():
                 'launch',
                 'wpb_simple.launch.py')))
 
-    bev = Node(
-        package='bev_pkg',
-        executable='bev_node',
-        name='bev_node',
-        output='screen',
-        parameters=[{
-            'use_sim_time': True,
-            'n': 32,
-            'extent': 4.8,
-            'spec_version': 'bev_nav_v1',
-            'beams': 360,
-            'robot_radius': 0.226,
-            'distance_clip': 1.0,
-            'goal_distance_scale': 5.0,
-            'v_max': 0.26,
-            'w_max': 1.0,
-            'goal_frame': goal_frame,
-            'goal_x': goal_x,
-            'goal_y': goal_y,
-        }])
-
-    safety = Node(
-        package='safety_pkg',
-        executable='safety_node',
-        name='safety_node',
-        output='screen',
-        parameters=[{
-            'use_sim_time': True,
-            'candidate_topic': '/cmd_vel_rl',
-            'v_max': 0.26,
-            'w_max': 1.0,
-            'acceleration': 0.5,
-            'angular_acceleration': 2.0,
-            'control_dt': 0.05,
-            'stale_timeout': 0.5,
-            'sensor_timeout': 0.5,
-            'robot_radius': 0.226,
-            'safety_margin': 0.04,
-            'reaction_time': 0.2,
-            'brake_deceleration': 0.8,
-        }])
-
-    policy = ExecuteProcess(
-        condition=IfCondition(run_policy),
-        cmd=[
-            'bash',
-            PathJoinSubstitution([project_root, 'training', 'scripts', 'run_policy.sh']),
-            model_id,
-        ],
-        output='screen')
+    runtime = OpaqueFunction(function=lambda context: runtime_nodes(context, navigation=False))
 
     rviz = Node(
         package='rviz2',
@@ -95,8 +47,6 @@ def generate_launch_description():
         DeclareLaunchArgument('rviz', default_value='true'),
         DeclareLaunchArgument('policy', default_value='true'),
         simulation,
-        bev,
-        safety,
-        policy,
+        runtime,
         rviz,
     ])

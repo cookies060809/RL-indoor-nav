@@ -1,0 +1,12 @@
+{
+  "source": "E:\\ROS2\\github\\RL-indoor-nav-upload\\models\\split_mixed_pretrain_v1\\policy.zip",
+  "source_sha256": "840264d71abaac7e089dd9305b881d5fc45b43fe4ed26f9d392ae35c35c2ede3",
+  "source_config": "E:\\ROS2\\github\\RL-indoor-nav-upload\\models\\split_mixed_pretrain_v1\\config.yaml",
+  "source_spec_version": "bev_nav_v1",
+  "source_spec_hash": "3cb02d631ad6fbb871176cd36d21571f4f1a5b7ec5ddb5e4ddb7c6e0e655c0fe",
+  "new_spec_version": "bev_nav_v2",
+  "new_spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff",
+  "resets_optimizer": true,
+  "resets_timesteps": true,
+  "source_num_timesteps": 200000
+}

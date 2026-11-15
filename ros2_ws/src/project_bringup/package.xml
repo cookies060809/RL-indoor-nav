@@ -12,6 +12,7 @@
   <exec_depend>bev_pkg</exec_depend>
   <exec_depend>safety_pkg</exec_depend>
   <exec_depend>project_msgs</exec_depend>
+  <exec_depend>rl_nav_pkg</exec_depend>
   <exec_depend>wpr_simulation2</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>rviz2</exec_depend>

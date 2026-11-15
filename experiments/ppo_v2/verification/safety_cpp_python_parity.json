@@ -1,0 +1,17 @@
+{
+  "cases": 1200,
+  "seed": 20261115,
+  "failures": 0,
+  "reason_counts": {
+    "none": 353,
+    "scan_unknown_rear": 162,
+    "footprint_overlap": 394,
+    "scan_unknown_front": 184,
+    "braking_sweep": 19,
+    "scan_unknown_rotation": 77,
+    "no_valid_scan": 11
+  },
+  "mismatches": [],
+  "config_sha256": "fe7f510c59446a87f4214da3abf62da9427edac22f21d080e40581d8134838dd",
+  "reference": "navrl.control.filter_velocity (bev_nav_v2)"
+}

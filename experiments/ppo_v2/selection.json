@@ -1,0 +1,777 @@
+{
+  "frozen_utc": "2026-11-15T09:56:42.022001+00:00",
+  "selection_rule": "maximize validation (success_rate, -collision_rate, -mean_intervention_duration, mean_reward)",
+  "selected_run": "ppo_v2_visible_s43",
+  "selected_sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+  "test_seed_base": 610000,
+  "episodes_per_stage": 24,
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter"
+  ],
+  "note": "Warm seeds share one v1 initializer; scratch is one independent 200k control. Test is never used to select.",
+  "candidates": [
+    {
+      "run": "ppo_v2_visible_s42",
+      "model": "experiments/ppo_v2/runs/ppo_v2_visible_s42/best_model.zip",
+      "sha256": "932c54f1b3d2918f72b7fadc3ba781d6045e43bcc636a21ba1be3515090a1bc1",
+      "config": "experiments/ppo_v2/runs/ppo_v2_visible_s42/config.yaml",
+      "config_sha256": "fe7f510c59446a87f4214da3abf62da9427edac22f21d080e40581d8134838dd",
+      "source": "experiments/ppo_v2/runs/ppo_v2_visible_s42/source",
+      "source_hashes": {
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s42/source/navrl/scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c"
+      },
+      "validation": {
+        "split": "validation",
+        "stages": [
+          "empty",
+          "single",
+          "turn",
+          "clutter"
+        ],
+        "episodes": 32,
+        "successes": 31,
+        "success_rate": 0.96875,
+        "collision_rate": 0.0,
+        "mean_success_time": 10.645161290322578,
+        "mean_intervention_duration": 0.359375,
+        "mean_requested_speed": 0.3954454140321777,
+        "mean_executed_speed": 0.3910043343106008,
+        "mean_reward": 22.921823737351744,
+        "failure_reasons": {
+          "stuck": 1
+        },
+        "intervention_reasons": {
+          "braking_sweep": 19,
+          "footprint_overlap": 96
+        },
+        "per_scenario": {
+          "empty": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 9.0625,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.3723714765563424,
+            "mean_executed_speed": 0.3723714765563424,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "single": {
+            "episodes": 8,
+            "successes": 7,
+            "success_rate": 0.875,
+            "collision_rate": 0.0,
+            "mean_success_time": 10.72857142857143,
+            "mean_intervention_duration": 1.4375,
+            "mean_requested_speed": 0.4055480937342359,
+            "mean_executed_speed": 0.3877837748479282,
+            "failure_reasons": {
+              "stuck": 1
+            },
+            "intervention_reasons": {
+              "braking_sweep": 19,
+              "footprint_overlap": 96
+            }
+          },
+          "turn": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 10.9375,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.4243145021981165,
+            "mean_executed_speed": 0.4243145021981165,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "clutter": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 11.8625,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.3795475836400159,
+            "mean_executed_speed": 0.3795475836400159,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          }
+        },
+        "effective_safety": true,
+        "spec_version": "bev_nav_v2",
+        "config_hash": "a3de6bb5cb721b2d444964a44f2b85c8089223405cff874b9b12ca2014efc0ad",
+        "seed_base": 100000,
+        "seed_offsets": "stage_index*1000+episode",
+        "timesteps": 20000,
+        "wall_seconds": 16.287140000029467,
+        "weights_file": "best_model.zip",
+        "weights_sha256": "932c54f1b3d2918f72b7fadc3ba781d6045e43bcc636a21ba1be3515090a1bc1",
+        "num_timesteps": 20000
+      }
+    },
+    {
+      "run": "ppo_v2_visible_s43",
+      "model": "experiments/ppo_v2/runs/ppo_v2_visible_s43/best_model.zip",
+      "sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+      "config": "experiments/ppo_v2/runs/ppo_v2_visible_s43/config.yaml",
+      "config_sha256": "eaf96b4855ee9693d2a5a04a1a9c21bc3782c50cf276d89d1d5eced0c6eb8553",
+      "source": "experiments/ppo_v2/runs/ppo_v2_visible_s43/source",
+      "source_hashes": {
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c"
+      },
+      "validation": {
+        "split": "validation",
+        "stages": [
+          "empty",
+          "single",
+          "turn",
+          "clutter"
+        ],
+        "episodes": 32,
+        "successes": 31,
+        "success_rate": 0.96875,
+        "collision_rate": 0.0,
+        "mean_success_time": 10.654838709677417,
+        "mean_intervention_duration": 0.34375,
+        "mean_requested_speed": 0.3924143021564952,
+        "mean_executed_speed": 0.3901627372250459,
+        "mean_reward": 22.917767484591465,
+        "failure_reasons": {
+          "stuck": 1
+        },
+        "intervention_reasons": {
+          "braking_sweep": 25,
+          "footprint_overlap": 85
+        },
+        "per_scenario": {
+          "empty": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 9.0625,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.37253454646497286,
+            "mean_executed_speed": 0.37253454646497286,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "single": {
+            "episodes": 8,
+            "successes": 7,
+            "success_rate": 0.875,
+            "collision_rate": 0.0,
+            "mean_success_time": 10.742857142857144,
+            "mean_intervention_duration": 1.375,
+            "mean_requested_speed": 0.39954602076973145,
+            "mean_executed_speed": 0.39053976104393406,
+            "failure_reasons": {
+              "stuck": 1
+            },
+            "intervention_reasons": {
+              "braking_sweep": 25,
+              "footprint_overlap": 85
+            }
+          },
+          "turn": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 10.975000000000001,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.41878630292286967,
+            "mean_executed_speed": 0.41878630292286967,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "clutter": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 11.850000000000001,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.37879033846840693,
+            "mean_executed_speed": 0.37879033846840693,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          }
+        },
+        "effective_safety": true,
+        "spec_version": "bev_nav_v2",
+        "config_hash": "068059ad1fb5ae7f069eff194decbb3d345c248ae64ce02cc9abb14b3975d5ba",
+        "seed_base": 100000,
+        "seed_offsets": "stage_index*1000+episode",
+        "timesteps": 40000,
+        "wall_seconds": 30.91476410010364,
+        "weights_file": "best_model.zip",
+        "weights_sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+        "num_timesteps": 40000
+      }
+    },
+    {
+      "run": "ppo_v2_visible_s44",
+      "model": "experiments/ppo_v2/runs/ppo_v2_visible_s44/best_model.zip",
+      "sha256": "a9ca409a585e9882857b6ef7a32bfa47f67c074e8241f44866ea75804d54ce5c",
+      "config": "experiments/ppo_v2/runs/ppo_v2_visible_s44/config.yaml",
+      "config_sha256": "47abf60ccdeab12dc2d6f272afe742ce072e8683b188152d4efb79252d89fa6a",
+      "source": "experiments/ppo_v2/runs/ppo_v2_visible_s44/source",
+      "source_hashes": {
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s44/source/navrl/scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c"
+      },
+      "validation": {
+        "split": "validation",
+        "stages": [
+          "empty",
+          "single",
+          "turn",
+          "clutter"
+        ],
+        "episodes": 32,
+        "successes": 31,
+        "success_rate": 0.96875,
+        "collision_rate": 0.0,
+        "mean_success_time": 10.658064516129032,
+        "mean_intervention_duration": 0.36250000000000004,
+        "mean_requested_speed": 0.39617222346588077,
+        "mean_executed_speed": 0.3911327572870422,
+        "mean_reward": 22.92093395352193,
+        "failure_reasons": {
+          "stuck": 1
+        },
+        "intervention_reasons": {
+          "braking_sweep": 23,
+          "footprint_overlap": 93
+        },
+        "per_scenario": {
+          "empty": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 9.0625,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.37253157121336006,
+            "mean_executed_speed": 0.37253157121336006,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "single": {
+            "episodes": 8,
+            "successes": 7,
+            "success_rate": 0.875,
+            "collision_rate": 0.0,
+            "mean_success_time": 10.728571428571428,
+            "mean_intervention_duration": 1.4500000000000002,
+            "mean_requested_speed": 0.41037694313573675,
+            "mean_executed_speed": 0.39021907842038284,
+            "failure_reasons": {
+              "stuck": 1
+            },
+            "intervention_reasons": {
+              "braking_sweep": 23,
+              "footprint_overlap": 93
+            }
+          },
+          "turn": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 10.9875,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.42283457987276674,
+            "mean_executed_speed": 0.42283457987276674,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "clutter": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 11.8625,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.3789457996416595,
+            "mean_executed_speed": 0.3789457996416595,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          }
+        },
+        "effective_safety": true,
+        "spec_version": "bev_nav_v2",
+        "config_hash": "f3035f5d21ad8dd4d2f44badd9e3342bbddc869b293d8ffc43558d0b543625e3",
+        "seed_base": 100000,
+        "seed_offsets": "stage_index*1000+episode",
+        "timesteps": 0,
+        "wall_seconds": 2.9405891000060365,
+        "weights_file": "best_model.zip",
+        "weights_sha256": "a9ca409a585e9882857b6ef7a32bfa47f67c074e8241f44866ea75804d54ce5c",
+        "num_timesteps": 0
+      }
+    },
+    {
+      "run": "ppo_v2_scratch_s42",
+      "model": "experiments/ppo_v2/runs/ppo_v2_scratch_s42/best_model.zip",
+      "sha256": "dbd12ea5a46eab2bc5a6a5b81da3c0fd6b1d5dc7ad8220f78fa1ea29147e0df2",
+      "config": "experiments/ppo_v2/runs/ppo_v2_scratch_s42/config.yaml",
+      "config_sha256": "bca99a25bda364552f6d20687e60bf4b9db8ca0180385d2d294d0e5b1306dbf6",
+      "source": "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source",
+      "source_hashes": {
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+        "experiments/ppo_v2/runs/ppo_v2_scratch_s42/source/navrl/scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c"
+      },
+      "validation": {
+        "split": "validation",
+        "stages": [
+          "empty",
+          "single",
+          "turn",
+          "clutter"
+        ],
+        "episodes": 32,
+        "successes": 31,
+        "success_rate": 0.96875,
+        "collision_rate": 0.0,
+        "mean_success_time": 11.580645161290322,
+        "mean_intervention_duration": 0.359375,
+        "mean_requested_speed": 0.35243960221957915,
+        "mean_executed_speed": 0.34856623982994583,
+        "mean_reward": 22.81277030056529,
+        "failure_reasons": {
+          "stuck": 1
+        },
+        "intervention_reasons": {
+          "braking_sweep": 22,
+          "footprint_overlap": 93
+        },
+        "per_scenario": {
+          "empty": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 9.85,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.3279920749521432,
+            "mean_executed_speed": 0.3279920749521432,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "single": {
+            "episodes": 8,
+            "successes": 7,
+            "success_rate": 0.875,
+            "collision_rate": 0.0,
+            "mean_success_time": 11.742857142857144,
+            "mean_intervention_duration": 1.4375,
+            "mean_requested_speed": 0.36941196206679516,
+            "mean_executed_speed": 0.3539185125082618,
+            "failure_reasons": {
+              "stuck": 1
+            },
+            "intervention_reasons": {
+              "braking_sweep": 22,
+              "footprint_overlap": 93
+            }
+          },
+          "turn": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 11.8375,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.37351547945304453,
+            "mean_executed_speed": 0.37351547945304453,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          },
+          "clutter": {
+            "episodes": 8,
+            "successes": 8,
+            "success_rate": 1.0,
+            "collision_rate": 0.0,
+            "mean_success_time": 12.912500000000001,
+            "mean_intervention_duration": 0.0,
+            "mean_requested_speed": 0.3388388924063338,
+            "mean_executed_speed": 0.3388388924063338,
+            "failure_reasons": {},
+            "intervention_reasons": {}
+          }
+        },
+        "effective_safety": true,
+        "spec_version": "bev_nav_v2",
+        "config_hash": "30e2e221f90fe386c3140da466caf153c2539d66aca945d04b033163e7f782f2",
+        "seed_base": 100000,
+        "seed_offsets": "stage_index*1000+episode",
+        "timesteps": 200000,
+        "wall_seconds": 121.9275336000137,
+        "weights_file": "best_model.zip",
+        "weights_sha256": "dbd12ea5a46eab2bc5a6a5b81da3c0fd6b1d5dc7ad8220f78fa1ea29147e0df2",
+        "num_timesteps": 200000
+      }
+    }
+  ],
+  "variants": {
+    "recommended": {
+      "model": "experiments/ppo_v2/runs/ppo_v2_visible_s43/best_model.zip",
+      "source": "experiments/ppo_v2/runs/ppo_v2_visible_s43/source",
+      "cfg": {
+        "spec_version": "bev_nav_v2",
+        "seed": 43,
+        "observation": {
+          "size": 32,
+          "extent": 4.8,
+          "distance_clip": 1.0,
+          "goal_distance_scale": 5.0
+        },
+        "robot": {
+          "radius": 0.226,
+          "v_max": 0.26,
+          "w_max": 1.0,
+          "acceleration": 0.5,
+          "angular_acceleration": 2.0,
+          "dt": 0.1
+        },
+        "sensor": {
+          "beams": 360,
+          "range_min": 0.24,
+          "range_max": 10.0,
+          "noise_std": 0.01,
+          "x": 0.0,
+          "y": 0.0,
+          "yaw": 0.0
+        },
+        "safety": {
+          "enabled": true,
+          "margin": 0.04,
+          "reaction_time": 0.2,
+          "brake_deceleration": 0.8
+        },
+        "environment": {
+          "stage": "mixed",
+          "room_half_size": 3.0,
+          "planner_resolution": 0.15,
+          "planner_margin": 0.08,
+          "lookahead": 1.2,
+          "max_steps": 600,
+          "timeout_factor": 3.0,
+          "goal_radius": 0.3,
+          "goal_hold_seconds": 1.0,
+          "stuck_seconds": 10.0,
+          "min_goal_distance": 1.5,
+          "max_goal_distance": 4.0,
+          "turn_grace_seconds": 4.0,
+          "turn_rate_threshold": 0.2,
+          "progress_epsilon": 0.005,
+          "subgoal_mode": "visible",
+          "visibility_margin": 0.04
+        },
+        "reward": {
+          "progress": 2.0,
+          "time": -0.01,
+          "clearance": -0.02,
+          "clearance_threshold": 0.2,
+          "smoothness": -0.005,
+          "success": 20.0,
+          "collision": -20.0
+        },
+        "ppo": {
+          "learning_rate": 0.0001,
+          "n_steps": 512,
+          "batch_size": 256,
+          "n_epochs": 5,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.1,
+          "ent_coef": 0.001,
+          "net_arch": [
+            128,
+            128
+          ],
+          "feature_extractor": "split_mlp"
+        },
+        "training": {
+          "total_timesteps": 100000,
+          "n_envs": 4,
+          "vec_env": "subproc",
+          "torch_threads": 2,
+          "eval_every": 20000,
+          "eval_episodes": 8,
+          "checkpoint_every": 50000,
+          "validation_stages": [
+            "empty",
+            "single",
+            "turn",
+            "clutter"
+          ]
+        }
+      },
+      "sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+      "source_hashes": {
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c"
+      }
+    },
+    "v2_initializer": {
+      "model": "models/split_mixed_pretrain_v1/policy.zip",
+      "source": "experiments/ppo_v2/runs/ppo_v2_visible_s43/source",
+      "cfg": {
+        "spec_version": "bev_nav_v2",
+        "seed": 43,
+        "observation": {
+          "size": 32,
+          "extent": 4.8,
+          "distance_clip": 1.0,
+          "goal_distance_scale": 5.0
+        },
+        "robot": {
+          "radius": 0.226,
+          "v_max": 0.26,
+          "w_max": 1.0,
+          "acceleration": 0.5,
+          "angular_acceleration": 2.0,
+          "dt": 0.1
+        },
+        "sensor": {
+          "beams": 360,
+          "range_min": 0.24,
+          "range_max": 10.0,
+          "noise_std": 0.01,
+          "x": 0.0,
+          "y": 0.0,
+          "yaw": 0.0
+        },
+        "safety": {
+          "enabled": true,
+          "margin": 0.04,
+          "reaction_time": 0.2,
+          "brake_deceleration": 0.8
+        },
+        "environment": {
+          "stage": "mixed",
+          "room_half_size": 3.0,
+          "planner_resolution": 0.15,
+          "planner_margin": 0.08,
+          "lookahead": 1.2,
+          "max_steps": 600,
+          "timeout_factor": 3.0,
+          "goal_radius": 0.3,
+          "goal_hold_seconds": 1.0,
+          "stuck_seconds": 10.0,
+          "min_goal_distance": 1.5,
+          "max_goal_distance": 4.0,
+          "turn_grace_seconds": 4.0,
+          "turn_rate_threshold": 0.2,
+          "progress_epsilon": 0.005,
+          "subgoal_mode": "visible",
+          "visibility_margin": 0.04
+        },
+        "reward": {
+          "progress": 2.0,
+          "time": -0.01,
+          "clearance": -0.02,
+          "clearance_threshold": 0.2,
+          "smoothness": -0.005,
+          "success": 20.0,
+          "collision": -20.0
+        },
+        "ppo": {
+          "learning_rate": 0.0001,
+          "n_steps": 512,
+          "batch_size": 256,
+          "n_epochs": 5,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.1,
+          "ent_coef": 0.001,
+          "net_arch": [
+            128,
+            128
+          ],
+          "feature_extractor": "split_mlp"
+        },
+        "training": {
+          "total_timesteps": 100000,
+          "n_envs": 4,
+          "vec_env": "subproc",
+          "torch_threads": 2,
+          "eval_every": 20000,
+          "eval_episodes": 8,
+          "checkpoint_every": 50000,
+          "validation_stages": [
+            "empty",
+            "single",
+            "turn",
+            "clutter"
+          ]
+        }
+      },
+      "sha256": "840264d71abaac7e089dd9305b881d5fc45b43fe4ed26f9d392ae35c35c2ede3",
+      "source_hashes": {
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+        "experiments/ppo_v2/runs/ppo_v2_visible_s43/source/navrl/scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c"
+      }
+    },
+    "v1_original": {
+      "model": "models/split_mixed_pretrain_v1/policy.zip",
+      "source": "models/split_mixed_pretrain_v1",
+      "cfg": {
+        "spec_version": "bev_nav_v1",
+        "seed": 42,
+        "observation": {
+          "size": 32,
+          "extent": 4.8,
+          "distance_clip": 1.0,
+          "goal_distance_scale": 5.0
+        },
+        "robot": {
+          "radius": 0.226,
+          "v_max": 0.26,
+          "w_max": 1.0,
+          "acceleration": 0.5,
+          "angular_acceleration": 2.0,
+          "dt": 0.1
+        },
+        "sensor": {
+          "beams": 360,
+          "range_min": 0.24,
+          "range_max": 10.0,
+          "noise_std": 0.01,
+          "x": 0.0,
+          "y": 0.0,
+          "yaw": 0.0
+        },
+        "safety": {
+          "enabled": true,
+          "margin": 0.04,
+          "reaction_time": 0.2,
+          "brake_deceleration": 0.8
+        },
+        "environment": {
+          "stage": "mixed",
+          "room_half_size": 3.0,
+          "planner_resolution": 0.15,
+          "planner_margin": 0.08,
+          "lookahead": 1.2,
+          "max_steps": 600,
+          "timeout_factor": 3.0,
+          "goal_radius": 0.3,
+          "goal_hold_seconds": 1.0,
+          "stuck_seconds": 10.0,
+          "min_goal_distance": 1.5,
+          "max_goal_distance": 4.0
+        },
+        "reward": {
+          "progress": 2.0,
+          "time": -0.01,
+          "clearance": -0.02,
+          "clearance_threshold": 0.2,
+          "smoothness": -0.005,
+          "success": 20.0,
+          "collision": -20.0
+        },
+        "ppo": {
+          "learning_rate": 0.0003,
+          "n_steps": 512,
+          "batch_size": 256,
+          "n_epochs": 10,
+          "gamma": 0.99,
+          "gae_lambda": 0.95,
+          "clip_range": 0.2,
+          "ent_coef": 0.01,
+          "net_arch": [
+            128,
+            128
+          ],
+          "feature_extractor": "split_mlp"
+        },
+        "training": {
+          "total_timesteps": 100000,
+          "n_envs": 4,
+          "vec_env": "subproc",
+          "torch_threads": 2,
+          "eval_every": 20000,
+          "eval_episodes": 8,
+          "checkpoint_every": 50000
+        }
+      },
+      "sha256": "840264d71abaac7e089dd9305b881d5fc45b43fe4ed26f9d392ae35c35c2ede3",
+      "source_hashes": {
+        "models/split_mixed_pretrain_v1/navrl/__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f",
+        "models/split_mixed_pretrain_v1/navrl/config.py": "e1ef15ffa6f2c6b70cd539f311158361acbbcaf3e116130dc7a19c0d5f4a1533",
+        "models/split_mixed_pretrain_v1/navrl/control.py": "a98297131e97682c0b25ed89df705541f1d457d1a259de7e218beba075aae820",
+        "models/split_mixed_pretrain_v1/navrl/env.py": "f9e54ee709ca26c6ce534b14d5453043edf08b5a13a3d7b74e8e3f247688b20a",
+        "models/split_mixed_pretrain_v1/navrl/evaluation.py": "d8ffdbd6a91af36667a4f0b473484d0f3d2fa611d9b6ba62660ed858c9351bd7",
+        "models/split_mixed_pretrain_v1/navrl/features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+        "models/split_mixed_pretrain_v1/navrl/fixtures.py": "396fedf33d9507dba594b2df223edca3476d6017b8a25fcced672b386ad978ee",
+        "models/split_mixed_pretrain_v1/navrl/geometry.py": "f9737660ebe3714e3e82ff8b957243da0b4816a5c7aecfab5dbdfdc2b519f946",
+        "models/split_mixed_pretrain_v1/navrl/observation.py": "b8d4764e7e8709974423fc1a9695360e216b6edb0c51d7e20ca0913e0f7bc180"
+      }
+    }
+  }
+}

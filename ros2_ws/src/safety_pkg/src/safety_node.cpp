@@ -5,7 +5,9 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <stdexcept>
 #include <vector>
+#include "safety_pkg/safety_core.hpp"
 
 #include "geometry_msgs/msg/twist.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -16,30 +18,6 @@
 #include "tf2/exceptions.h"
 #include "tf2_ros/buffer.h"
 #include "tf2_ros/transform_listener.h"
-
-namespace
-{
-constexpr double kPi = 3.14159265358979323846;
-
-struct Pose2D
-{
-  double x = 0.0;
-  double y = 0.0;
-  double yaw = 0.0;
-};
-
-Pose2D integrate(double v, double w, double dt)
-{
-  Pose2D out;
-  if (std::fabs(w) < 1e-8) {
-    out.x = v * dt;
-  } else {
-    out.x = v / w * std::sin(w * dt);
-    out.y = v / w * (1.0 - std::cos(w * dt));
-  }
-  return out;
-}
-}  // namespace
 
 class SafetyNode : public rclcpp::Node
 {
@@ -59,6 +37,17 @@ public:
     margin_ = declare_parameter<double>("safety_margin", 0.04);
     reaction_time_ = declare_parameter<double>("reaction_time", 0.2);
     brake_deceleration_ = declare_parameter<double>("brake_deceleration", 0.8);
+    strict_scan_coverage_ = declare_parameter<bool>("strict_scan_coverage", false);
+    canonical_beams_ = declare_parameter<int>("canonical_beams", 360);
+    sensor_future_tolerance_ = declare_parameter<double>("sensor_future_tolerance", 0.15);
+    configured_range_min_ = declare_parameter<double>("range_min", 0.24);
+    configured_range_max_ = declare_parameter<double>("range_max", 10.0);
+    if (canonical_beams_ < 2 || canonical_beams_ > 4096 || v_max_ <= 0 ||
+      w_max_ <= 0 || accel_ <= 0 || alpha_ <= 0 || control_dt_ <= 0 ||
+      brake_deceleration_ <= 0 || stale_timeout_ <= 0 || sensor_timeout_ <= 0)
+    {
+      throw std::invalid_argument("Invalid safety dimensions, limits or timing parameters");
+    }
 
     pub_cmd_ = create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
     pub_estop_ = create_publisher<std_msgs::msg::Bool>("/estop_state", 10);
@@ -69,7 +58,12 @@ public:
       [this](geometry_msgs::msg::Twist::SharedPtr msg) {
         cand_v_ = msg->linear.x;
         cand_w_ = msg->angular.z;
-        last_candidate_ = this->now();
+        last_candidate_ = std::chrono::steady_clock::now();
+        candidate_valid_ = std::isfinite(cand_v_) && std::isfinite(cand_w_);
+        if (!candidate_valid_) {
+          cand_v_ = 0.0;
+          cand_w_ = 0.0;
+        }
         have_candidate_ = true;
       });
     sub_scan_ = create_subscription<sensor_msgs::msg::LaserScan>(
@@ -95,8 +89,12 @@ public:
           response->message = "estop is not latched";
           return;
         }
-        const double scan_age = have_scan_ ? (this->now() - scan_stamp_).seconds() : 1e9;
-        if (estop_request_ || scan_age > sensor_timeout_) {
+        const double scan_age = have_scan_ ?
+          std::chrono::duration<double>(std::chrono::steady_clock::now() - scan_received_).count() : 1e9;
+        const double stamp_age = have_scan_ ? (this->now() - scan_stamp_).seconds() : 1e9;
+        if (estop_request_ || scan_age > sensor_timeout_ || !points_valid_ ||
+          stamp_age > sensor_timeout_ || stamp_age < -sensor_future_tolerance_)
+        {
           response->success = false;
           response->message = "conditions not safe, keep stopped";
           return;
@@ -130,58 +128,51 @@ private:
       have_scan_ = false;
       return;
     }
-    const double sx = tf.transform.translation.x;
-    const double sy = tf.transform.translation.y;
-    const double syaw = 2.0 * std::atan2(tf.transform.rotation.z, tf.transform.rotation.w);
-    const size_t count = msg->ranges.size();
-    points_.clear();
-    points_.reserve(count);
-    bool has_inf = false;
-    for (size_t i = 0; i < count; ++i) {
-      const float r = msg->ranges[i];
-      if (std::isinf(r) && r > 0.0F) {
-        has_inf = true;
-        continue;
-      }
-      if (!std::isfinite(r) || r < msg->range_min || r > msg->range_max) {
-        continue;
-      }
-      const double angle = -kPi + static_cast<double>(i) * 2.0 * kPi / count + syaw;
-      points_.push_back(static_cast<float>(r * std::cos(angle) + sx));
-      points_.push_back(static_cast<float>(r * std::sin(angle) + sy));
+    scan_config_.sensor_x = tf.transform.translation.x;
+    scan_config_.sensor_y = tf.transform.translation.y;
+    scan_config_.sensor_yaw = 2.0 * std::atan2(tf.transform.rotation.z, tf.transform.rotation.w);
+    // Respect both the sensor's advertised limits and the trained model's
+    // limits. A shorter-range sensor must never clear space to the model max.
+    scan_config_.range_min = std::max(configured_range_min_, static_cast<double>(msg->range_min));
+    scan_config_.range_max = std::min(configured_range_max_, static_cast<double>(msg->range_max));
+    scan_config_.radius = radius_;
+    scan_config_.margin = margin_;
+    scan_config_.reaction_time = reaction_time_;
+    scan_config_.brake_deceleration = brake_deceleration_;
+    scan_config_.strict_scan_coverage = strict_scan_coverage_;
+    if (!std::isfinite(msg->range_min) || !std::isfinite(msg->range_max) ||
+      msg->range_min <= 0 || msg->range_max <= msg->range_min ||
+      scan_config_.range_max <= scan_config_.range_min)
+    {
+      have_scan_ = false;
+      points_valid_ = false;
+      RCLCPP_WARN_THROTTLE(get_logger(), *get_clock(), 2000, "invalid or nonoverlapping scan limits");
+      return;
     }
-    points_valid_ = !points_.empty() || has_inf;
+    ranges_ = safety_pkg::canonicalize_scan(
+      msg->ranges, msg->angle_min, msg->angle_increment, canonical_beams_);
+    points_valid_ = safety_pkg::has_valid_return(ranges_, scan_config_);
     scan_stamp_ = stamp;
+    scan_received_ = std::chrono::steady_clock::now();
     have_scan_ = true;
-  }
-
-  bool braking(double v, double w) const
-  {
-    if (v <= 1e-6) {
-      return false;
-    }
-    const double stopping = v * reaction_time_ + v * v / (2.0 * brake_deceleration_);
-    const double duration = stopping / std::max(v, 1e-8);
-    const double limit = radius_ + margin_;
-    for (int i = 0; i < 7; ++i) {
-      const double fraction = 0.15 + static_cast<double>(i) * (0.85 / 6.0);
-      const Pose2D future = integrate(v, w, duration * fraction);
-      for (size_t k = 0; k + 1 < points_.size(); k += 2) {
-        const double dx = points_[k] - future.x;
-        const double dy = points_[k + 1] - future.y;
-        if (std::hypot(dx, dy) < limit) {
-          return true;
-        }
-      }
-    }
-    return false;
   }
 
   void tick()
   {
     const rclcpp::Time now = this->now();
-    const double cmd_age = have_candidate_ ? (now - last_candidate_).seconds() : 1e9;
-    const double scan_age = have_scan_ ? (now - scan_stamp_).seconds() : 1e9;
+    const auto steady_now = std::chrono::steady_clock::now();
+    if (have_ros_time_ && now.nanoseconds() < last_ros_time_) {
+      have_candidate_ = false;
+      have_scan_ = false;
+      points_valid_ = false;
+      prev_v_ = 0.0;
+      prev_w_ = 0.0;
+    }
+    have_ros_time_ = true;
+    last_ros_time_ = now.nanoseconds();
+    const double cmd_age = have_candidate_ ? std::chrono::duration<double>(steady_now - last_candidate_).count() : 1e9;
+    const double scan_age = have_scan_ ? std::chrono::duration<double>(steady_now - scan_received_).count() : 1e9;
+    const double scan_stamp_age = have_scan_ ? (now - scan_stamp_).seconds() : 1e9;
 
     double v = 0.0;
     double w = 0.0;
@@ -189,9 +180,13 @@ private:
 
     if (estop_) {
       reason = "estop";
+    } else if (have_candidate_ && !candidate_valid_) {
+      reason = "command_invalid";
     } else if (!have_candidate_ || cmd_age > stale_timeout_) {
       reason = "command_stale";
-    } else if (scan_age > sensor_timeout_ || !points_valid_) {
+    } else if (scan_age > sensor_timeout_ || !points_valid_ ||
+      scan_stamp_age > sensor_timeout_ || scan_stamp_age < -sensor_future_tolerance_)
+    {
       reason = "sensor_timeout";
     } else {
       const double target_v = std::clamp(cand_v_, 0.0, v_max_);
@@ -202,31 +197,25 @@ private:
       w = prev_w_ + std::clamp(target_w - prev_w_, -dw, dw);
       reason = "ok";
 
-      double min_distance = 1e9;
-      for (size_t k = 0; k + 1 < points_.size(); k += 2) {
-        const double d = std::hypot(points_[k], points_[k + 1]);
-        if (d < min_distance) {
-          min_distance = d;
-        }
-      }
-      if (min_distance < radius_ + margin_) {
-        v = 0.0;
-        w = 0.0;
-        reason = "clearance";
-      } else if (braking(v, w)) {
-        v = 0.0;
-        reason = "braking";
-      }
+      const auto filtered = safety_pkg::filter_velocity(v, w, ranges_, scan_config_);
+      v = filtered.v;
+      w = filtered.w;
+      reason = filtered.intervened ? filtered.reason : "ok";
     }
 
-    if (reason == "clearance" || reason == "braking" || reason == "sensor_timeout") {
-      if (reason != last_reason_) {
+    const bool intervening = reason == "clearance" || reason == "braking" ||
+      reason == "sensor_timeout" || reason == "footprint_overlap" ||
+      reason == "braking_sweep" || reason == "no_valid_scan" ||
+      reason.find("scan_unknown_") == 0;
+    if (intervening) {
+      if (!was_intervening_) {
         ++interventions_;
         RCLCPP_WARN(
           get_logger(), "intervention %lu: %s (v=%.2f w=%.2f)",
           static_cast<unsigned long>(interventions_), reason.c_str(), v, w);
       }
     }
+    was_intervening_ = intervening;
     last_reason_ = reason;
 
     geometry_msgs::msg::Twist cmd;
@@ -236,11 +225,11 @@ private:
     prev_v_ = v;
     prev_w_ = w;
 
-    if (now.nanoseconds() - last_state_pub_.nanoseconds() > 500000000LL) {
+    if (std::chrono::duration<double>(steady_now - last_state_pub_).count() > 0.5) {
       std_msgs::msg::Bool state;
       state.data = estop_;
       pub_estop_->publish(state);
-      last_state_pub_ = now;
+      last_state_pub_ = steady_now;
     }
 
     std_msgs::msg::String status;
@@ -251,6 +240,7 @@ private:
         << ",\"v_target\":" << cand_v_ << ",\"w_target\":" << cand_w_
         << ",\"v_exec\":" << v << ",\"w_exec\":" << w
         << ",\"cmd_age\":" << cmd_age << ",\"scan_age\":" << scan_age
+        << ",\"scan_stamp_age\":" << scan_stamp_age
         << ",\"interventions\":" << interventions_ << "}";
     status.data = out.str();
     pub_status_->publish(status);
@@ -268,24 +258,35 @@ private:
   double margin_ = 0.04;
   double reaction_time_ = 0.2;
   double brake_deceleration_ = 0.8;
+  bool strict_scan_coverage_ = false;
+  int canonical_beams_ = 360;
+  double sensor_future_tolerance_ = 0.15;
+  double configured_range_min_ = 0.24;
+  double configured_range_max_ = 10.0;
 
   double cand_v_ = 0.0;
   double cand_w_ = 0.0;
   bool have_candidate_ = false;
-  rclcpp::Time last_candidate_{0, 0, RCL_ROS_TIME};
+  bool candidate_valid_ = false;
+  bool have_ros_time_ = false;
+  int64_t last_ros_time_ = 0;
+  std::chrono::steady_clock::time_point last_candidate_;
   double prev_v_ = 0.0;
   double prev_w_ = 0.0;
 
-  std::vector<float> points_;
+  std::vector<float> ranges_;
+  safety_pkg::SafetyConfig scan_config_;
   bool points_valid_ = false;
   bool have_scan_ = false;
   rclcpp::Time scan_stamp_{0, 0, RCL_ROS_TIME};
+  std::chrono::steady_clock::time_point scan_received_;
 
   bool estop_ = false;
   bool estop_request_ = false;
   std::string last_reason_ = "init";
   size_t interventions_ = 0;
-  rclcpp::Time last_state_pub_{0, 0, RCL_ROS_TIME};
+  bool was_intervening_ = false;
+  std::chrono::steady_clock::time_point last_state_pub_;
 
   tf2_ros::Buffer buffer_;
   tf2_ros::TransformListener listener_;

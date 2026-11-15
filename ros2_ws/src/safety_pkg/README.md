@@ -23,4 +23,8 @@ C++ 安全节点，是 `/cmd_vel` 的唯一发布者。
 
 ## 已验证
 
+2026-11-15 v2：Windows 原生编译通过 core 自检，并与冻结的 Python v2 在 1,200 组场景对照零差异。`strict_scan_coverage=true` 启用方向性未知区保护；新 PPO 与 Nav2 启动器均显式启用，旧 v1 模型启动器保持 legacy 模式。扫描按真实角度重采样并使用 TF 外参，合法范围取消息与模型配置的交集。命令/扫描接收超时使用稳态时钟，独立检查扫描 ROS 时间戳的过期和未来界限。
+
+Ubuntu 执行 `bash training/scripts/verify_ros_runtime.sh` 复核本机编译结果。下述是此前 v1 的 Gazebo 记录，新版仍需复测：
+
 在 `wpb_simple.world` 中直行冲向 x=3 的书架：x=2.32 m 处 `/safety/status` 报告 `reason=clearance`，`/cmd_vel` 归零；停止发布候选速度 0.5 s 后报告 `command_stale`。

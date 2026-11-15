@@ -1,0 +1,36 @@
+{
+  "export_format_version": "bundle_v2",
+  "created": "2026-11-15T19:51:27.373760+08:00",
+  "run": "E:\\ROS2\\github\\RL-indoor-nav-upload\\experiments\\ppo_v2\\runs\\ppo_v2_visible_s43",
+  "selected_weights": {
+    "file": "best_model.zip",
+    "sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+    "num_timesteps": 40000,
+    "kind": "best"
+  },
+  "source_snapshot": {
+    "path": "navrl",
+    "sha256": "078fc13d56038b1265f111d59e02173e6dd60ecf6aa229f69e7b36fab354e8e7",
+    "files": {
+      "config.py": "1116e8b9513be76774cd51970ec3dbb1046c326b8992c41d1fe777112e04b7be",
+      "control.py": "57fb2bbbb89f3a4fa1719e50713ebcfd031157fb6879e84a939a3f5419394696",
+      "env.py": "6ba63c5b7595c2059ccf7f82eb92423e8571607b1a96ad5479fe0f27f9974465",
+      "evaluation.py": "840df2052b5be90d4155b07fc925b0918f0e64ce961c5415e7dfa30b384ec05e",
+      "features.py": "91efd7e599b114e878c32e7c19f4e0f53870c622237709553d0d3e70a8335f2d",
+      "fixtures.py": "289d364686ac06441237d9abba599a2389ddb48b08fad29d5bfcfdf3ab454598",
+      "geometry.py": "aa27037f273e56d0d98437441ae0c9f705dd473c41eef4f565a793479b0ef8c6",
+      "guidance.py": "a7141e5645dc75b99695efd8181aae4dd24b1146e58ab63efc43230c3d24a57b",
+      "observation.py": "7cbbf81df7bf82cb07e971e1cadc8b333eeacbc6ae5fb54119dc485ad7ec2936",
+      "scan.py": "49c35b79aa89f3ba061e58463d3f9cafa44b1a8a45a522f763ad9663b5400a4c",
+      "__init__.py": "f6d0b1c2bb7ba500f32e897446685b49b832ab18d40317ed6857b75de0e35f9f"
+    }
+  },
+  "spec_version": "bev_nav_v2",
+  "score_binding": {
+    "kind": "best",
+    "bound": true,
+    "weights_sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5"
+  },
+  "python": "3.10.22 (main, Oct  9 2026, 15:18:58) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.22621-SP0"
+}

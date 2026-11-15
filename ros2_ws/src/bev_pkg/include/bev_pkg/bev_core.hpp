@@ -18,6 +18,8 @@ struct BevConfig
   double robot_radius = 0.226;
   double distance_clip = 1.0;
   double goal_distance_scale = 5.0;
+  // v1 accepted finite values above range_max as no-return rays. v2 must not.
+  bool strict_scan = false;
 };
 
 std::vector<float> canonicalize_scan(

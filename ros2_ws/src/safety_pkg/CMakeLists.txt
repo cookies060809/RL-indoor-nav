@@ -17,9 +17,14 @@ find_package(std_srvs REQUIRED)
 find_package(tf2_ros REQUIRED)
 
 add_executable(safety_node src/safety_node.cpp)
+target_include_directories(safety_node PRIVATE include)
 ament_target_dependencies(safety_node
   rclcpp sensor_msgs geometry_msgs std_msgs std_srvs tf2_ros)
 
 install(TARGETS safety_node DESTINATION lib/${PROJECT_NAME})
+add_executable(safety_core_check test/safety_core_check.cpp)
+target_include_directories(safety_core_check PRIVATE include)
+install(TARGETS safety_core_check DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY include/ DESTINATION include)
 
 ament_package()

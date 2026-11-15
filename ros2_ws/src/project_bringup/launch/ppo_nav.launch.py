@@ -6,6 +6,7 @@ from launch.actions import (
     DeclareLaunchArgument,
     ExecuteProcess,
     IncludeLaunchDescription,
+    OpaqueFunction,
     TimerAction,
 )
 from launch.conditions import IfCondition
@@ -13,6 +14,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
+from rl_nav_pkg.launch_support import runtime_nodes
 
 
 def generate_launch_description():
@@ -61,7 +63,7 @@ def generate_launch_description():
         executable='planner_server',
         name='planner_server',
         output='screen',
-        parameters=[nav2_params])
+        parameters=[nav2_params, {'use_sim_time': True}])
 
     localization_manager = Node(
         package='nav2_lifecycle_manager',
@@ -85,70 +87,7 @@ def generate_launch_description():
             'node_names': ['planner_server'],
         }])
 
-    bev = Node(
-        package='bev_pkg',
-        executable='bev_node',
-        name='bev_node',
-        output='screen',
-        parameters=[{
-            'use_sim_time': True,
-            'n': 32,
-            'extent': 4.8,
-            'spec_version': 'bev_nav_v1',
-            'beams': 360,
-            'robot_radius': 0.226,
-            'distance_clip': 1.0,
-            'goal_distance_scale': 5.0,
-            'v_max': 0.26,
-            'w_max': 1.0,
-            'goal_frame': 'map',
-            'goal_x': ParameterValue(initial_x, value_type=float),
-            'goal_y': ParameterValue(initial_y, value_type=float),
-        }])
-
-    safety = Node(
-        package='safety_pkg',
-        executable='safety_node',
-        name='safety_node',
-        output='screen',
-        parameters=[{
-            'use_sim_time': True,
-            'candidate_topic': '/cmd_vel_rl',
-            'v_max': 0.26,
-            'w_max': 1.0,
-            'acceleration': 0.5,
-            'angular_acceleration': 2.0,
-            'control_dt': 0.05,
-            'stale_timeout': 0.5,
-            'sensor_timeout': 0.5,
-            'robot_radius': 0.226,
-            'safety_margin': 0.04,
-            'reaction_time': 0.2,
-            'brake_deceleration': 0.8,
-        }])
-
-    route_manager = Node(
-        package='rl_nav_pkg',
-        executable='route_manager',
-        name='route_manager',
-        output='screen',
-        parameters=[{'use_sim_time': True}])
-
-    local_goal = Node(
-        package='rl_nav_pkg',
-        executable='local_goal_node',
-        name='local_goal_node',
-        output='screen',
-        parameters=[{'use_sim_time': True, 'lookahead': 1.2}])
-
-    policy = ExecuteProcess(
-        condition=IfCondition(run_policy),
-        cmd=[
-            'bash',
-            PathJoinSubstitution([project_root, 'training', 'scripts', 'run_policy.sh']),
-            model_id,
-        ],
-        output='screen')
+    runtime = OpaqueFunction(function=lambda context: runtime_nodes(context, navigation=True))
 
     rviz = TimerAction(
         period=4.0,
@@ -163,7 +102,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('project_root', default_value=os.path.expanduser('~/ROS2hw')),
-        DeclareLaunchArgument('model_id', default_value='split_mixed_pretrain_v1'),
+        DeclareLaunchArgument('model_id', default_value='ppo_v2_recommended'),
         DeclareLaunchArgument('rviz', default_value='true'),
         DeclareLaunchArgument('policy', default_value='true'),
         # Spawn is at (-6.0, -0.5), exactly on the map edge; AMCL starts 0.1 m inside
@@ -177,10 +116,6 @@ def generate_launch_description():
         localization_manager,
         planner,
         navigation_manager,
-        bev,
-        safety,
-        route_manager,
-        local_goal,
-        policy,
+        runtime,
         rviz,
     ])

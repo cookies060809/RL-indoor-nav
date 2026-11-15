@@ -23,7 +23,8 @@ def main() -> int:
         cfg = data["config"]
         ranges = [TOKENS.get(v, v) if isinstance(v, str) else v for v in data["ranges"]]
         expected = [float(v) for v in data["expected_observation"]]
-        header = struct.pack(
+        version = 2 if cfg.get("spec_version") == "bev_nav_v2" else 1
+        header = struct.pack("<4sI", b"BFV2", version) + struct.pack(
             "<11d",
             float(cfg["observation"]["size"]),
             float(cfg["observation"]["extent"]),

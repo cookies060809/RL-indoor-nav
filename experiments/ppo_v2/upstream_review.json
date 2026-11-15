@@ -1,0 +1,8 @@
+{
+  "yy_previous": "9849ce9084d07fc05bb901edf4a35ef8a4c9cc9b",
+  "yy_reviewed": "d98da4b5dec218533bd455e9b3f65ef1be508cec",
+  "main_base": "e020a96746472f9c438129f517049bd57d288d60",
+  "integration": "selected source integration with additional runtime fixes and explicit v2 retraining; not a wholesale branch merge",
+  "source_repository": "https://github.com/cookies060809/RL-indoor-nav",
+  "verified_remote_refs": "git ls-remote origin refs/heads/main refs/heads/yy"
+}

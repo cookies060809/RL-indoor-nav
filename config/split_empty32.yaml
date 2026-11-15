@@ -1,4 +1,4 @@
-spec_version: bev_nav_v1
+spec_version: bev_nav_v2
 seed: 42
 observation:
   size: 32
@@ -38,6 +38,9 @@ environment:
   stuck_seconds: 10.0
   min_goal_distance: 1.0
   max_goal_distance: 2.5
+  turn_grace_seconds: 4.0
+  turn_rate_threshold: 0.2
+  progress_epsilon: 0.005
 reward:
   progress: 2.0
   time: -0.01
@@ -67,3 +70,8 @@ training:
   eval_every: 20000
   eval_episodes: 8
   checkpoint_every: 50000
+  validation_stages:
+  - empty
+  - single
+  - turn
+  - clutter

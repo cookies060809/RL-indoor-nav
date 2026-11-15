@@ -1,0 +1,58 @@
+{
+  "episodes": 96,
+  "successes": 95,
+  "success_rate": 0.9895833333333334,
+  "collision_rate": 0.0,
+  "mean_success_time": 11.486315789473682,
+  "mean_intervention_duration": 0.1416666666666667,
+  "failure_reasons": {
+    "stuck": 1
+  },
+  "case": "recommended",
+  "model": "experiments/ppo_v2/runs/ppo_v2_visible_s43/best_model.zip",
+  "weights_sha256": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+  "spec_version": "bev_nav_v2",
+  "seed_base": 610000,
+  "selection_sha256": "d730538b27f603338eee5a2532212e852b431491e02c015f1d50f5c50438b85d",
+  "per_scenario": {
+    "empty": {
+      "episodes": 24,
+      "successes": 24,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 10.983333333333334,
+      "mean_intervention_duration": 0.0,
+      "failure_reasons": {}
+    },
+    "single": {
+      "episodes": 24,
+      "successes": 24,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 10.250000000000002,
+      "mean_intervention_duration": 0.008333333333333333,
+      "failure_reasons": {}
+    },
+    "turn": {
+      "episodes": 24,
+      "successes": 23,
+      "success_rate": 0.9583333333333334,
+      "collision_rate": 0.0,
+      "mean_success_time": 12.43913043478261,
+      "mean_intervention_duration": 0.5166666666666667,
+      "failure_reasons": {
+        "stuck": 1
+      }
+    },
+    "clutter": {
+      "episodes": 24,
+      "successes": 24,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 12.312500000000002,
+      "mean_intervention_duration": 0.041666666666666664,
+      "failure_reasons": {}
+    }
+  },
+  "note": "Windows 2D simulator; not a ROS/Gazebo or real-robot result. Different v1/v2 safety and stuck semantics are recorded in snapshots."
+}

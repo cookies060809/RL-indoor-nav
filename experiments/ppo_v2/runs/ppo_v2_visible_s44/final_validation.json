@@ -1,0 +1,88 @@
+{
+  "split": "validation",
+  "stages": [
+    "empty",
+    "single",
+    "turn",
+    "clutter"
+  ],
+  "episodes": 32,
+  "successes": 31,
+  "success_rate": 0.96875,
+  "collision_rate": 0.0,
+  "mean_success_time": 10.706451612903226,
+  "mean_intervention_duration": 0.359375,
+  "mean_requested_speed": 0.39752751570119566,
+  "mean_executed_speed": 0.3940872448421615,
+  "mean_reward": 22.923093940355894,
+  "failure_reasons": {
+    "stuck": 1
+  },
+  "intervention_reasons": {
+    "braking_sweep": 26,
+    "footprint_overlap": 89
+  },
+  "per_scenario": {
+    "empty": {
+      "episodes": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 9.075000000000001,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.3831313903224317,
+      "mean_executed_speed": 0.3831313903224317,
+      "failure_reasons": {},
+      "intervention_reasons": {}
+    },
+    "single": {
+      "episodes": 8,
+      "successes": 7,
+      "success_rate": 0.875,
+      "collision_rate": 0.0,
+      "mean_success_time": 10.757142857142856,
+      "mean_intervention_duration": 1.4375,
+      "mean_requested_speed": 0.40162778333449456,
+      "mean_executed_speed": 0.387866699898358,
+      "failure_reasons": {
+        "stuck": 1
+      },
+      "intervention_reasons": {
+        "braking_sweep": 26,
+        "footprint_overlap": 89
+      }
+    },
+    "turn": {
+      "episodes": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 11.0625,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.42304973338130314,
+      "mean_executed_speed": 0.42304973338130314,
+      "failure_reasons": {},
+      "intervention_reasons": {}
+    },
+    "clutter": {
+      "episodes": 8,
+      "successes": 8,
+      "success_rate": 1.0,
+      "collision_rate": 0.0,
+      "mean_success_time": 11.9375,
+      "mean_intervention_duration": 0.0,
+      "mean_requested_speed": 0.3823011557665532,
+      "mean_executed_speed": 0.3823011557665532,
+      "failure_reasons": {},
+      "intervention_reasons": {}
+    }
+  },
+  "effective_safety": true,
+  "spec_version": "bev_nav_v2",
+  "config_hash": "f3035f5d21ad8dd4d2f44badd9e3342bbddc869b293d8ffc43558d0b543625e3",
+  "seed_base": 100000,
+  "seed_offsets": "stage_index*1000+episode",
+  "weights_file": "final_model.zip",
+  "weights_sha256": "ff4ccbbe88d1bc837e22b2a0343611313b98a42703509635f99dd14cee751e45",
+  "num_timesteps": 100352
+}

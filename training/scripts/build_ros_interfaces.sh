@@ -11,6 +11,6 @@ set -u
 "$ROOT/.venv/bin/python" -c 'import rclpy, colcon_core'
 cd "$ROOT/ros2_ws"
 "$ROOT/.venv/bin/python" -c 'from colcon_core.command import main; raise SystemExit(main())' build --symlink-install \
-  --packages-select project_msgs rl_nav_pkg \
+  --packages-select project_msgs bev_pkg safety_pkg rl_nav_pkg project_bringup \
   --cmake-args "-DPython3_EXECUTABLE=$ROOT/.venv/bin/python"
 echo 'Build completed. Source this workspace before running ROS nodes.'

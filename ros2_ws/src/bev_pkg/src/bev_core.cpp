@@ -126,7 +126,8 @@ void build_bev(
   for (int i = 0; i < count; ++i) {
     const float value = ranges[static_cast<size_t>(i)];
     if (std::isnan(value) || static_cast<double>(value) < cfg.range_min ||
-      value == -std::numeric_limits<float>::infinity())
+      value == -std::numeric_limits<float>::infinity() ||
+      (cfg.strict_scan && std::isfinite(value) && value > static_cast<float>(cfg.range_max)))
     {
       continue;
     }
