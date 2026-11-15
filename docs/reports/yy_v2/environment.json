@@ -28,7 +28,7 @@
   "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff",
   "spec_version": "bev_nav_v2",
   "git": {
-    "commit": "6521afbe35fdf8d939b2137abef1d1b951840335",
-    "dirty": true
+    "commit": "2de32dcdf6001d2bc0b2092a4c27ec659875cfa4",
+    "dirty": false
   }
 }
