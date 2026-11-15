@@ -112,14 +112,11 @@ def validate_config(cfg, require_current=True):
 
     selection = environment['goal_selection']
     _require(selection['mode'] in ('fixed', 'adaptive'), 'goal_selection.mode must be fixed or adaptive')
-    _positive(cfg, 'environment', 'lookahead')
     _require(0 < selection['min_lookahead'] <= environment['lookahead'],
              'goal_selection.min_lookahead must be in (0, lookahead]')
     _require(0 <= selection['turn_angle_threshold'] <= math.pi / 2,
              'goal_selection.turn_angle_threshold must be in [0, pi/2]')
-    _positive(cfg, 'environment', 'task_grid_resolution')
-    selection_positive = ('turn_scan_distance', 'direct_corridor')
-    for key in selection_positive:
+    for key in ('turn_scan_distance', 'direct_corridor'):
         _require(isinstance(selection[key], (int, float)) and math.isfinite(selection[key]) and selection[key] > 0,
                  f'goal_selection.{key} must be positive')
 

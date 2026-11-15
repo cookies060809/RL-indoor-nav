@@ -133,7 +133,8 @@ class IndoorNavEnv(gym.Env):
         self.max_steps = max(environment['max_steps'], int(math.ceil(
             (environment['timeout_factor'] * self.reference_length / robot['v_max'] + 15) / robot['dt'])))
         self.ranges = self._scan()
-        self.path_index, self.local_goal = select_local_goal(self.path, self.arc, self.pose, self.cfg, 0)
+        self.path_index = 0
+        _, self.local_goal = select_local_goal(self.path, self.arc, self.pose, self.cfg, 0)
         self.previous_heading_error = self._heading_error()
         return self._observation(), {'stage': self.actual_stage, 'reference_length': self.reference_length}
 
@@ -160,7 +161,7 @@ class IndoorNavEnv(gym.Env):
         high = min(len(self.path), self.path_index + 35)
         self.path_index = low + int(np.argmin(np.linalg.norm(self.path[low:high] - self.pose[:2], axis=1)))
         self.progress = float(self.arc[self.path_index])
-        self.path_index, self.local_goal = select_local_goal(
+        _, self.local_goal = select_local_goal(
             self.path, self.arc, self.pose, self.cfg, self.path_index)
 
     def _observation(self):
@@ -230,6 +231,7 @@ class IndoorNavEnv(gym.Env):
             self.no_progress_time += robot['dt']
         else:
             self.no_progress_time = 0.0
+            self.turn_grace_used = 0.0
         heading_error = self._heading_error()
         turning_toward_goal = (
             abs(self.velocity[1]) >= environment['turn_rate_threshold']

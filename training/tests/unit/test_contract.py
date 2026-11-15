@@ -94,3 +94,11 @@ def test_geometry_contact_overrides_success(cfg):
     env.pose[:2]=[2.85,0]; env.goal=env.pose[:2].copy(); env.hold=1
     _,_,done,trunc,info=env.step(np.array([-1,0]))
     assert done and info['collision'] and not info['success']
+
+def test_initial_progress_is_not_local_goal_index(cfg):
+    env=IndoorNavEnv(cfg); env.reset(seed=42)
+    assert env.path_index==0 and env.progress==0.0
+    env.step(np.array([1.0,0.0],dtype=np.float32))
+    assert env.path_index<5
+    assert env.progress<0.2
+    assert env.no_progress_time<0.2
