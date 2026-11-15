@@ -1,0 +1,410 @@
+{
+  "date": "2026-11-15",
+  "branch": "develop",
+  "commit": "be847e6abc8793a4cc4d11dccb90277b80f3fa83",
+  "runtime_sha256": "70938d961e5d6eb0a298deac35c71c9c0501f54597a8eef14f430fb3f2e0f668",
+  "policy_sha256": {
+    "models/ppo_v2_recommended/policy.zip": "aefe0c94a1480d9ed5ebcff3689aae4b311bc2c8c6efc240db36baef53c29fc5",
+    "models/split_mixed_pretrain_v1/policy.zip": "840264d71abaac7e089dd9305b881d5fc45b43fe4ed26f9d392ae35c35c2ede3"
+  },
+  "environment": {
+    "os": "Ubuntu 22.04 (VMware, Windows 11 host)",
+    "ros": "ROS 2 Humble",
+    "simulator": "Gazebo Classic 11",
+    "world": "wpr_simulation2 robocup_home.world",
+    "map": "wpr_simulation2 maps/map.yaml (370x269, 0.03 m)",
+    "spawn_map": [
+      -6.0,
+      -0.5
+    ],
+    "compute": "8 vCPU, CPU-only PPO inference, gzclient disabled (no DISPLAY)"
+  },
+  "protocol": {
+    "design": "paired: same 8 goals, same spawn, fresh launch per episode, v1 and v2 back to back",
+    "goal_selection": "four goals carried over from the 40f2434 report, four added to cover the other three map quadrants",
+    "metric_source": "per-episode CSV at ~10 Hz plus /navigation/status and /safety/status",
+    "timeouts": {
+      "sim_seconds": 150,
+      "wall_seconds": 240
+    },
+    "driver": "setup/eval_home_goals.py"
+  },
+  "realtime_ratio": 1.0,
+  "goal_hold_samples": "9-10 samples at ~10 Hz, i.e. the configured 1.0 s hold before the goal is declared reached",
+  "episodes": [
+    {
+      "goal_map": [
+        0.0,
+        0.0
+      ],
+      "straight_distance_m": 6.02,
+      "map_clearance_m": 0.95,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          0.0,
+          0.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 22.6,
+        "path_length_m": 5.69,
+        "final_distance_m": 0.20592882591939576,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 199,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_00_+0.0_+0.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          0.0,
+          0.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 22.6,
+        "path_length_m": 5.66,
+        "final_distance_m": 0.20493836641968413,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 10,
+        "tracking_samples": 201,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_00_+0.0_+0.0.csv"
+      }
+    },
+    {
+      "goal_map": [
+        2.0,
+        3.0
+      ],
+      "straight_distance_m": 8.73,
+      "map_clearance_m": 0.51,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          2.0,
+          3.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 38.5,
+        "path_length_m": 9.78,
+        "final_distance_m": 0.19138556031038736,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 10,
+        "tracking_samples": 350,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_01_+2.0_+3.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          2.0,
+          3.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 38.2,
+        "path_length_m": 9.74,
+        "final_distance_m": 0.20593286070862107,
+        "safety_interventions": 1,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 10,
+        "tracking_samples": 344,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_01_+2.0_+3.0.csv"
+      }
+    },
+    {
+      "goal_map": [
+        4.5,
+        -2.0
+      ],
+      "straight_distance_m": 10.61,
+      "map_clearance_m": 0.39,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          4.5,
+          -2.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 40.1,
+        "path_length_m": 10.23,
+        "final_distance_m": 0.23634747866311565,
+        "safety_interventions": 1,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 364,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_02_+4.5_-2.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          4.5,
+          -2.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 40.6,
+        "path_length_m": 10.31,
+        "final_distance_m": 0.2400526716016817,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 370,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_02_+4.5_-2.0.csv"
+      }
+    },
+    {
+      "goal_map": [
+        -2.0,
+        2.0
+      ],
+      "straight_distance_m": 4.72,
+      "map_clearance_m": 1.02,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          -2.0,
+          2.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 31.5,
+        "path_length_m": 7.98,
+        "final_distance_m": 0.19925076740420686,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 10,
+        "tracking_samples": 284,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_03_-2.0_+2.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          -2.0,
+          2.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 31.5,
+        "path_length_m": 7.98,
+        "final_distance_m": 0.2331641420699052,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 285,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_03_-2.0_+2.0.csv"
+      }
+    },
+    {
+      "goal_map": [
+        0.0,
+        -2.5
+      ],
+      "straight_distance_m": 6.32,
+      "map_clearance_m": 0.96,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          0.0,
+          -2.5
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 24.5,
+        "path_length_m": 6.15,
+        "final_distance_m": 0.21499829959828556,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 219,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_04_+0.0_-2.5.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          0.0,
+          -2.5
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 25.0,
+        "path_length_m": 6.26,
+        "final_distance_m": 0.20624205187490816,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 10,
+        "tracking_samples": 223,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_04_+0.0_-2.5.csv"
+      }
+    },
+    {
+      "goal_map": [
+        -3.5,
+        -2.0
+      ],
+      "straight_distance_m": 2.92,
+      "map_clearance_m": 0.72,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          -3.5,
+          -2.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 11.1,
+        "path_length_m": 2.68,
+        "final_distance_m": 0.21660796680173328,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 93,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_05_-3.5_-2.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          -3.5,
+          -2.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 11.0,
+        "path_length_m": 2.66,
+        "final_distance_m": 0.2311883109957937,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 92,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_05_-3.5_-2.0.csv"
+      }
+    },
+    {
+      "goal_map": [
+        3.5,
+        3.0
+      ],
+      "straight_distance_m": 10.12,
+      "map_clearance_m": 0.7,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          3.5,
+          3.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 43.7,
+        "path_length_m": 11.14,
+        "final_distance_m": 0.23275486834010103,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 397,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_06_+3.5_+3.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          3.5,
+          3.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 44.3,
+        "path_length_m": 11.33,
+        "final_distance_m": 0.20264251611583725,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 405,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_06_+3.5_+3.0.csv"
+      }
+    },
+    {
+      "goal_map": [
+        2.5,
+        -3.0
+      ],
+      "straight_distance_m": 8.86,
+      "map_clearance_m": 0.51,
+      "ppo_v2_recommended": {
+        "goal_map": [
+          2.5,
+          -3.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 34.6,
+        "path_length_m": 8.8,
+        "final_distance_m": 0.21544183767849387,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 313,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_07_+2.5_-3.0.csv"
+      },
+      "split_mixed_pretrain_v1": {
+        "goal_map": [
+          2.5,
+          -3.0
+        ],
+        "reached": true,
+        "reason": "goal_reached",
+        "sim_seconds": 35.0,
+        "path_length_m": 8.89,
+        "final_distance_m": 0.2326763536873359,
+        "safety_interventions": 0,
+        "intervention_samples": 0,
+        "escape_samples": 0,
+        "goal_hold_samples": 9,
+        "tracking_samples": 318,
+        "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_07_+2.5_-3.0.csv"
+      }
+    }
+  ],
+  "summary": {
+    "ppo_v2_recommended": {
+      "episodes": 8,
+      "reached": 8,
+      "mean_sim_seconds": 30.8,
+      "total_path_m": 62.5,
+      "max_final_distance_m": 0.236
+    },
+    "split_mixed_pretrain_v1": {
+      "episodes": 8,
+      "reached": 8,
+      "mean_sim_seconds": 31.0,
+      "total_path_m": 62.8,
+      "max_final_distance_m": 0.24
+    },
+    "mean_time_difference_seconds": 0.2,
+    "max_abs_time_difference_seconds": 0.6
+  },
+  "safety": {
+    "driving_interventions": 0,
+    "notes": [
+      "Two safety_node events were logged as sensor_timeout with v=0.00 before the goal was sent; both are startup transients, not navigation interventions.",
+      "No clearance, braking or footprint_overlap intervention was triggered in any of the 16 episodes."
+    ]
+  },
+  "failures": [
+    {
+      "run": "split_mixed_pretrain_v1, goal (2.5,-3.0), first attempt",
+      "reason": "planner_server change_state timeout left planner inactive; no path, no motion",
+      "handling": "known Nav2 lifecycle flake already listed in linux_gazebo.json; the episode was re-run once and the re-run is reported"
+    }
+  ],
+  "conclusion": {
+    "success": "8/8 goals reached with both policies; 16/16 episodes across the paired sweep.",
+    "v2_advantage": "Not demonstrated. Mean arrival time differs by 0.2 s and the largest per-goal difference is 0.6 s, both far below the run-to-run spread previously observed.",
+    "attribution": "Consistent with the 2D holdout, where v1 weights under v2 semantics already reached 95/96: the gain belongs to the runtime semantics, not the new weights.",
+    "sample_size": "Eight goals from a single spawn on one map; this is a regression and coverage check, not a success-rate estimate."
+  }
+}

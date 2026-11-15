@@ -1,0 +1,154 @@
+{
+  "tag": "v1_goal_sweep_01",
+  "date": "2026-11-15T15:51:01+00:00",
+  "episodes": 8,
+  "reached": 8,
+  "success_rate": 1.0,
+  "results": [
+    {
+      "goal_map": [
+        0.0,
+        0.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 22.6,
+      "path_length_m": 5.66,
+      "final_distance_m": 0.20493836641968413,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 10,
+      "tracking_samples": 201,
+      "id": "goal_00_+0.0_+0.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_00_+0.0_+0.0.csv"
+    },
+    {
+      "goal_map": [
+        2.0,
+        3.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 38.2,
+      "path_length_m": 9.74,
+      "final_distance_m": 0.20593286070862107,
+      "safety_interventions": 1,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 10,
+      "tracking_samples": 344,
+      "id": "goal_01_+2.0_+3.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_01_+2.0_+3.0.csv"
+    },
+    {
+      "goal_map": [
+        4.5,
+        -2.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 40.6,
+      "path_length_m": 10.31,
+      "final_distance_m": 0.2400526716016817,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 370,
+      "id": "goal_02_+4.5_-2.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_02_+4.5_-2.0.csv"
+    },
+    {
+      "goal_map": [
+        -2.0,
+        2.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 31.5,
+      "path_length_m": 7.98,
+      "final_distance_m": 0.2331641420699052,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 285,
+      "id": "goal_03_-2.0_+2.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_03_-2.0_+2.0.csv"
+    },
+    {
+      "goal_map": [
+        0.0,
+        -2.5
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 25.0,
+      "path_length_m": 6.26,
+      "final_distance_m": 0.20624205187490816,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 10,
+      "tracking_samples": 223,
+      "id": "goal_04_+0.0_-2.5",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_04_+0.0_-2.5.csv"
+    },
+    {
+      "goal_map": [
+        -3.5,
+        -2.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 11.0,
+      "path_length_m": 2.66,
+      "final_distance_m": 0.2311883109957937,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 92,
+      "id": "goal_05_-3.5_-2.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_05_-3.5_-2.0.csv"
+    },
+    {
+      "goal_map": [
+        3.5,
+        3.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 44.3,
+      "path_length_m": 11.33,
+      "final_distance_m": 0.20264251611583725,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 405,
+      "id": "goal_06_+3.5_+3.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_06_+3.5_+3.0.csv"
+    },
+    {
+      "goal_map": [
+        2.5,
+        -3.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 35.0,
+      "path_length_m": 8.89,
+      "final_distance_m": 0.2326763536873359,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 318,
+      "id": "goal_07_+2.5_-3.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep_v1/goal_07_+2.5_-3.0.csv",
+      "rerun_after": "planner change_state timeout (known Nav2 lifecycle flake); first attempt made no motion"
+    }
+  ]
+}

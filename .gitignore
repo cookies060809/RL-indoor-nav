@@ -10,6 +10,7 @@ __pycache__/
 *.nbc
 *.nbi
 checkpoint_*.zip
+experiments/ppo_v2/linux_home/goal_sweep*/*.log
 ros2_ws/build/
 ros2_ws/install/
 ros2_ws/log/

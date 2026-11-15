@@ -1,0 +1,149 @@
+{
+  "tag": "develop_goal_sweep_01",
+  "goals": [
+    {
+      "goal_map": [
+        0.0,
+        0.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 22.6,
+      "path_length_m": 5.69,
+      "final_distance_m": 0.20592882591939576,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 199,
+      "id": "goal_00_+0.0_+0.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_00_+0.0_+0.0.csv"
+    },
+    {
+      "goal_map": [
+        2.0,
+        3.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 38.5,
+      "path_length_m": 9.78,
+      "final_distance_m": 0.19138556031038736,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 10,
+      "tracking_samples": 350,
+      "id": "goal_01_+2.0_+3.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_01_+2.0_+3.0.csv"
+    },
+    {
+      "goal_map": [
+        4.5,
+        -2.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 40.1,
+      "path_length_m": 10.23,
+      "final_distance_m": 0.23634747866311565,
+      "safety_interventions": 1,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 364,
+      "id": "goal_02_+4.5_-2.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_02_+4.5_-2.0.csv"
+    },
+    {
+      "goal_map": [
+        -2.0,
+        2.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 31.5,
+      "path_length_m": 7.98,
+      "final_distance_m": 0.19925076740420686,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 10,
+      "tracking_samples": 284,
+      "id": "goal_03_-2.0_+2.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_03_-2.0_+2.0.csv"
+    },
+    {
+      "goal_map": [
+        0.0,
+        -2.5
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 24.5,
+      "path_length_m": 6.15,
+      "final_distance_m": 0.21499829959828556,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 219,
+      "id": "goal_04_+0.0_-2.5",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_04_+0.0_-2.5.csv"
+    },
+    {
+      "goal_map": [
+        -3.5,
+        -2.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 11.1,
+      "path_length_m": 2.68,
+      "final_distance_m": 0.21660796680173328,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 93,
+      "id": "goal_05_-3.5_-2.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_05_-3.5_-2.0.csv"
+    },
+    {
+      "goal_map": [
+        3.5,
+        3.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 43.7,
+      "path_length_m": 11.14,
+      "final_distance_m": 0.23275486834010103,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 397,
+      "id": "goal_06_+3.5_+3.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_06_+3.5_+3.0.csv"
+    },
+    {
+      "goal_map": [
+        2.5,
+        -3.0
+      ],
+      "reached": true,
+      "reason": "goal_reached",
+      "sim_seconds": 34.6,
+      "path_length_m": 8.8,
+      "final_distance_m": 0.21544183767849387,
+      "safety_interventions": 0,
+      "intervention_samples": 0,
+      "escape_samples": 0,
+      "goal_hold_samples": 9,
+      "tracking_samples": 313,
+      "id": "goal_07_+2.5_-3.0",
+      "csv": "experiments/ppo_v2/linux_home/goal_sweep/goal_07_+2.5_-3.0.csv"
+    }
+  ]
+}
