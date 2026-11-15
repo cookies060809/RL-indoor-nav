@@ -16,7 +16,8 @@ def fixture_cases(cfg):
     invalid=empty.copy(); invalid[:20]=np.nan; invalid[20]=0.1; invalid[21]=-np.inf
     boundary=empty.copy(); boundary[n//2]=cfg['observation']['extent']/2
     minimum=empty.copy(); minimum[n//2]=cfg['sensor']['range_min']
-    cases=[('empty',empty,[1,0]),('front_wall',front,[1,0]),('left_wall',left,[0,1]),('right_wall',left[::-1].copy(),[0,-1]),('corner',corner,[1,1]),('invalid',invalid,[1,0]),('boundary',boundary,[1,0]),('minimum',minimum,[1,0]),('zero_goal',empty,[0,0])]
+    above_max=empty.copy(); above_max[n//2-12:n//2+13]=cfg['sensor']['range_max']*1.5
+    cases=[('empty',empty,[1,0]),('front_wall',front,[1,0]),('left_wall',left,[0,1]),('right_wall',left[::-1].copy(),[0,-1]),('corner',corner,[1,1]),('invalid',invalid,[1,0]),('boundary',boundary,[1,0]),('minimum',minimum,[1,0]),('above_max',above_max,[1,0]),('zero_goal',empty,[0,0])]
     results=[]
     for name,ranges,goal in cases:
         c=copy.deepcopy(cfg)

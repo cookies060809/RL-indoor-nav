@@ -3,6 +3,7 @@ import math
 import numpy as np
 from scipy.ndimage import distance_transform_edt
 from numba import njit
+from .scan import normalize_for_raster
 
 def canonicalize_scan(ranges, angle_min, angle_increment, beams=360):
     """Nearest-ray resampling to [-pi,pi); unobserved angular sectors stay NaN.
@@ -25,13 +26,14 @@ def canonicalize_scan(ranges, angle_min, angle_increment, beams=360):
 
 @njit(cache=True)
 def rasterize(ranges, n, extent, rmin, rmax, sx, sy, syaw, radius):
+    """Rasterize a classified scan: hit values or +inf; unknown rays are NaN."""
     grid=np.full((n,n),0.5,dtype=np.float32)
     res=extent/n; half=extent/2
     hits=np.zeros((n,n),dtype=np.uint8)
     # Slab clipping handles square corners and sensor offset correctly.
     for i in range(len(ranges)):
         value=ranges[i]
-        if math.isnan(value) or value<rmin or value==-math.inf: continue
+        if math.isnan(value) or value<rmin: continue
         hit=math.isfinite(value) and value<=rmax
         length=min(value,rmax) if hit else rmax
         angle=syaw-math.pi+i*2*math.pi/len(ranges)
@@ -74,7 +76,8 @@ def rasterize(ranges, n, extent, rmin, rmax, sx, sy, syaw, radius):
 
 def scan_to_bev(ranges, cfg):
     o,s=cfg['observation'],cfg['sensor']
-    occupancy=rasterize(np.asarray(ranges,dtype=np.float32),o['size'],o['extent'],s['range_min'],s['range_max'],s['x'],s['y'],s['yaw'],cfg['robot']['radius'])
+    classified=normalize_for_raster(ranges,s)
+    occupancy=rasterize(classified,o['size'],o['extent'],s['range_min'],s['range_max'],s['x'],s['y'],s['yaw'],cfg['robot']['radius'])
     free=occupancy==0
     if np.all(free):
         distance=np.ones_like(occupancy)

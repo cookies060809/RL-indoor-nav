@@ -59,13 +59,13 @@ def test_raycast_and_circular_contact(cfg):
 
 def test_safety_near_and_side(cfg):
     scan=np.full(360,np.inf); scan[180]=0.28
-    command,hit=filter_velocity([0.26,0],scan,cfg)
-    assert hit and command[0]==0
+    command,hit,reason=filter_velocity([0.26,0],scan,cfg)
+    assert hit and command[0]==0 and reason in ('braking_sweep','footprint_overlap')
     scan=np.full(360,np.inf); scan[270]=0.35
-    command,hit=filter_velocity([0.26,0],scan,cfg)
+    command,hit,reason=filter_velocity([0.26,0],scan,cfg)
     assert not hit and command[0]>0
-    command,hit=filter_velocity([.2,0],np.full(360,np.nan),cfg)
-    assert hit and np.all(command==0)
+    command,hit,reason=filter_velocity([.2,0],np.full(360,np.nan),cfg)
+    assert hit and np.all(command==0) and reason=='no_valid_scan'
 
 @pytest.mark.parametrize('stage',['empty','single','turn','clutter'])
 def test_seeded_reachable_tasks(cfg,stage):
