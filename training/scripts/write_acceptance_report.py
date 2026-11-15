@@ -47,5 +47,5 @@ lines+=['','此项采用展平 MLP 的 1 万步小基准，首次编译预热后
         '三者均包含模型、配置、依赖、Python 源码、观测样例和固定推理参考。Windows 自检通过不等于 Ubuntu 自检通过。','',
         '## 仍需完成','',
         '测量 Gazebo 足迹与雷达外参、C++ BEV 真实对照、Ubuntu 库环境、ROS 安全节点与唯一速度出口、路径管理、实体重置、Gazebo 闭环、正式三种子训练及 A/B/C 实验。','']
-(ROOT/'docs/reports/验收摘要.md').write_text('\n'.join(lines),encoding='utf-8')
-print(ROOT/'docs/reports/验收摘要.md')
+(ROOT/'docs/reports/yy_v2/legacy_acceptance_summary.md').write_text('\n'.join(lines),encoding='utf-8')
+print(ROOT/'docs/reports/yy_v2/legacy_acceptance_summary.md')

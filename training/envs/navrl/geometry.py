@@ -75,7 +75,9 @@ def plan_path(start, goal, rectangles, cfg):
     src,dst=cell(start),cell(goal)
     if not free[src] or not free[dst]:
         return None
-    queue=[(0.0,src)]; cost={src:0.0}; parent={}
+    queue=[(0.0,src)]
+    cost={src:0.0}
+    parent={}
     while queue:
         _,u=heapq.heappop(queue)
         if u==dst: break
@@ -85,7 +87,8 @@ def plan_path(start, goal, rectangles, cfg):
             if dr and dc and (not free[u[0]+dr,u[1]] or not free[u[0],u[1]+dc]): continue
             g=cost[u]+math.hypot(dr,dc)
             if g < cost.get(v,math.inf):
-                cost[v]=g; parent[v]=u
+                cost[v]=g
+                parent[v]=u
                 heapq.heappush(queue,(g+math.hypot(v[0]-dst[0],v[1]-dst[1]),v))
     if dst not in cost: return None
     nodes=[dst]
@@ -93,11 +96,13 @@ def plan_path(start, goal, rectangles, cfg):
     raw=[np.asarray(start,dtype=float)]+[np.array([xy[c],xy[r]]) for r,c in nodes[::-1]]+[np.asarray(goal,dtype=float)]
     # Validate every raw connector, including continuous start/goal to grid.
     if not all(segment_clear(a,b,rectangles,radius) for a,b in zip(raw[:-1],raw[1:])): return None
-    selected=[raw[0]]; i=0
+    selected=[raw[0]]
+    i=0
     while i<len(raw)-1:
         j=len(raw)-1
         while j>i+1 and not segment_clear(raw[i],raw[j],rectangles,radius): j-=1
-        selected.append(raw[j]); i=j
+        selected.append(raw[j])
+        i=j
     # Dense path supports bounded progress tracking and arc-length lookahead.
     dense=[]
     for a,b in zip(selected[:-1],selected[1:]):

@@ -1,0 +1,34 @@
+{
+  "python": "3.10.22 (main, Oct  9 2026, 15:18:58) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\Personal\\projects\\RL-indoor-nav\\.venv\\Scripts\\python.exe",
+  "versions": {
+    "torch": "2.8.0+cpu",
+    "stable-baselines3": "2.9.2",
+    "gymnasium": "1.4.0",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.63.1",
+    "PyYAML": "6.0.3",
+    "tensorboard": "2.21.0",
+    "psutil": "7.2.2"
+  },
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "physical_cores": 14,
+  "logical_cores": 20,
+  "ram_gb": 31.73131561279297,
+  "cuda": false,
+  "obs_shape": [
+    2056
+  ],
+  "action": [
+    -0.006522997748106718,
+    0.009017317555844784
+  ],
+  "gym_check": "passed",
+  "spec_hash": "ab2684a123c304623dee2281dd194a77308a920f54679aeb0cc168fe16c4e3ff",
+  "spec_version": "bev_nav_v2",
+  "git": {
+    "commit": "10c75b113f96d23846cf1e1eddafd5bf67427288",
+    "dirty": true
+  }
+}

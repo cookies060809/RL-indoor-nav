@@ -46,7 +46,7 @@ bash training/scripts/build_ros_interfaces.sh
 bash training/scripts/run_policy.sh split_empty_pretrain_v1
 ```
 
-该节点只发布 /cmd_vel_rl，不能绕过 safety_node 接到底盘。
+该节点只发布 /cmd_vel_rl，不能绕过 safety_node 接到底盘。v2 节点使用 STEADY_TIME 看门狗，仿真暂停不会延长命令；收到 `/policy_reset` 会清空旧状态并停车。Windows 未运行 rclpy，实际调度需在 Ubuntu 验证。
 
 ## 4 后续更新
 
