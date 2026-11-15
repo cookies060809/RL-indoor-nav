@@ -69,6 +69,28 @@ def test_visibility_blocks_unknown_and_allows_only_inward_map_edge_escape():
     assert tracker.update([2, 2], 0, 0)[1]['reason'] == 'no_visible_carrot'
 
 
+def test_visibility_retries_with_bare_radius_inside_margin():
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[40, :] = 100
+    tracker.set_map(grid, [0, 0], 0.03)
+    tracker.set_path([[1.5, 1.47], [2.5, 1.47]], 0)
+    goal, status = tracker.update([1.5, 1.47], 0, 0)
+    assert status['ready'] and status['reason'] == 'tracking'
+    assert goal[0] > 1.5
+
+
+def test_visibility_escapes_when_footprint_overlaps_the_map():
+    tracker = PathTracker(mode='visible')
+    grid = np.zeros((100, 100), dtype=int)
+    grid[15:19, 17:22] = 100
+    tracker.set_map(grid, [0, 0], 0.1)
+    tracker.set_path([[1.7, 2.2], [4.0, 2.2]], 0)
+    goal, status = tracker.update([1.7, 2.1], 0, 0)
+    assert status['ready'] and status['reason'] == 'tracking_escape'
+    assert goal[0] > 1.7
+
+
 def test_old_plan_generation_never_reappears():
     epoch = GoalEpoch()
     old = epoch.replace()

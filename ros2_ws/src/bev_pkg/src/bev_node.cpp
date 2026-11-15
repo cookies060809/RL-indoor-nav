@@ -183,8 +183,11 @@ private:
     double dy = gy;
     if (frame != "base_footprint") {
       try {
+        // AMCL's map->odom can trail the scan by a few milliseconds, so the
+        // goal pose uses the latest transform; the error is far below a cell.
         const auto goal_tf = buffer_.lookupTransform(
-          "base_footprint", frame, stamp, rclcpp::Duration::from_seconds(0.05));
+          "base_footprint", frame, rclcpp::Time(0, 0, RCL_ROS_TIME),
+          rclcpp::Duration::from_seconds(0.05));
         geometry_msgs::msg::PointStamped in;
         geometry_msgs::msg::PointStamped out;
         in.header.frame_id = frame;

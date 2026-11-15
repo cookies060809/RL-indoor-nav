@@ -31,7 +31,7 @@ class RouteManager(Node):
         self.create_subscription(PoseStamped, self.get_parameter('goal_topic').value, self.on_goal, 10)
         self.create_subscription(Empty, '/policy_reset', self.on_reset, 10)
         self.epoch = GoalEpoch()
-        self.pending = self.inflight = self.handle = self.active_goal = None
+        self.pending = self.inflight = self.goal_handle = self.active_goal = None
         self.started = self.last_plan = 0.0
         self.last_sim = None
         self.steady_clock = Clock(clock_type=ClockType.STEADY_TIME)
@@ -51,9 +51,9 @@ class RouteManager(Node):
     def on_reset(self, _message):
         self.epoch.replace()
         self.pending = self.active_goal = None
-        if self.handle is not None:
-            self.handle.cancel_goal_async()
-        self.handle = self.inflight = None
+        if self.goal_handle is not None:
+            self.goal_handle.cancel_goal_async()
+        self.goal_handle = self.inflight = None
         self.clear_path('reset')
 
     def on_goal(self, message):
@@ -68,8 +68,8 @@ class RouteManager(Node):
         if not self.active_goal.header.frame_id:
             self.active_goal.header.frame_id = 'map'
         self.pending = (generation, self.active_goal, time.monotonic())
-        if self.handle is not None:
-            self.handle.cancel_goal_async()
+        if self.goal_handle is not None:
+            self.goal_handle.cancel_goal_async()
         self.try_plan()
 
     def try_plan(self):
@@ -103,12 +103,12 @@ class RouteManager(Node):
         if not handle.accepted:
             self.finish_failure(generation, 'planner_rejected')
             return
-        self.handle = handle
+        self.goal_handle = handle
         handle.get_result_async().add_done_callback(lambda result: self.on_result(result, generation))
 
     def finish_failure(self, generation, reason):
         if self.inflight == generation:
-            self.inflight = self.handle = None
+            self.inflight = self.goal_handle = None
         if self.epoch.accepts(generation):
             self.active_goal = None
             self.clear_path(reason)
@@ -117,7 +117,7 @@ class RouteManager(Node):
     def on_result(self, future, generation):
         if not self.epoch.accepts(generation):
             if self.inflight == generation:
-                self.inflight = self.handle = None
+                self.inflight = self.goal_handle = None
             self.try_plan()
             return
         try:
@@ -129,7 +129,7 @@ class RouteManager(Node):
         except Exception as error:
             self.finish_failure(generation, 'planner_exception: ' + str(error))
             return
-        self.inflight = self.handle = None
+        self.inflight = self.goal_handle = None
         self.last_plan = time.monotonic()
         path.header.stamp = self.get_clock().now().to_msg()
         self.publisher.publish(path)

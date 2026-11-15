@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-15",
+  "environment": {
+    "os": "Ubuntu 22.04 (VMware, Windows 11 host)",
+    "ros": "ROS 2 Humble",
+    "simulator": "Gazebo Classic 11",
+    "world": "wpr_simulation2 robocup_home.world",
+    "map": "wpr_simulation2 maps/map.yaml (370x269, 0.03 m)",
+    "model": "models/ppo_v2_recommended (bev_nav_v2)",
+    "baseline_model": "models/split_mixed_pretrain_v1 (bev_nav_v1)",
+    "compute": "8 vCPU, CPU-only PPO inference (torch 2.8.0+cpu)"
+  },
+  "checks": {
+    "unit_tests": {"passed": 91, "failed": 0, "command": "python -m pytest training/tests/unit"},
+    "bev_fixtures": {"fixtures": 11, "failures": 0},
+    "safety_parity": {"cases": 1200, "mismatches": 0},
+    "model_bundle": "manifest hashes and deterministic inference reference PASS"
+  },
+  "home_map_runs": [
+    {
+      "id": "v2_goal_00",
+      "model": "ppo_v2_recommended",
+      "goal_map": [0.0, 0.0],
+      "reached": true,
+      "sim_seconds": 23.1,
+      "path_length_m": 5.35,
+      "mean_speed_mps": 0.231,
+      "final_distance_m": 0.204,
+      "safety_interventions": 0,
+      "csv": "experiments/ppo_v2/linux_home/v2_goal_00.csv"
+    },
+    {
+      "id": "v1_goal_00",
+      "model": "split_mixed_pretrain_v1",
+      "goal_map": [0.0, 0.0],
+      "reached": true,
+      "sim_seconds": 23.2,
+      "path_length_m": 5.28,
+      "mean_speed_mps": 0.228,
+      "final_distance_m": 0.239,
+      "safety_interventions": 0,
+      "csv": "experiments/ppo_v2/linux_home/v1_goal_00.csv"
+    },
+    {
+      "id": "v2_goal_23",
+      "model": "ppo_v2_recommended",
+      "goal_map": [2.0, 3.0],
+      "reached": true,
+      "sim_seconds": 38.7,
+      "path_length_m": 9.33,
+      "mean_speed_mps": 0.241,
+      "final_distance_m": 0.202,
+      "safety_interventions": 0,
+      "csv": "experiments/ppo_v2/linux_home/v2_goal_23.csv"
+    },
+    {
+      "id": "v1_goal_23",
+      "model": "split_mixed_pretrain_v1",
+      "goal_map": [2.0, 3.0],
+      "reached": true,
+      "sim_seconds": 38.3,
+      "path_length_m": 9.32,
+      "mean_speed_mps": 0.243,
+      "final_distance_m": 0.224,
+      "safety_interventions": 0,
+      "csv": "experiments/ppo_v2/linux_home/v1_goal_23.csv"
+    }
+  ],
+  "multi_goal_sequence": {
+    "model": "ppo_v2_recommended",
+    "goals_map": [[0.0, 0.0], [2.0, 3.0], [4.5, -2.0]],
+    "reset_before_index": 2,
+    "runs": [
+      {"goal": [0.0, 0.0], "reached": true, "sim_seconds": 23.7, "path_length_m": 5.36, "final_distance_m": 0.233},
+      {"goal": [2.0, 3.0], "reached": true, "sim_seconds": 18.2, "path_length_m": 4.26, "final_distance_m": 0.205},
+      {"goal": [4.5, -2.0], "reached": true, "sim_seconds": 39.4, "path_length_m": 9.45, "final_distance_m": 0.224}
+    ],
+    "safety_interventions": 0,
+    "csv": "experiments/ppo_v2/linux_home/v2_multi_goal.csv"
+  },
+  "mid_motion_goal_change": {
+    "first_goal_map": [0.0, 0.0],
+    "second_goal_map": [-5.5, -0.5],
+    "switch_after_seconds": 6.0,
+    "v2": {"reached": true, "sim_seconds_after_switch": 7.3, "path_length_m": 1.13, "final_distance_m": 0.232},
+    "v1": {"reached": true, "sim_seconds_after_switch": 7.3, "path_length_m": 1.27, "final_distance_m": 0.246},
+    "note": "Both models handled the U-turn and path invalidation; no safety intervention."
+  },
+  "regressions": {
+    "nav2_home": {
+      "action": "/navigate_to_pose",
+      "goal_map": [0.0, 0.0],
+      "status": "SUCCEEDED",
+      "distance_remaining_m": 0.247,
+      "recoveries": 0,
+      "cmd_vel_publishers": 1,
+      "cmd_vel_publisher": "safety_node"
+    },
+    "ppo_simple_map": {
+      "model": "split_mixed_pretrain_v1",
+      "goal_odom": [0.0, 2.0],
+      "final_pose_odom": [-0.05, 1.8],
+      "policy_log": "final goal held: 0.21 m",
+      "safety_interventions": 0
+    }
+  },
+  "fixes_applied_on_linux": [
+    "route_manager stored its action goal handle in self.handle, which collides with the read-only rclpy Node.handle property; renamed to goal_handle.",
+    "bev_node transformed the map-frame local goal at the scan stamp while AMCL's map->odom trailed by a few milliseconds; the goal now uses the latest TF, removing periodic dropped observations.",
+    "PathTracker could deadlock after stopping with the mapped footprint touching an obstacle (AMCL drift): every visibility chord failed. It now retries with the bare radius and, when the footprint is still inside the minimum guard, follows a short 0.4 m carrot on the planner's path, resuming visible lookahead once a chord is clear."
+  ],
+  "limitations": [
+    "These are ROS/Gazebo results on the open home map, not the Windows 2D holdout. The v1 and v2 weights behave almost identically on the tested home-map goals; the published v2 gain is the 96-episode 2D holdout with visible carrots and the v2 safety/stuck semantics.",
+    "Only two final goals plus one reset sequence were measured here; this is not a success-rate estimate.",
+    "Repeated Gazebo launches occasionally leave Nav2 lifecycle nodes stuck in 'unconfigured' when old nodes are still shutting down; a clean restart resolves it."
+  ]
+}

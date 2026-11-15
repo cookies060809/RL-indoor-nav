@@ -2,7 +2,7 @@
 
 ## 2026-11-15：yy v2 集成与重训
 
-居家地图默认模型已改为 `ppo_v2_recommended`。新 96 个二维任务成功 95 个，旧 main 整栈成功 82 个；均无碰撞。前视目标和运行逻辑贡献了主要成功率提升，本次微调进一步减少安全干预。Windows 通过 89 项 Python 测试、21 个 C++ BEV 样例及 1,200 个安全核对照；Ubuntu/Gazebo 新版闭环需要本机验收。
+居家地图默认模型已改为 `ppo_v2_recommended`。新 96 个二维任务成功 95 个，旧 main 整栈成功 82 个；均无碰撞。前视目标和运行逻辑贡献了主要成功率提升，本次微调进一步减少安全干预。Windows 通过 89 项 Python 测试、21 个 C++ BEV 样例及 1,200 个安全核对照。Ubuntu 22.04 + Gazebo 11 已完成新版闭环验收：居家目标到点、多目标与 reset、Nav2 回归均通过，Linux 91 项测试、11 个 BEV 样例和 1,200 组安全核对照通过，数据见 [linux_gazebo.json](experiments/ppo_v2/verification/linux_gazebo.json)。
 
 虚拟机关闭旧仿真后：
 

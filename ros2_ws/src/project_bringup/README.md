@@ -39,7 +39,7 @@ cd ~/ROS2hw
 
 | 参数 | 默认 | 说明 |
 |---|---|---|
-| `model_id` | `split_mixed_pretrain_v1` | 模型目录 |
+| `model_id` | `ppo_v2_recommended` | 模型目录；旧权重可显式选 `split_mixed_pretrain_v1` |
 | `rviz` | `true` | 是否启动 RViz |
 | `policy` | `true` | 是否启动策略节点 |
 | `initial_x` / `initial_y` / `initial_yaw` | -5.9 / -0.5 / 0.0 | AMCL 初始位姿 |
@@ -56,6 +56,14 @@ ros2 topic pub --once /goal_pose geometry_msgs/msg/PoseStamped \
 /global_path + TF → local_goal_node → /local_goal (1.2 m lookahead)
 /local_goal → bev_node → policy_node → /cmd_vel_rl → safety_node → /cmd_vel
 ```
+
+复位当前任务、旧路径和待执行推理：
+
+```bash
+ros2 topic pub --once /policy_reset std_msgs/msg/Empty '{}'
+```
+
+2026-11-15 Ubuntu 实测（`ppo_v2_recommended`）：(0,0) 23.1 s / 5.35 m、(2,3) 38.7 s / 9.33 m，reset 后 (4.5,-2.0) 39.4 s / 9.45 m，全部到点且无安全干预。若停车位置与地图障碍重叠，前视节点会沿规划路径给出 0.4 m 脱困前视点，离开后恢复正常可见前视。数据见 `experiments/ppo_v2/linux_home/`。
 
 ## Nav2 基线（居家地图）
 

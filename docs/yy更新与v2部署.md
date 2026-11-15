@@ -97,6 +97,7 @@ ros2 topic echo /safety/status
 | `planner_failed_or_empty` / `planner_rejected` | 检查起终点是否在自由地图、AMCL 与 map→odom TF；先选近处开阔目标。 |
 | `pose_unavailable` | 检查 map→base_footprint TF 和 `/clock`；不要用调奖励解决定位问题。 |
 | `no_map` / `no_visible_carrot` | 检查 `/map`、机器人是否落在未知/障碍单元，以及路径周围圆形足迹间隙。 |
+| `tracking_escape` | 正常脱困回退：车体压入地图安全边距时沿路径给 0.4 m 前视，离开后恢复 `tracking`；若持续不消失再查定位与地图。 |
 | `navigation_stale` | 检查 local_goal_node 是否运行及 `/navigation/status` 是否持续发布。 |
 | `sensor_timeout` | 检查 `/scan`、激光 TF、时间戳与频率；候选命令仍经 safety 输出。 |
 | `scan_unknown_front/rotation` | 看原始 ranges 是否有 NaN/-inf/超限有限数、是否覆盖 360°；修传感器/角度配置。不要把未知读数全部改成正无穷。 |
@@ -119,6 +120,32 @@ ros2 topic pub --once /policy_reset std_msgs/msg/Empty '{}'
 ```
 
 保留 v1 回退入口：先关闭当前 launch，再运行 `bash setup/run_ppo_home.sh model_id:=split_mixed_pretrain_v1`。启动器会读取该模型原始 v1 配置，使用固定前视和 v1 BEV；不会把旧权重标成 v2。运行时看门狗和最终目标修正仍保留。
+
+## Ubuntu + Gazebo 实测（2026-11-15）
+
+以下结果在虚拟机 ROS 2 Humble + Gazebo Classic 11 的 `robocup_home` 地图测得，使用 `models/ppo_v2_recommended`；旧权重用 `model_id:=split_mixed_pretrain_v1` 对照。原始采样在 `experiments/ppo_v2/linux_home/`，汇总在 `experiments/ppo_v2/verification/linux_gazebo.json`。
+
+| 任务 | v2 成功 | 仿真耗时 | 路径 | 到点剩余 | 安全干预 |
+|---|---|---:|---:|---:|---:|
+| (-5.9,-0.5) → (0,0) | 是 | 23.1 s | 5.35 m | 0.204 m | 0 |
+| (-5.9,-0.5) → (2,3) | 是 | 38.7 s | 9.33 m | 0.202 m | 0 |
+| v1 同目标 (0,0) | 是 | 23.2 s | 5.28 m | 0.239 m | 0 |
+| v1 同目标 (2,3) | 是 | 38.3 s | 9.32 m | 0.224 m | 0 |
+
+- 多目标：依次发送 (0,0)、(2,3)，再 `/policy_reset` 后发送 (4.5,-2.0)，三段全部到点（23.7 s / 18.2 s / 39.4 s），无安全干预。
+- 运动中改目标：前进 6 s 后把目标改到身后 (-5.5,-0.5)，v2 与 v1 都在 7.3 s 内完成掉头并到点，旧路径按代次失效。
+- 回归：Nav2 经安全节点的 (0,0) 目标 `SUCCEEDED`，剩余 0.247 m，恢复 0 次，`/cmd_vel` 发布者仍只有 `safety_node`；简易地图 PPO 在 (0,2) 前 0.21 m 处正常保持停车。
+- 校验：91 项 Python 测试、11 个 BEV 样例、1200 组安全核随机对照全部通过，模型包哈希与推理参考一致。
+
+这台机器上 v1/v2 权重在这些开阔居家目标上的耗时和轨迹几乎相同；发布版 v2 的 95/96 成功率来自 Windows 二维测试集，居家地图这两次到点不能替代统计成功率。
+
+集成到 Linux 时修复了三个问题（源码已更新）：
+
+1. `route_manager` 把动作句柄存到 `self.handle`，与 rclpy `Node.handle` 只读属性冲突，节点启动即崩溃；改为 `goal_handle`。
+2. `bev_node` 用 scan 时间戳查 `map→base_footprint`，而 AMCL 的 TF 常落后约 5 ms，导致周期性丢观测；目标变换改用最新 TF。
+3. 机器人停下时若地图足迹与障碍重叠（AMCL 偏差），可见前视的所有连线都会失败并永久停住；现在车体压入安全边距时先按实体半径重试，仍失败则沿规划路径给 0.4 m 短前视脱困，正常后恢复可见前视。
+
+重复启动 Gazebo 时偶尔会出现 Nav2 生命周期节点停在 `unconfigured`，确认旧进程已退出后重启即可，不是策略问题。
 
 ## 后续需要调策略时
 

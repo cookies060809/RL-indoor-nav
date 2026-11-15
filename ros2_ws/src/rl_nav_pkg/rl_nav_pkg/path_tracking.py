@@ -103,14 +103,32 @@ class PathTracker:
             return self.path[far].copy(), status
         if self.field is None:
             return None, self.invalid_status('no_map')
-        for j in range(far, self.index, -2):
+        # A stop can leave the footprint inside the visibility margin; retry
+        # with the bare radius so the robot can leave such a pose without
+        # relaxing the obstacle clearance of the selected path point.
+        for guard in (self.radius + self.margin, self.radius):
+            for j in range(far, self.index, -2):
+                if chord_is_free(position, self.path[j], self.field, self.origin, self.resolution,
+                                 guard, self.origin_yaw):
+                    return self.path[j].copy(), status
+            j = min(self.index + 1, len(self.path) - 1)
             if chord_is_free(position, self.path[j], self.field, self.origin, self.resolution,
-                             self.radius + self.margin, self.origin_yaw):
+                             guard, self.origin_yaw):
                 return self.path[j].copy(), status
-        j = min(self.index + 1, len(self.path) - 1)
-        if chord_is_free(position, self.path[j], self.field, self.origin, self.resolution,
-                         self.radius + self.margin, self.origin_yaw):
-            return self.path[j].copy(), status
+        # AMCL drift can leave the mapped footprint touching an obstacle, so
+        # every chord fails at the start cell. Escape along the planner's path
+        # with a short carrot; full visibility returns once a chord is clear.
+        # A clear pose that merely has no visible chord stays stopped.
+        column = int(math.floor((position[0] - self.origin[0]) / self.resolution))
+        row = int(math.floor((position[1] - self.origin[1]) / self.resolution))
+        if 0 <= row < self.field.shape[0] and 0 <= column < self.field.shape[1]:
+            min_guard = self.radius + self.resolution * (math.sqrt(2) / 2 + 0.25)
+            if self.field[row, column] * self.resolution <= min_guard:
+                escape = min(float(self.arc[-1]), float(self.arc[self.index]) + 0.4)
+                j = min(len(self.path) - 1, int(np.searchsorted(self.arc, escape)))
+                if j > self.index:
+                    status = dict(status, reason='tracking_escape')
+                    return self.path[j].copy(), status
         return None, self.invalid_status('no_visible_carrot')
 
 
